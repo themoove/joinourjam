@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The site is a JS-rendered SPA on real paths. Googlebot renders JS,
+# so the routes index normally — but only because they are paths and
+# not fragments. Do not reintroduce hash routing.
+
+Sitemap: https://joinourjam.com/sitemap.xml
