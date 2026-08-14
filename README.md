@@ -25,4 +25,4 @@ Re-copy `index.html` over `404.html` so the two never drift:
 ## Forms
 Delivery is wired (FormSubmit now, Apps Script when `CJMAIL.gas` is set — see
 `cityjam_forms_backend.gs`). First live submission triggers a one-time activation
-email to hi.impat@joinourjam.com.
+email to hellorebel@joinourjam.com.
