@@ -1,28 +1,13 @@
 # CITY JAM — joinourjam.com
 
-Single-file site. No build step. `index.html` is the entire application.
+The site is a single-file client application in `index.html`. Every crawlable sitemap route also has a committed, server-delivered `/<route>/index.html` document. These route documents provide distinct titles, descriptions, canonicals, Open Graph metadata, JSON-LD, and readable HTML to crawlers that do not execute JavaScript; browsers then load the interactive application from `/index.html`.
+
+## Updating route metadata
+
+1. Update the route map in `generate-seo-routes.mjs`.
+2. Run `node generate-seo-routes.mjs`.
+3. Commit both the generator and generated `*/index.html` route documents.
 
 ## Deploy checklist
-1. Put these at the repo root: `index.html` · `404.html` · `og.jpg` · `sitemap.xml` · `robots.txt` · `CNAME`
-2. `og.jpg` must sit next to index.html — social crawlers reject inline images.
-3. Point the domain: GitHub Pages → Settings → Pages → custom domain (CNAME file is already here).
 
-## Routing — read this before choosing a host
-The site uses real crawlable URLs (`/manifesto`, `/nobodys-looking`…) when served
-over http, and falls back to hash routing when opened as a file.
-
-- **GitHub Pages**: `404.html` (an exact copy of index.html) makes deep links *work*
-  for humans — but GitHub serves them with a **404 status**, so search engines will
-  not index the deep pages. Fine for a preview; wrong for launch.
-- **Netlify / Vercel / Cloudflare Pages** (recommended for launch): use the included
-  `_redirects` / `vercel.json` — deep links return **200** and the SEO work
-  (unique titles, canonicals, sitemap) actually counts.
-
-## After every copy change
-Re-copy `index.html` over `404.html` so the two never drift:
-`cp index.html 404.html`
-
-## Forms
-Delivery is wired (FormSubmit now, Apps Script when `CJMAIL.gas` is set — see
-`cityjam_forms_backend.gs`). First live submission triggers a one-time activation
-email to hi.impat@joinourjam.com.
+Keep `index.html`, `og.jpg`, `sitemap.xml`, `robots.txt`, `vercel.json`, and generated route documents at the repository root. The sitemap is the source of truth for indexed URLs.
