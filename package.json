@@ -1,0 +1,15 @@
+{
+  "name": "joinourjam",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && cp dist/sitemap-0.xml dist/sitemap.xml",
+    "preview": "astro preview",
+    "check": "npm run build && node scripts/check-site.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.14.1"
+  }
+}

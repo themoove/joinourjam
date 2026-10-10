@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+---
+<Base title="Certified Studios — CITY JAM" description="Your room made records. Nobody outside knows." path="/studios">
+  <header class="hero dark bg-band">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick"><span class="dot"></span> Certified Studios · the founding fifty</p>
+        <h1>Your room made records.<br />Let the world find it.</h1>
+        <p class="lede">Somebody’s best song happened in your live room at two in the morning. It went out with your name nowhere on it, and the next artist who needed that room went somewhere worse, because they had never heard of you.</p>
+        <div class="acts">
+          <Funnel funnel="certifiedStudio" campaign="studios" content="apply-for-certification">Apply for certification</Funnel>
+        </div>
+      </div>
+      <div class="frame"><img src="/assets/photo-room.jpg" alt="A studio room, in black and white." /></div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap two">
+      <div class="prose">
+        <p class="kick"><span class="dot"></span> What a room is</p>
+        <h2>A room is not a rental.</h2>
+        <p class="lead">The engineer who knew what the song needed. The session player who came for an hour and stayed until four. The band who met in your live room and never played anywhere else. Rooms make scenes. None of that is legible from a gear list.</p>
+      </div>
+      <div class="frame"><img src="/assets/photo-console.jpg" alt="A console, in black and white." /></div>
+    </div>
+  </section>
+  <section class="slab" id="st">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> What certification is</p>
+      <h2>A mark that means something because it is hard to get.</h2>
+      <p class="lead">We assess the room by listening to what was made in it. Not the photographs. Not the day rate. There are six marks. They do not all mean the same thing. One of them stops existing after the fiftieth room.</p>
+      <p class="lead">Once certified, the published rate is £188 a month or £1,888 a year. Founding fifty, then closed. Nothing is charged on this page. We will tell you honestly if it is not a fit.</p>
+      <div class="acts">
+        <Funnel funnel="certifiedStudio" campaign="studios" content="apply">Apply for certification</Funnel>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/business', label: 'For business', note: 'The other ways in.' },
+    { href: '/bookers', label: 'Bookers', note: 'If you fill a room rather than run one.' },
+    { href: '/labs', label: 'Creator Labs', note: 'A separate offer, for artists. Not this mark.' },
+  ]} />
+</Base>

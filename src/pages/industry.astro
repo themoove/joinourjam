@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+import { letters } from '../data/letters';
+import { resolveLetter } from '../lib/funnels';
+const letterHome = resolveLetter('industry', 'weekday-letter');
+---
+<Base
+  title="INDUSTRY.AIFF — CITY JAM"
+  description="Finishing through launch, for labels and artist-services companies."
+  path="/industry"
+>
+  <header class="hero dark bg-deep">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> INDUSTRY.AIFF · for labels</p>
+      <h1>Signed, but still <em>unfinished</em>.</h1>
+      <p class="lede">A label has signed an artist, and the artist is still unfinished. INDUSTRY.AIFF treats songwriting, production, finishing and launch as one programme. It is for labels and artist-services companies. It is not a consumer product.</p>
+      <div class="acts">
+        <Funnel funnel="industryTalkToPat" campaign="industry" content="talk-to-pat">Talk to Pat about one signed artist</Funnel>
+        <a class="btn ghost lg" href={letterHome} target="_blank" rel="noopener">Read the weekday letter</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> What it is for</p>
+      <h2>Finishing through launch.</h2>
+      <p class="lead">You signed the artist. The work after the signature is still open: the songs, the production, the finish, the launch. INDUSTRY.AIFF holds those as one programme, for one signed artist at a time.</p>
+      <p class="lead">Creator Labs is a separate programme, for independent artists who apply. This page does not enrol anyone into it, and a Labs application does not open this conversation.</p>
+      <div class="note">We don’t publish a price here. If there is a pilot, it is named in the conversation, not on the website.</div>
+    </div>
+  </section>
+
+  <section class="slab">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> The weekday letter</p>
+      <h2>For music label CEOs, from Pat Villaceran.</h2>
+      <p class="lead">Five recent letters. Any figure in a headline stays inside the letter, with the letter’s own sources.</p>
+      <div class="letters">
+        {letters.map((letter) => (
+          <a href={letter.href} target="_blank" rel="noopener">{letter.title}</a>
+        ))}
+      </div>
+      <div class="acts">
+        <a class="btn ghost" href={letterHome} target="_blank" rel="noopener">Read the weekday letter</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow" style="text-align:center">
+      <h2>One signed artist.</h2>
+      <p class="lead" style="margin-inline:auto">Tell Pat which artist, and what is still unfinished. If it isn’t a fit, she will say so.</p>
+      <div class="acts" style="justify-content:center">
+        <Funnel funnel="industryTalkToPat" campaign="industry" content="talk-to-pat-close">Talk to Pat</Funnel>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/business', label: 'For business', note: 'Sync, studios, partners, bookers.' },
+    { href: '/labs', label: 'Creator Labs', note: 'A separate programme, for artists.' },
+    { href: '/sync', label: 'Sync Studios', note: 'If you need a cue, not a development programme.' },
+  ]} />
+</Base>

@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Mag from '../components/Mag.astro';
+import Tiers from '../components/Tiers.astro';
+import Next from '../components/Next.astro';
+---
+<Base
+  title="The App — CITY JAM"
+  description="Where the making happens."
+  path="/app"
+>
+  <header class="hero dark bg-deep">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> The app</p>
+      <h1>Meet a sound.<br />Not a <em>profile</em>.</h1>
+      <p class="lede">Echo Roulette matches you with a stranger by ear. Two of you, one take, live and blind. You’re a loop behind, and the delay is the echo. It opens when it is ready. This page will not name a month.</p>
+      <div class="acts">
+        <a class="btn solid lg" href="/circle">Join the waitlist</a>
+        <Mag class="btn ghost lg" campaign="app" content="read-the-magazine">Read the magazine meanwhile</Mag>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> What’s coming</p>
+      <div class="cards c3">
+        <article class="card"><div class="k">Play</div><h3>Echo Roulette</h3><p>Live, two strangers, one take. Spontaneous, imperfect, real.</p></article>
+        <article class="card"><div class="k">Discover</div><h3>Blind echo</h3><p>You meet the sound first. Never a face or a follower count.</p></article>
+        <article class="card"><div class="k">Find</div><h3>Signal map</h3><p>Who is broadcasting near you. Your scene, by ear. Not a fake headcount.</p></article>
+        <article class="card"><div class="k">Browse</div><h3>Scene crate</h3><p>Every track weighed on what it is, not who made it.</p></article>
+        <article class="card"><div class="k">Make</div><h3>The studio</h3><p>Stems, mixes, feedback, version history. A drive built for musicians.</p></article>
+        <article class="card"><div class="k">Work</div><h3>Marketplace</h3><p>Turn the sound into paid work, when the marketplace opens. <a href="/hired">See how</a>.</p></article>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Three ways in, when it opens</p>
+      <p class="lead">Signal is free and stays free. The magazine is the tier you can have today. Resident and Studio wait with the app. Nothing on this shelf charges you.</p>
+      <div style="margin-top:28px"><Tiers campaign="app" /></div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/circle', label: 'The waitlist', note: 'Your place. Nothing charged on the page.' },
+    { href: '/pricing', label: 'Pricing', note: 'The same shelf, written out.' },
+    { href: '/magazine', label: 'The magazine', note: 'Open now, while the app is not.' },
+  ]} />
+</Base>

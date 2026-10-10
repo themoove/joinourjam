@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+---
+<Base title="Bookers — CITY JAM" description="The room people talk about on Monday." path="/bookers">
+  <header class="hero dark bg-deep">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Bookers</p>
+      <h1>The room people talk about on Monday.</h1>
+      <p class="lede">You run a restaurant, a venue, a festival or a private event, and you need acts that will actually move it. Find them by sound. Hear them before you commit. Book them with the contract and the payment already handled, when the marketplace is open. It is not open yet.</p>
+      <div class="acts">
+        <Funnel funnel="bookerWaitlist" campaign="bookers" content="get-on-the-waitlist">Get on the waitlist</Funnel>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> You already know this</p>
+      <h2>Numbers don’t fill a room.</h2>
+      <p class="lead">The act with the biggest following does not reliably fill a Friday, and you have the quiet ones to prove it. The one that lands is the one that sounds right for that particular room. Until now the following was the only thing you could search for.</p>
+      <ul class="list">
+        <li><b>Found by sound.</b> Ear, city, budget and availability.</li>
+        <li><b>Heard before you commit.</b></li>
+        <li><b>Contracted.</b> The paperwork is the floor, not a favour.</li>
+        <li><b>Nothing to look.</b> You are not charged for browsing.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="slab" id="bk">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> Membership</p>
+      <h2>Not a discount. Somebody who listens to your city.</h2>
+      <p class="lead">The price of a booker membership is not agreed across our own notes, so this page will not print one. What the membership is for does not depend on that figure: a portfolio for your city, built by ear, and a name when we hear one your room would love.</p>
+      <p class="lead">Pay-as-you-book remains the right answer for most rooms. We will say so. Nothing is charged on this page.</p>
+      <div class="acts">
+        <Funnel funnel="bookerWaitlist" campaign="bookers" content="get-on-the-waitlist-close">Get on the waitlist</Funnel>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/hired', label: 'For musicians', note: 'The other side of the same booking.' },
+    { href: '/studios', label: 'Studios', note: 'If you have the room, not the Friday.' },
+    { href: '/business', label: 'All five routes', note: 'Including INDUSTRY.AIFF.' },
+  ]} />
+</Base>

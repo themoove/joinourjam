@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Next from '../components/Next.astro';
+---
+<Base title="Learn — CITY JAM" description="Start with the work everyone skips." path="/learn">
+  <header class="hero">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Learn</p>
+      <h1>First your sound.<br />Then the business.</h1>
+      <p class="lede">Your music can already be powerful. Power you cannot defend gets signed away. Get true to your sound first, then equip yourself: the craft, the feedback, and a music business that finally makes sense. You keep what you build.</p>
+      <div class="acts">
+        <a class="btn solid lg" href="/maestros">Join the waitlist</a>
+        <a class="btn ghost lg" href="/workbook">Nobody’s Looking</a>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Three ways in</p>
+      <div class="cards c3">
+        <a class="bcard" href="/workbook">
+          <div class="bk">Free, on this site</div>
+          <h3>Nobody’s Looking</h3>
+          <p>How we work, on the page. Read Part Zero before you spend anything. The price of the rest is not printed while it is still in question.</p>
+          <span class="go">Read Part Zero</span>
+        </a>
+        <a class="bcard" href="/maestros">
+          <div class="bk">Maestro classes</div>
+          <h3>Recorded classes with working musicians.</h3>
+          <p>Every class names who is teaching it and what they made. Stevie DeAcutis and Lindy Day are the first two. No price, because no class has launched.</p>
+          <span class="go">Join the waitlist</span>
+        </a>
+        <a class="bcard" href="/labs">
+          <div class="bk">By application</div>
+          <h3>Creator Labs</h3>
+          <p>Your own A&R, on the record you are making. A separate programme from the classes.</p>
+          <span class="go">Apply</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> The question we get most</p>
+      <h2>“Who is teaching, and what are their credentials?”</h2>
+      <p class="lead">Every class names who is teaching it and what they made. Credentials tell you who got hired. They do not tell you who can teach. We are not going to ask you to judge a teacher by their letterhead when we ask musicians to be judged on the record.</p>
+      <p class="lead">There is not a free class running every week. We will not send you to a grid of cards and call it a lesson. When a class is real, it will be on the maestros page, with a name on it.</p>
+      <div class="acts">
+        <a class="btn solid" href="/maestros">See who is teaching</a>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/maestros', label: 'The waitlist', note: 'Students. Stevie and Lindy.' },
+    { href: '/teach', label: 'Teach', note: 'If you are the maestro, not the student.' },
+    { href: '/labs', label: 'Creator Labs', note: 'Mentorship, not a class.' },
+  ]} />
+</Base>

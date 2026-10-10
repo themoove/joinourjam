@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { funnels, isPlaceholder, type FunnelKey } from '../../lib/funnels';
+
+export function getStaticPaths() {
+  return (Object.keys(funnels) as FunnelKey[])
+    .filter((key) => isPlaceholder(funnels[key].url))
+    .map((key) => ({ params: { key } }));
+}
+
+const key = Astro.params.key as FunnelKey;
+const funnel = funnels[key];
+const campaign = Astro.url.searchParams.get('campaign') || 'home';
+const known = new Set(['magazine','desks','playlists','labs','ambassadors','manifesto','app','print','business','industry','sync','studios','partners','bookers','workbook','hired','careers','circle','founders','learn','maestros','cities','pricing','teach']);
+const back = campaign === 'home' || campaign === 'site' ? '/' : known.has(campaign) ? `/${campaign}` : '/';
+---
+<Base
+  title={`${funnel.name} — CITY JAM`}
+  description="This intake is not open on the public site yet. Nothing is sent from this page."
+  path={`/intake/${key}`}
+  noindex
+>
+  <header class="hero">
+    <div class="wrap hold">
+      <p class="kick"><span class="dot"></span> Intake</p>
+      <h1>This opens when the link is live.</h1>
+      <p class="lede">{funnel.name}. Nothing on this page is stored, and nothing has been sent. We don’t ask for a phone number here.</p>
+      {funnel.lane === 'aiff' && (
+        <p class="lede">INDUSTRY.AIFF is separate from the magazine, the app, and Creator Labs.</p>
+      )}
+      <div class="note">When the public intake link is in place, this button leaves the site and the address will carry the page you came from. Until then, staying here is the honest result.</div>
+      <div class="acts">
+        <a class="btn solid lg" id="back" href={back}>Back</a>
+        <a class="btn ghost lg" href="/magazine">Read the magazine</a>
+      </div>
+      <script>
+        const known = new Set(['magazine','desks','playlists','labs','ambassadors','manifesto','app','print','business','industry','sync','studios','partners','bookers','workbook','hired','careers','circle','founders','learn','maestros','cities','pricing','teach']);
+        const campaign = new URLSearchParams(location.search).get('campaign');
+        const back = document.getElementById('back');
+        if (back && campaign === 'home') back.setAttribute('href', '/');
+        else if (back && campaign && known.has(campaign)) back.setAttribute('href', `/${campaign}`);
+      </script>
+    </div>
+  </header>
+</Base>

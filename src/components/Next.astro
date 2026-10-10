@@ -1,0 +1,18 @@
+---
+interface Item { href: string; label: string; note: string }
+interface Props { items: Item[] }
+const { items } = Astro.props;
+---
+<aside class="next">
+  <div class="wrap">
+    <p class="kick"><span class="dot"></span> Where next</p>
+    <div class="next-grid">
+      {items.map((item) => (
+        <a href={item.href}>
+          <strong>{item.label}</strong>
+          <span>{item.note}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</aside>

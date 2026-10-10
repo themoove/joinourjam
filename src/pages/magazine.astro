@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import Mag from '../components/Mag.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+---
+<Base
+  title="The Magazine — CITY JAM"
+  description="Long reads about how records actually get made. No scores, no press releases."
+  path="/magazine"
+>
+  <header class="hero dark bg-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick"><span class="dot"></span> The magazine · live now</p>
+        <h1>The record gets<br />the whole <em>page</em>.</h1>
+        <p class="lede"><b>Long reads about how records actually get made.</b> A bedroom producer with nine listeners gets the same space as anyone with a chart position, and the same question: is it any good?</p>
+        <div class="acts">
+          <Mag campaign="magazine" content="read-the-magazine">Read the magazine</Mag>
+          <a class="btn ghost lg" href="/desks">The ten desks</a>
+        </div>
+        <p class="fine">Reading is free on the dispatch. A member join, when you want one, is a separate step. <Funnel class="fine" funnel="magFreeMember" campaign="magazine" content="join-free">Join free</Funnel>.</p>
+      </div>
+      <div class="poster keep">
+        <img src="/assets/cover-issue-001.jpg" alt="CITY JAM Issue 001. Close your eyes and listen." />
+      </div>
+    </div>
+  </header>
+
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> What you will actually read</p>
+      <h2>One track, pulled apart.<br />One room, at <em>2am</em>.</h2>
+      <p class="lead">The take that nearly did not happen. The one decision that made a record land, and what it cost. A city you have never been to, and the six people in it worth hearing.</p>
+      <p class="lead"><b>No scores. No press release with the adjectives swapped.</b> Nothing is praised here because of who made it.</p>
+      <div class="acts">
+        <a class="btn solid" href="/desks">The ten desks</a>
+        <Mag class="btn ghost" campaign="magazine" content="read-this-week">Read this week</Mag>
+      </div>
+    </div>
+  </section>
+
+  <section id="submit">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> Send us your music</p>
+      <h2>Play us something.<br />Tell us the <em>story</em>.</h2>
+      <p class="lead">The magazine gets written about people we found by listening. There is no roster and no one deciding who is worth the page before the track plays.</p>
+      <p class="lead">Send the track first, then what is behind it. We listen before we read. This page does not take the submission itself. It opens the listening pile, and nothing is stored here if that link is not live yet.</p>
+      <div class="acts">
+        <Funnel funnel="musicSubmission" campaign="magazine" content="send-it-over">Send it over</Funnel>
+      </div>
+      <p class="fine">No phone number. A link we can hear is the whole application.</p>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/desks', label: 'The desks', note: 'Ten shapes. One rule.' },
+    { href: '/playlists', label: 'Playlists', note: 'Chosen by ear. Nothing bought.' },
+    { href: '/print', label: 'Issue 001', note: 'The print magazine, in production.' },
+  ]} />
+</Base>

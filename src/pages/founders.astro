@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+---
+<Base title="Founders — CITY JAM" description="A hundred seats, once." path="/founders">
+  <header class="hero dark bg-ember">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Founders · the first 100</p>
+      <h1>100 seats. Once.</h1>
+      <p class="lede">Lifetime access for the first hundred, and they never pay again. It’s how we build this without investors. Capped, and never repeated. The published contribution is £888, once. Nothing is taken on this page. We confirm the seat before there is anything to pay, and there is no way to pay here yet.</p>
+      <div class="acts">
+        <Funnel funnel="foundersSeat" campaign="founders" content="claim-a-founders-seat">Claim a Founders seat</Funnel>
+        <a class="btn ghost lg" href="/pricing">Compare plans</a>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap cards c3">
+      <article class="card"><div class="k">Forever</div><h3>Lifetime Studio</h3><p>The workstation and the magazine, for one payment. We are not promising every class on top of that. That inclusion is not agreed.</p></article>
+      <article class="card"><div class="k">Standing</div><h3>Founding status</h3><p>Permanently marked as one of the first hundred. There will only ever be a hundred.</p></article>
+      <article class="card"><div class="k">Voice</div><h3>A say in what we build</h3><p>You’re not only a customer. We build this with you.</p></article>
+    </div>
+  </section>
+  <section id="founders">
+    <div class="wrap narrow prose">
+      <p class="lead">You are buying a room that does not exist yet. Tell us who you are and what you want it to be. If the hundred fill before we reach you, we will tell you straight.</p>
+      <div class="acts">
+        <Funnel funnel="foundersSeat" campaign="founders" content="claim">Claim a Founders seat</Funnel>
+      </div>
+      <p class="fine">£888 once, in the offer as published. Not charged here.</p>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/pricing', label: 'Pricing', note: 'Signal, magazine, resident, studio.' },
+    { href: '/circle', label: 'The waitlist', note: 'If you don’t want a lifetime seat.' },
+    { href: '/app', label: 'The app', note: 'What Studio actually is.' },
+  ]} />
+</Base>

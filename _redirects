@@ -1,7 +1,4 @@
-# Netlify. Every unknown path serves the SPA, which then routes on
-# location.pathname. 200 (not 301) so the URL survives — a redirect
-# to / would undo the whole point of leaving hash routing.
-/sitemap.xml   /sitemap.xml   200
-/robots.txt    /robots.txt    200
-/og.jpg        /og.jpg        200
-/*             /index.html    200
+# Kept because the host decision is still open. Production target is Vercel.
+# The old catch-all to /index.html was removed. This site is real pages,
+# and that rule would hide them.
+/nobodys-looking  /workbook  301

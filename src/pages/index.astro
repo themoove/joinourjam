@@ -1,0 +1,174 @@
+---
+import Base from '../layouts/Base.astro';
+import Mag from '../components/Mag.astro';
+import Next from '../components/Next.astro';
+import { desks } from '../data/desks';
+---
+<Base
+  title="CITY JAM — Make music making fun again"
+  description="The platform for independent music. Judged on sound alone."
+  path="/"
+>
+  <header class="hero dark bg-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick"><span class="dot"></span> The platform for independent music</p>
+        <h1>Make music making <em>fun</em> again.</h1>
+        <p class="lede"><b>Close your eyes and listen.</b> This is the room where the record comes first. The music you have been carrying reaches people on nothing but how it sounds. No face to manage. No following to perform. Just the work, and the people who were listening for it.</p>
+        <div class="acts">
+          <Mag campaign="home" content="read-the-magazine">Read the magazine</Mag>
+          <a class="btn ghost lg" href="/manifesto">Why we do this</a>
+        </div>
+      </div>
+      <div class="poster keep">
+        <img src="/assets/poster-home.jpg" alt="CITY JAM. Make music making fun again." />
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> Sound familiar</p>
+      <h2>You made something<br />worth hearing.</h2>
+      <p class="lead">The song took four months. The posting took the rest of the year.</p>
+      <p class="lead">You cut the clip three ways, wrote the caption, deleted it, wrote it again, and picked the frame where you looked least like yourself.</p>
+      <p class="lead">None of it was the music. The verdict landed off the picture beside the track, before a single bar had the chance.</p>
+      <p class="lead"><b>The gate went up long before the play button.</b></p>
+    </div>
+  </section>
+
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> Why none of it has worked</p>
+      <h2>You were handed<br />two bad maps.</h2>
+      <div class="cards c2">
+        <article class="card">
+          <div class="k">Map one</div>
+          <h3>Get seen first.</h3>
+          <p>Become a content machine and the record turns into an advert for itself. You get good at posting, and quietly worse at the thing you started for.</p>
+        </article>
+        <article class="card">
+          <div class="k">Map two</div>
+          <h3>Just make it good.</h3>
+          <p>Make it good enough and it will find its way, they told you. It will not. Nothing routes it, and extraordinary records die quietly every week for want of a room.</p>
+        </article>
+      </div>
+      <p class="lead">Both maps agree on one quiet thing: that you have to be looked at before you can be heard. Refuse that single lie, and the whole game opens up.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> 01 · The magazine</p>
+      <h2>Ten desks. One standard.</h2>
+      <p class="lead">Your record, read the way you always wanted it read. From inside the room, for the take, the mix, the one small move that makes it land. No hype. No scores. No praise that is not earned by something you can hear.</p>
+      <div class="crate" aria-label="The ten desks">
+        {desks.map((desk) => (
+          <a class="sleeve" href="/desks">
+            <img src={`/assets/desk-${desk.key}.jpg`} alt="" />
+            <span>{desk.name}<small>{desk.tag}</small></span>
+          </a>
+        ))}
+      </div>
+      <div class="acts">
+        <Mag campaign="home" content="read-the-magazine-desks">Read the magazine</Mag>
+        <a class="btn ghost" href="/desks">The ten desks</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="slab">
+    <div class="wrap two">
+      <div>
+        <p class="kick"><span class="dot"></span> 02 · The playlists</p>
+        <h2>Chosen by <em>ear</em>.</h2>
+        <p class="lead">No AI slop. No payola. Nothing on there because someone paid. From SOFT ROCK (AFFECTIONATE) to THE 2AM RUMINATION. Genre-blind by design, because a good record doesn’t care what shelf it’s on.</p>
+        <div class="acts"><a class="btn solid" href="/playlists">See the playlists</a></div>
+      </div>
+      <ul class="list">
+        <li><b>Screened twice.</b> Provenance when a list is built. Detection again before it goes out.</li>
+        <li><b>Never bought.</b> No label pays to be on one.</li>
+        <li><b>Ordered by feel.</b> The sequence follows the energy, not the alphabet.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> 03 · The cities</p>
+      <h2>Every light is someone making something.</h2>
+      <p class="lead">Four scenes are live: London, Los Angeles, New York and Nashville. The rest are openings, not gaps. We don’t publish a headcount until it is a real one.</p>
+      <div class="acts"><a class="btn ghost" href="/cities">See the cities</a></div>
+    </div>
+  </section>
+
+  <section class="slab">
+    <div class="wrap two">
+      <div>
+        <p class="kick"><span class="dot"></span> 04 · Creator Labs</p>
+        <h2>Finally, take your<br />music <em>seriously</em>.</h2>
+        <p class="lead"><b>Not a course. Not a masterclass. Not a library you binge and forget.</b> A small cohort, and the answer to the problem your record has this week, on the record you are actually making.</p>
+        <p class="lead">The work is taste, sound design, and how a record is positioned. Plus an honest read on whether it is ready for an independent label.</p>
+        <div class="acts"><a class="btn solid" href="/labs">See Creator Labs</a></div>
+      </div>
+      <div class="frame"><img src="/assets/photo-labs.jpg" alt="A working desk, in black and white." /></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two">
+      <div>
+        <p class="kick"><span class="dot"></span> 05 · Music Ambassadors</p>
+        <h2>Just jam.<br />That’s the job.</h2>
+        <p class="lead">Music Ambassadors run CITY JAM in their own city, which mostly means carrying on as you were: playing, and telling people what is good. The scene becomes yours to build.</p>
+        <div class="acts"><a class="btn solid" href="/ambassadors">See the programme</a></div>
+      </div>
+      <ul class="list">
+        <li><b>A scholarship.</b> Creator Labs, free, with new resources monthly.</li>
+        <li><b>The app, free.</b> You can’t represent a room you’re locked out of.</li>
+        <li><b>Your music in the campaign.</b> Part of it, not promoting it.</li>
+        <li><b>One per scene.</b> Selected, not signed up.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slab">
+    <div class="wrap two">
+      <div>
+        <p class="kick"><span class="dot"></span> 06 · Maestros</p>
+        <h2>Learn from people who still do the work.</h2>
+        <p class="lead">Recorded classes with working musicians, on the craft and the life around it. Stevie DeAcutis and Lindy Day are the first two. No class has launched yet.</p>
+        <div class="acts"><a class="btn solid" href="/maestros">Join the waitlist</a></div>
+      </div>
+      <p class="lead">If you are the person who would teach, that is a different door. <a href="/teach">Apply as a maestro</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow" style="text-align:center">
+      <p class="kick" style="justify-content:center"><span class="dot"></span> Start here, free</p>
+      <h2>Part Zero. Free.</h2>
+      <p class="lead" style="margin-inline:auto">Five chapters of <b>Nobody’s Looking</b>, the whole first act, free on the page. No file. No email. Just read it.</p>
+      <div class="acts" style="justify-content:center">
+        <a class="btn solid" href="/workbook">Read Part Zero free</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="slab">
+    <div class="wrap" style="text-align:center">
+      <p class="kick" style="justify-content:center"><span class="dot"></span> The door’s open</p>
+      <h2>Close your eyes and listen.</h2>
+      <p class="lead" style="margin-inline:auto">Then play us something. We won’t look at your numbers, and we won’t look at you.</p>
+      <div class="acts" style="justify-content:center">
+        <Mag campaign="home" content="read-the-magazine-close">Read the magazine</Mag>
+        <a class="btn ghost lg" href="/magazine#submit">Play us something</a>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/magazine', label: 'The magazine', note: 'Long reads, live now.' },
+    { href: '/circle', label: 'The waitlist', note: 'For the app, when it opens. Nothing is charged here.' },
+    { href: '/business', label: 'For business', note: 'Five routes, including INDUSTRY.AIFF.' },
+  ]} />
+</Base>

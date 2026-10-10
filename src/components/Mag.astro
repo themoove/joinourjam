@@ -1,0 +1,7 @@
+---
+import { resolveMagazine } from '../lib/funnels';
+interface Props { campaign: string; content: string; class?: string }
+const { campaign, content, class: className = 'btn solid lg' } = Astro.props;
+const href = resolveMagazine(campaign, content);
+---
+<a class={className} href={href} target="_blank" rel="noopener" data-cta={content}><slot /></a>

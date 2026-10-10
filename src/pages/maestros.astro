@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+---
+<Base
+  title="Maestro classes — CITY JAM"
+  description="Recorded classes with working musicians. Stevie DeAcutis and Lindy Day."
+  path="/maestros"
+>
+  <header class="hero dark bg-ember">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Classes with working musicians</p>
+      <h1>Learn from people who still do the work.</h1>
+      <p class="lede">Recorded classes on the craft, and on the life around it. Two musicians are on this page. No class has launched yet, and nobody has been paid yet. There is no price here until there is a class to buy.</p>
+      <div class="acts">
+        <Funnel funnel="maestroWaitlist" campaign="maestros" content="join-the-waitlist">Join the waitlist</Funnel>
+      </div>
+      <p class="fine">This waitlist is for students. If you want to teach, <a href="/teach">apply as a maestro</a>.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap cards c2">
+      <article class="card">
+        <div class="k">Stevie DeAcutis</div>
+        <h3>Four decades of listening, in his own voice.</h3>
+        <p>Stevie runs Sound Spa, a recording studio in Edison, New Jersey. A class with him has not launched. We are not printing a credit list, a price, or a split until he has approved them.</p>
+      </article>
+      <article class="card">
+        <div class="k">Lindy Day</div>
+        <h3>A class for guitarists who already know some of the instrument.</h3>
+        <p>Lindy Day is a guitarist, educator, performer and composer. The class is for players who can feel the gap between what they know and what they can do with it. The public name of the class, the price, and the pronouns are not settled, so this page uses Lindy’s name and stops there.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> What a class is</p>
+      <h2>Someone who still does the work, on the record.</h2>
+      <p class="lead">Every class names who is teaching it and what they made. Nobody sells you an hour by an anonymous expert. What you will not get is a list of affiliations we did not select for.</p>
+      <p class="lead">Creator Labs is a separate programme. A class is not a place in that cohort, and the cohort is not a class.</p>
+      <div class="acts">
+        <Funnel funnel="maestroWaitlist" campaign="maestros" content="join-stevie-and-lindy">Join the waitlist</Funnel>
+        <a class="btn ghost" href="/labs">See Creator Labs</a>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/teach', label: 'Teach', note: 'The application for maestros, not students.' },
+    { href: '/learn', label: 'Learn', note: 'Where to start, before a class exists.' },
+    { href: '/workbook', label: 'Part Zero', note: 'Five chapters, free, on the page.' },
+  ]} />
+</Base>

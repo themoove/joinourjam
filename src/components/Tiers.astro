@@ -1,0 +1,51 @@
+---
+import Mag from './Mag.astro';
+interface Props { campaign: string }
+const { campaign } = Astro.props;
+const tiers = [
+  {
+    name: 'Signal', price: '£0', unit: 'free', feat: false,
+    lede: 'The front door, and it costs nothing. Meet music by ear, before you know one other thing about it.',
+    has: ['Echo Roulette, when the app opens. Two of you, one take, live and blind.', 'The app itself, free.', 'No card and no countdown.'],
+    hasnt: [],
+    cta: 'Get Signal — free', href: '/circle', external: false,
+  },
+  {
+    name: 'Magazine', price: '£18', unit: '/month', feat: true,
+    lede: 'The one thing here you can actually have today. The magazine is live, while the rest of this is still being built.',
+    has: ['The full magazine. Every piece, every week.', 'The Dispatch. Three sends a week.', 'The archive.'],
+    hasnt: ['The app. It is not open yet.', 'Online jamming.', 'The workstation.'],
+    cta: 'Subscribe — £18/mo', href: '', external: true,
+  },
+  {
+    name: 'Resident', price: '£28', unit: '/month', feat: false,
+    lede: 'The room, and everyone in it, when the app opens. Jam online, and read while you are in there.',
+    has: ['Online jamming.', 'What the people you follow are making.', 'A few stories a month from the magazine, in the app.'],
+    hasnt: ['Hosting your own jams.', 'The full workstation.'],
+    cta: 'Join the waitlist', href: '/circle', external: false,
+  },
+  {
+    name: 'Studio', price: '£88', unit: '/month', feat: false,
+    lede: 'The complete workstation, when it opens. Host the jam, keep every version, and put the record out from the same place you made it.',
+    has: ['Host your own jams.', 'Stems, mixes, feedback, version history.', 'The whole magazine.', 'Marketplace, when it opens.'],
+    hasnt: [],
+    cta: 'Join the waitlist', href: '/circle', external: false,
+  },
+];
+---
+<div class="shelf">
+  {tiers.map((tier) => (
+    <article class:list={['rack', tier.feat && 'on']}>
+      <div class="k">{tier.name}</div>
+      <div class="ramt">{tier.price} <small>{tier.unit}</small></div>
+      <p class="lead" style="font-size:15px">{tier.lede}</p>
+      <ul class="rhas">{tier.has.map((item) => <li>{item}</li>)}</ul>
+      {tier.hasnt.length > 0 && <ul class="rnot">{tier.hasnt.map((item) => <li>{item}</li>)}</ul>}
+      {tier.external ? (
+        <Mag class={tier.feat ? 'btn solid' : 'btn ghost'} campaign={campaign} content="subscribe">{tier.cta}</Mag>
+      ) : (
+        <a class="btn ghost" href={tier.href} data-cta={tier.name.toLowerCase()}>{tier.cta}</a>
+      )}
+    </article>
+  ))}
+</div>

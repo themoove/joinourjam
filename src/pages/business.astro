@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+---
+<Base
+  title="For business — CITY JAM"
+  description="Everyone else’s discovery is a popularity contest. Ours is a listening test."
+  path="/business"
+>
+  <header class="hero dark bg-deep">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> For business</p>
+      <h1>Everyone else’s discovery is a <em>popularity contest</em>.</h1>
+      <p class="lede"><b>Ours is a listening test.</b> We surface records before anyone has priced them, made by independent artists the rest of the industry has not found yet.</p>
+      <div class="acts">
+        <a class="btn solid lg" href="#ways">Five ways in</a>
+      </div>
+    </div>
+  </header>
+  <section id="ways">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Five ways in</p>
+      <h2>Five different jobs.<br />We stopped pretending they were one.</h2>
+      <p class="lead">A music supervisor clearing a cue and a promoter filling a Friday are not the same person. A label with a signed artist who is still unfinished is not either of them. Pick the one that is actually you.</p>
+      <div class="cards c3" style="margin-top:28px">
+        <a class="bcard" href="/sync"><div class="bk">01 · Sync Studios</div><h3>You need the cue.</h3><p>Film, TV, games, ads. Music nobody has heard yet, cleared, that sounds like nothing else in the edit.</p><span class="go">Sync</span></a>
+        <a class="bcard" href="/studios"><div class="bk">02 · Certified Studios</div><h3>You have the room.</h3><p>A quality mark, and promotion to the artists in your city who are looking for a room.</p><span class="go">Certification</span></a>
+        <a class="bcard" href="/partners"><div class="bk">03 · Brand Partners</div><h3>You want to build something.</h3><p>Nights, stages, seasons, features. Co-built with a scene rather than shouted at one.</p><span class="go">Partnership</span></a>
+        <a class="bcard" href="/bookers"><div class="bk">04 · Bookers</div><h3>You need to fill a Friday.</h3><p>Venues, promoters, planners, agencies. Search by ear. Book with a contract.</p><span class="go">Booking</span></a>
+        <a class="bcard" href="/industry"><div class="bk">05 · INDUSTRY.AIFF</div><h3>You signed the artist.</h3><p>Now finish the work. Finishing through launch, for labels and artist-services companies.</p><span class="go">Talk to Pat</span></a>
+      </div>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> The line under all five</p>
+      <h2>Money buys pages, stages and seasons.<br />It never buys a <em>verdict</em>.</h2>
+      <p class="lead">Every partnership is marked as one. No partner has ever bought a review, a score, a place on a list, or a sentence of editorial, and none ever will. That rule is the only reason any of this is worth buying.</p>
+    </div>
+  </section>
+  <section id="biz">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> None of those?</p>
+      <h2>Then tell us the <em>job</em>.</h2>
+      <p class="lead">Labels who are not looking at INDUSTRY.AIFF, radio, agencies, publishers, someone with a problem we have not put on a card. Describe it. If we can help we will say how. If we cannot, we will say that instead.</p>
+      <div class="acts">
+        <Funnel funnel="businessEnquiry" campaign="business" content="send-it-over">Send it over</Funnel>
+      </div>
+      <p class="fine">A person reads it. Nothing is charged. No phone number on this site.</p>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/industry', label: 'INDUSTRY.AIFF', note: 'One signed artist. A separate lane.' },
+    { href: '/sync', label: 'Sync', note: 'If the job is a cue.' },
+    { href: '/manifesto', label: 'The firewall', note: 'Why a partner cannot buy the verdict.' },
+  ]} />
+</Base>

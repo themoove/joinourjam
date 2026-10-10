@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+---
+<Base title="Brand Partners — CITY JAM" description="Build something in a scene. Don’t rent an audience." path="/partners">
+  <header class="hero dark bg-ember">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Brand Partners</p>
+      <h1>Build something in a scene.<br />Don’t rent an audience.</h1>
+      <p class="lede">The person who signs this off loves music. That is not a nice thought. It is the whole strategy. Every partnership that has ever worked was made by someone who would have gone anyway.</p>
+      <div class="acts">
+        <Funnel funnel="brandPartner" campaign="partners" content="start-the-conversation">Start the conversation</Funnel>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Four rooms</p>
+      <h2>What are you actually trying to buy?</h2>
+      <p class="lead">If the answer is attention, buy attention. It is cheaper than us. What people usually want is the thing you cannot purchase directly: to be part of something people already love, and to be the reason it grew.</p>
+      <div class="cards c2" style="margin-top:28px">
+        <article class="card"><img src="/assets/event-01.jpg" alt="" style="border-radius:10px;margin-bottom:14px;filter:grayscale(1);aspect-ratio:16/10;object-fit:cover;width:100%" /><div class="k">01 · The custom night</div><h3>Any slice you can describe.</h3><p>Instrument, tempo, mood, texture. Built with the scene already in the city. You fund the night. You never commission the verdict.</p></article>
+        <article class="card"><img src="/assets/event-02.jpg" alt="" style="border-radius:10px;margin-bottom:14px;filter:grayscale(1);aspect-ratio:16/10;object-fit:cover;width:100%" /><div class="k">02 · The festival stage</div><h3>A slot that is earned.</h3><p>The lineup chosen by ear, from people the main stage has not found. You fund the stage. You never commission the verdict.</p></article>
+        <article class="card"><img src="/assets/event-03.jpg" alt="" style="border-radius:10px;margin-bottom:14px;filter:grayscale(1);aspect-ratio:16/10;object-fit:cover;width:100%" /><div class="k">03 · The season</div><h3>A city, for a year.</h3><p>Not a night. A run of work in one city, with the magazine reporting what actually happened. You fund the season. You never commission the verdict.</p></article>
+        <article class="card"><img src="/assets/event-04.jpg" alt="" style="border-radius:10px;margin-bottom:14px;filter:grayscale(1);aspect-ratio:16/10;object-fit:cover;width:100%" /><div class="k">04 · The listening room</div><h3>Forty people. No phones. One record.</h3><p>Played properly, start to finish, to people who came to listen. You fund the room. You never commission the verdict.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="slab" id="pt">
+    <div class="wrap narrow" style="text-align:center">
+      <h2>Start with the job, not a deck.</h2>
+      <p class="lead" style="margin-inline:auto">Tell us what you want built. If we are the wrong call, we will say so. The media kit is the same conversation.</p>
+      <div class="acts" style="justify-content:center">
+        <Funnel funnel="brandPartner" campaign="partners" content="request-the-media-kit">Request the media kit</Funnel>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/print', label: 'Issue 001', note: 'If the partnership is the first issue.' },
+    { href: '/business', label: 'Five ways in', note: 'If this is not the job.' },
+    { href: '/manifesto', label: 'The firewall', note: 'Why the verdict is not for sale.' },
+  ]} />
+</Base>

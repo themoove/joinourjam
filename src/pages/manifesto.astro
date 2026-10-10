@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import Mag from '../components/Mag.astro';
+import Next from '../components/Next.astro';
+---
+<Base
+  title="Manifesto — CITY JAM"
+  description="The only thing that should decide whether music is good is the music."
+  path="/manifesto"
+>
+  <header class="hero dark bg-deep">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Manifesto</p>
+      <h1>Close your eyes and <em>listen</em>.</h1>
+      <p class="lede">The only thing that should decide whether music is good is the music. Everything else on this page follows from that.</p>
+    </div>
+  </header>
+  <section>
+    <div class="wrap narrow prose">
+      <p class="lead">Somewhere along the way, we started deciding whether music was worth hearing before we’d heard a second of it. We look first. At the face, the fit, the follower count. At the city on the map and the story that’s easy to sell. By the time the music plays, the verdict is mostly in.</p>
+      <p class="lead">Some of the best music being made right now is being made by people who will never clear that bar. Not because the music isn’t good. Because the maker doesn’t look the part, or doesn’t have the numbers yet, or lives in the wrong postcode, or started too late to make a good story.</p>
+      <p class="lead"><b>We think that’s backwards. So we’re going to do it the other way round.</b></p>
+      <p class="lead">At CITY JAM, the only thing that counts is the sound. Take the image off the table and a pianist in Lisbon, a guitarist in Tokyo and a vocalist in Lagos arrive at the same starting line, carrying nothing but what they made. A folk song and a drill beat get weighed on one scale: does it move you, is it made well, does it mean it.</p>
+      <p class="lead">Then they find each other. They play, it works, they keep going, and a band exists that no chart, no scout and no algorithm would have put in the same room.</p>
+      <p class="pull">Make music making fun again. The emphasis is on <em>making</em>.</p>
+      <p class="lead">The magazine is how we start. We write about music the way you’d talk about it with someone who actually makes it. We won’t deal in hype, and we won’t hand out praise that isn’t earned by something you can hear.</p>
+      <p class="lead">Editorial coverage is not for sale. Partners cannot buy a review, a score, a place on a list, or a sentence. Partner work is marked as partner work.</p>
+      <div class="acts">
+        <Mag campaign="manifesto" content="read-the-magazine">Read the magazine</Mag>
+        <a class="btn ghost lg" href="/workbook">Start free — read Part Zero</a>
+      </div>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Where to start</p>
+      <div class="cards c3">
+        <article class="card"><div class="k">01</div><h3>The mindset</h3><p>Before the gear and before the release plan. Deciding to take your own work seriously is not a technique. Most people skip it.</p></article>
+        <article class="card"><div class="k">02</div><h3>Then the craft</h3><p>Knowing which decision made the record land, and being able to do it again on purpose.</p></article>
+        <article class="card"><div class="k">03</div><h3>Then your rights</h3><p>Masters, publishing, splits, term, reversion. In plain language, before somebody else explains them in a room where they are the only one who understands the words.</p></article>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/workbook', label: 'Part Zero', note: 'Five chapters. No email.' },
+    { href: '/magazine', label: 'The magazine', note: 'How the argument shows up weekly.' },
+    { href: '/labs', label: 'Creator Labs', note: 'If you want the work, not only the reading.' },
+  ]} />
+</Base>

@@ -1,0 +1,59 @@
+---
+import { resolveLetter } from '../lib/funnels';
+const letter = resolveLetter('footer', 'weekday-letter');
+---
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <img class="fl" src="/assets/logo-on-dark.png" alt="CITY JAM" />
+        <p><b style="color:#fff">Make music making fun again.</b> The only thing that counts is the sound. Close your eyes and listen.</p>
+      </div>
+      <div class="col">
+        <h4>Read & hear</h4>
+        <a href="/magazine">CITY JAM Magazine</a>
+        <a href="/desks">The Desks</a>
+        <a href="/playlists">Playlists</a>
+        <a href="/manifesto">Manifesto</a>
+        <a href="/print">Issue 001</a>
+      </div>
+      <div class="col">
+        <h4>Grow</h4>
+        <a href="/labs">Creator Labs</a>
+        <a href="/maestros">Maestro classes</a>
+        <a href="/teach">Become a maestro</a>
+        <a href="/learn">Learn</a>
+        <a href="/ambassadors">Music Ambassadors</a>
+        <a href="/hired">Marketplace</a>
+        <a href="/workbook">Nobody’s Looking</a>
+        <a href="/app">The App</a>
+      </div>
+      <div class="col">
+        <h4>More</h4>
+        <a href="/pricing">Pricing</a>
+        <a href="/cities">Cities</a>
+        <a href="/founders">Founders</a>
+        <a href="/circle">The waitlist</a>
+      </div>
+      <div class="col">
+        <h4>For business</h4>
+        <a href="/business">Five ways in</a>
+        <a href="/sync">Sync Studios</a>
+        <a href="/studios">Certified Studios</a>
+        <a href="/partners">Brand Partners</a>
+        <a href="/bookers">Bookers</a>
+        <a href="/industry">INDUSTRY.AIFF</a>
+        <a href={letter} target="_blank" rel="noopener">The weekday letter</a>
+      </div>
+    </div>
+    <div class="base">
+      <span>© 2026 CITY JAM</span>
+      <span>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/careers">Careers</a>
+      </span>
+      <span>Sound first, always</span>
+    </div>
+  </div>
+</footer>
