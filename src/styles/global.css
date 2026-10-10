@@ -180,25 +180,43 @@ section { padding: 72px 0; }
 .list li b { color: var(--paper); }
 .list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); position: absolute; left: 0; top: 0.65em; }
 
-/* spinning record — grooves, conic sheen, purple label, purple glow */
+/* spinning record — light grooves, paper rim, bright sheen, purple label and glow */
 .vdisc-box { display: flex; justify-content: center; min-width: 0; }
 .vdisc {
   position: relative; width: min(100%, 74vw, 400px); aspect-ratio: 1; border-radius: 50%;
   background:
-    radial-gradient(circle at 50% 50%, transparent 0 33%, rgba(255,255,255,0) 33%),
-    repeating-radial-gradient(circle at 50% 50%, #0d0a12 0 2px, #17121f 2px 3px, #0b0810 3px 5px),
-    #0b0810;
-  box-shadow: 0 0 0 1px rgba(125,11,160,.55), 0 0 60px -6px rgba(125,11,160,.55), 0 0 140px -30px rgba(125,11,160,.7);
+    repeating-radial-gradient(circle at 50% 50%,
+      #3a3152 0 2px,
+      #f4f0f8 2px 3px,
+      #6d5d8c 3px 5px,
+      #ddd4ea 5px 6px,
+      #2a2238 6px 8px);
+  box-shadow:
+    inset 0 0 0 2px rgba(247,245,241,.88),
+    inset 0 0 22px rgba(199,123,238,.45),
+    0 0 0 1px rgba(247,245,241,.72),
+    0 0 0 5px rgba(199,123,238,.28),
+    0 0 26px 1px rgba(199,123,238,.8),
+    0 0 42px 0 rgba(125,11,160,.4);
   animation: vspin 6s linear infinite;
 }
 .vdisc::before {
   content: ""; position: absolute; inset: 0; border-radius: 50%;
-  background: conic-gradient(from 20deg, transparent 0 12%, rgba(255,255,255,.10) 16%, transparent 22% 58%, rgba(255,255,255,.07) 63%, transparent 69%);
+  background:
+    radial-gradient(circle at 50% 50%, transparent 64%, rgba(247,245,241,.2) 86%, rgba(247,245,241,.72) 100%),
+    conic-gradient(from 16deg,
+      transparent 0 4%,
+      rgba(247,245,241,.7) 10%,
+      rgba(199,123,238,.55) 16%,
+      transparent 26% 44%,
+      rgba(247,245,241,.48) 52%,
+      rgba(199,123,238,.4) 60%,
+      transparent 72%);
 }
 .vdisc::after {
   content: ""; position: absolute; left: 50%; top: 50%; width: 34%; height: 34%; transform: translate(-50%, -50%);
   border-radius: 50%; background: radial-gradient(circle, var(--bg) 0 7%, var(--pur) 7.5% 100%);
-  box-shadow: inset 0 0 0 3px rgba(199,123,238,.35);
+  box-shadow: inset 0 0 0 3px rgba(199,123,238,.75), 0 0 0 2px rgba(247,245,241,.45);
 }
 .vdisc span {
   position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%); z-index: 2;
@@ -241,18 +259,35 @@ section { padding: 72px 0; }
 }
 .vface {
   position: absolute; inset: 0; border-radius: 50%;
-  background: repeating-radial-gradient(circle at 50% 50%, #0d0a12 0 2px, #17121f 2px 3px, #0b0810 3px 5px);
-  box-shadow: 0 0 0 1px rgba(125,11,160,.45), 0 0 28px -8px rgba(125,11,160,.65);
+  background:
+    repeating-radial-gradient(circle at 50% 50%,
+      #3a3152 0 2px,
+      #f4f0f8 2px 3px,
+      #6d5d8c 3px 5px,
+      #ddd4ea 5px 6px,
+      #2a2238 6px 8px);
+  box-shadow:
+    inset 0 0 0 2px rgba(247,245,241,.85),
+    0 0 0 1px rgba(247,245,241,.6),
+    0 0 18px 1px rgba(199,123,238,.75);
 }
 .vface::before {
   content: ""; position: absolute; inset: 0; border-radius: 50%;
-  background: conic-gradient(from 210deg, transparent 0 8%, rgba(255,255,255,.1) 12%, transparent 18% 58%, rgba(255,255,255,.07) 62%, transparent 68%);
+  background:
+    radial-gradient(circle at 50% 50%, transparent 62%, rgba(247,245,241,.22) 86%, rgba(247,245,241,.7) 100%),
+    conic-gradient(from 210deg,
+      transparent 0 4%,
+      rgba(247,245,241,.62) 10%,
+      rgba(199,123,238,.48) 16%,
+      transparent 26% 48%,
+      rgba(247,245,241,.4) 56%,
+      transparent 68%);
 }
 .vlabel {
   position: absolute; top: 50%; left: 50%; width: 32%; aspect-ratio: 1; transform: translate(-50%, -50%);
   border-radius: 50%; z-index: 2;
   background: radial-gradient(circle, var(--bg) 0 8%, var(--pur) 8.5% 100%);
-  box-shadow: inset 0 0 0 2px rgba(199,123,238,.35);
+  box-shadow: inset 0 0 0 2px rgba(199,123,238,.75), 0 0 0 1px rgba(247,245,241,.4);
 }
 .turn { position: absolute; inset: 0; }
 .slot:hover .cdisc, .slot:focus-within .cdisc { transform: translateX(46%) rotate(18deg); }
