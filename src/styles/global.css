@@ -37,10 +37,12 @@ h2 { font-size: clamp(28px, 5vw, 48px); }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
 .narrow { max-width: 760px; }
 .skip {
-  position: absolute; left: 12px; top: -40px; background: var(--pur); color: var(--paper);
-  padding: 8px 12px; z-index: 80; border-radius: 8px;
+  position: absolute; left: 12px; top: 12px; z-index: 80;
+  transform: translateY(calc(-100% - 16px));
+  background: var(--pur); color: var(--paper);
+  padding: 8px 12px; border-radius: 8px;
 }
-.skip:focus { top: 12px; }
+.skip:focus { transform: none; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
 .kick {
