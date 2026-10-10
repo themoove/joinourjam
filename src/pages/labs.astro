@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+import { addons } from '../data/desks';
+---
+<Base
+  title="Creator Labs — CITY JAM"
+  description="Taste, sound design and positioning, on the record you are actually making."
+  path="/labs"
+>
+  <header class="hero dark bg-band">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick"><span class="dot"></span> Creator Labs</p>
+        <h1>Finally, take your<br />music <em>seriously</em>.</h1>
+        <p class="lede">A cohort for independent artists who are done guessing. Hands-on A&R and real feedback on the record you are actually making. This is a paid programme. The length, and the price, come with your offer. We are not publishing a figure while that offer is still being settled.</p>
+        <div class="acts">
+          <Funnel funnel="creatorLabs" campaign="labs" content="apply">Apply to Creator Labs</Funnel>
+          <a class="btn ghost lg" href="#addons">The add-ons</a>
+        </div>
+        <p class="fine">Application only. Small on purpose.</p>
+      </div>
+      <div class="frame"><img src="/assets/photo-studio-hands.jpg" alt="Hands on a record, in black and white." /></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> The mentorship</p>
+      <h2>Find your own sound.<br />Then build everything on it.</h2>
+      <div class="cards c3">
+        <article class="card"><div class="k">The work</div><h3>Real feedback</h3><p>On your actual work in progress. Production, arrangement, the mix, the take you can’t get right. Specific, and sometimes uncomfortable.</p></article>
+        <article class="card"><div class="k">The craft</div><h3>Songwriting and sound design</h3><p>Where the song is weak and why. Where your sound is generic and what to do instead. The work, not the theory.</p></article>
+        <article class="card"><div class="k">The room</div><h3>A small cohort</h3><p>Other serious artists at the same altitude, hearing each other’s work. The peer group is half the value and everyone knows it.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="slab" id="addons">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Add-ons · members only</p>
+      <h2>The add-ons are extra.<br />The <em>A&R</em> is not.</h2>
+      <p class="lead">Your membership is the mentorship. These are separate, priced separately, and only for members, because we price against the record and we cannot price a record we have not heard. Most people can skip most of it.</p>
+      <div class="cards c2">
+        {addons.map(([title, copy]) => (
+          <article class="card"><h3>{title}</h3><p>{copy}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="apply">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> The application</p>
+      <h2>Applying takes a deposit.<br />You get it back.</h2>
+      <p class="lead">The deposit is returned in full whether or not we offer you a place. It is not an application fee. The amount is not on this page, because it is not settled, and nothing is charged here.</p>
+      <p class="lead">Give this a miss if you want a course you can binge, a guarantee of a label, or a room that cares about your follower count. We don’t.</p>
+      <div class="acts">
+        <Funnel funnel="creatorLabs" campaign="labs" content="apply-close">Apply to Creator Labs</Funnel>
+      </div>
+      <p class="fine">We ask for the record, where it is up to, and which add-ons you think you need. We do not ask for a phone number on this site.</p>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/workbook', label: 'Part Zero', note: 'The mindset, free, before you apply.' },
+    { href: '/maestros', label: 'Maestro classes', note: 'A different programme. Recorded classes.' },
+    { href: '/industry', label: 'INDUSTRY.AIFF', note: 'For labels. Not this cohort.' },
+  ]} />
+</Base>

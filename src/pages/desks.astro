@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Mag from '../components/Mag.astro';
+import Next from '../components/Next.astro';
+import { desks } from '../data/desks';
+---
+<Base
+  title="The Desks — CITY JAM"
+  description="Ten desks, one standard. Teardowns, scene reports, craft."
+  path="/desks"
+>
+  <header class="hero">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> The magazine · the desks</p>
+      <h1>Ten desks. One honest <em>standard</em>.</h1>
+      <p class="lede">Every piece belongs to one of ten desks. A teardown is not a scene report. They answer to the same rule: describe the thing. Don’t inflate it.</p>
+      <div class="acts">
+        <Mag campaign="desks" content="read-this-week">Read this week</Mag>
+        <Mag class="btn ghost lg" campaign="desks" content="subscribe">Subscribe — £18/mo</Mag>
+      </div>
+    </div>
+  </header>
+  <section style="padding-top:0">
+    <div class="wrap cards c2">
+      {desks.map((desk, i) => (
+        <article class="card" style="display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center">
+          <img src={`/assets/desk-${desk.key}.jpg`} alt="" style="border-radius:8px;aspect-ratio:1;object-fit:cover" />
+          <div>
+            <div class="k">0{i + 1} · {desk.format}</div>
+            <h3>{desk.name}</h3>
+            <p>{desk.tag}. {desk.sub}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> The rule under all ten</p>
+      <h2>No hype. No scores.<br />No praise we can’t point at.</h2>
+      <p class="lead">Music writing got into the habit of selling. We’d rather describe. There are no stars and no marks out of ten. When we say something is good, we tell you which bar, which move, which decision, and you go and hear it.</p>
+      <p class="lead">Nothing runs here because someone paid for it. Not a feature. Not a review. Not a place on a list.</p>
+      <div class="acts">
+        <a class="btn ghost" href="/manifesto">Read the manifesto</a>
+        <a class="btn solid" href="/magazine#submit">Play us something</a>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/magazine', label: 'The magazine', note: 'Where a submission actually goes.' },
+    { href: '/playlists', label: 'Playlists', note: 'The same rule, as a sequence.' },
+    { href: '/print', label: 'In print', note: 'Issue 001 is in production.' },
+  ]} />
+</Base>

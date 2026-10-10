@@ -1,0 +1,14 @@
+---
+import { resolveFunnel, type FunnelKey } from '../lib/funnels';
+interface Props {
+  funnel: FunnelKey;
+  campaign: string;
+  content: string;
+  class?: string;
+}
+const { funnel, campaign, content, class: className = 'btn solid lg' } = Astro.props;
+const dest = resolveFunnel(funnel, campaign, content);
+---
+<a class={className} href={dest.href} {...(dest.external ? { target: '_blank', rel: 'noopener' } : {})} data-cta={content} data-funnel={funnel}>
+  <slot />
+</a>

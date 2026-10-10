@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import Next from '../components/Next.astro';
+import { playlists } from '../data/playlists';
+---
+<Base
+  title="Playlists — CITY JAM"
+  description="Chosen by ear. No AI slop, no payola, no filler."
+  path="/playlists"
+>
+  <header class="hero dark bg-deep">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> The playlists</p>
+      <h1>Chosen by <em>ear</em>.<br />Nothing bought.</h1>
+      <p class="lede">No AI slop. No payola. Nothing on any of these because someone paid. Every list is built by listening, then sequenced on energy rather than alphabet.</p>
+      <div class="acts">
+        <a class="btn solid lg" href="/magazine#submit">Play us something</a>
+        <a class="btn ghost lg" href="/manifesto">The whole argument</a>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> The full roster</p>
+      <div class="cards c3">
+        {playlists.map((list) => (
+          <article class="card">
+            <div class="casswin" aria-hidden="true"><span class="reel"><i></i><i></i><i></i></span><span class="tape"></span><span class="reel"><i></i><i></i><i></i></span></div>
+            <div class="k">{String(list.n).padStart(2, '0')} · {list.size} tracks</div>
+            <h3 style="font-size:20px">{list.title}</h3>
+            <p>{list.detail}</p>
+            <p class="fine">{list.genre}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> How they’re made</p>
+      <h2>Same rule as everything else here. We listen first.</h2>
+      <ul class="list">
+        <li><b>Sound first.</b> Picked on what it is, not who made it.</li>
+        <li><b>Global because the ear does not check the passport.</b> A list is built around a sound, not a scene.</li>
+        <li><b>Sequenced properly.</b> Running order follows energy, not the alphabet.</li>
+        <li><b>Screened twice</b> against AI-generated tracks. When the list is built, and again before it goes out.</li>
+      </ul>
+      <p class="lead">Every submission gets heard. We will not look at your numbers. We do not have anywhere to put them.</p>
+      <div class="acts">
+        <a class="btn solid" href="/magazine#submit">Play us something</a>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/magazine#submit', label: 'Send a track', note: 'The listening pile. Not the app waitlist.' },
+    { href: '/desks', label: 'The desks', note: 'The same standard, in writing.' },
+    { href: '/manifesto', label: 'The manifesto', note: 'Why the picture stays off the table.' },
+  ]} />
+</Base>

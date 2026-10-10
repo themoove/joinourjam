@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Next from '../components/Next.astro';
+import { cities } from '../data/desks';
+---
+<Base title="Cities — CITY JAM" description="Every scene, one standard." path="/cities">
+  <header class="hero">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> The community</p>
+      <h1>A home in every music city on earth.</h1>
+      <p class="lede">Real scenes, where music actually happens. We go deep in a city before we go wide, because a room you can walk into beats a map full of pins. No headcount. A city is either live or it isn’t yet.</p>
+      <div class="acts">
+        <a class="btn solid lg" href="/circle">Join your city</a>
+        <a class="btn ghost lg" href="/ambassadors#apply">Lead your city</a>
+      </div>
+    </div>
+  </header>
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="citygrid">
+        {cities.map(([name, state]) => (
+          <div class="city"><span class="cn">{name}</span><span class:list={['cs', state !== 'Live' && 'soon']}>{state}</span></div>
+        ))}
+      </div>
+      <p class="lead">Somewhere else? Every city on this list began with one person who wanted people to play with. That person is a Music Ambassador, and the door is the application, not this grid.</p>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/circle', label: 'Join the waitlist', note: 'Your place, when the city opens.' },
+    { href: '/ambassadors', label: 'Music Ambassadors', note: 'One per scene. You have to play.' },
+    { href: '/app', label: 'The app', note: 'How a city shows up when it is built.' },
+  ]} />
+</Base>

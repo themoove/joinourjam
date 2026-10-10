@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+import partZero from '../content/part-zero.html?raw';
+---
+<Base
+  title="Nobody’s Looking — a method for independent artists | CITY JAM"
+  description="Read Part Zero free, entire. The method starts at the sound and builds outward."
+  path="/workbook"
+>
+  <header class="hero dark bg-deep">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick"><span class="dot"></span> A method for independent artists</p>
+        <h1>Nobody’s <em>Looking</em>.</h1>
+        <p class="lede">Close your eyes and listen. Now do the same to your career. Twenty-seven chapters that start where every other book stops, at the sound, and build outward: the sound, the room, the business, the machine.</p>
+        <div class="acts">
+          <a class="btn solid lg" href="#preview">Read Part Zero free</a>
+          <Funnel class="btn ghost lg" funnel="bookRequest" campaign="workbook" content="get-the-book">Get the book</Funnel>
+        </div>
+        <p class="fine">Nothing is charged on this page. The price of the full method is not settled, so it is not printed here.</p>
+      </div>
+      <div class="poster keep">
+        <img src="/assets/book-front.jpg" alt="Nobody’s Looking, the cover." />
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> What it argues</p>
+      <h2>There are two playbooks. You have probably run both.</h2>
+      <p class="lead">Playbook one, the grind. Post daily, chase the trend, learn the hook. The record becomes an advert for itself.</p>
+      <p class="lead">Playbook two, the opposite. Make great music and wait to be found. It flatters everything you got into music for, which is why it survives. Good records still die quietly every week.</p>
+      <p class="lead"><b>Both fail the same way.</b> Neither teaches you to find your sound. Nobody’s Looking starts there. Not a marketing course. Not a theory book. A method. Every claim carries its receipt in the notes.</p>
+    </div>
+  </section>
+  <section id="preview">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Part Zero · free</p>
+      <h2>Read the first five chapters before you pay a penny.</h2>
+      <p class="lead">This is not a teaser. It is Part Zero as it appears in the book. If it is not for you, you will know, and it will have cost you nothing. No card. No account. No email.</p>
+      <article class="reader" set:html={partZero} />
+      <div class="acts">
+        <Funnel funnel="bookRequest" campaign="workbook" content="get-the-full-method">Get the full method</Funnel>
+      </div>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> Who wrote it</p>
+      <h2>Pat. Founder of CITY JAM, and an artist in the same trenches.</h2>
+      <p class="lead">“I believe we might be about to lose the Picassos and the Bachs of our time because we’re building better marketers than artists. I invite everyone to go back to basics, make it about finding your sound, and everything else becomes clearer, because you know what you’re fighting for and what your music stands for.”</p>
+      <p class="lead">The digital edition and the hardcover are the same method in two forms. Where the hardcover can be printed, and what it costs, stays off this page until the product and the price are the same thing in every note we have.</p>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/labs', label: 'Creator Labs', note: 'If the book was the diagnosis and you want the room.' },
+    { href: '/learn', label: 'Learn', note: 'Classes, when they exist. The book, now.' },
+    { href: '/manifesto', label: 'The manifesto', note: 'The argument, in short.' },
+  ]} />
+</Base>

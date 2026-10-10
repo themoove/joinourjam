@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import Mag from '../components/Mag.astro';
+import Tiers from '../components/Tiers.astro';
+import Next from '../components/Next.astro';
+import Vinyl from '../components/Vinyl.astro';
+---
+<Base
+  title="Pricing — CITY JAM"
+  description="What it costs, plainly."
+  path="/pricing"
+>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick"><span class="dot"></span> Pricing</p>
+        <h1>Pay for the <em>making</em>.<br />Never the noise.</h1>
+        <p class="lede">The magazine and the playlists are open now. The app is not, and this page will not promise a month. Prices that are still in dispute are not printed here. The ones below are the tiers the site already publishes, and none of them take a card on this website.</p>
+        <div class="acts">
+          <Mag campaign="pricing" content="subscribe">Subscribe — £18/mo</Mag>
+          <a class="btn ghost lg" href="/circle">Join the waitlist</a>
+        </div>
+      </div>
+      <Vinyl />
+    </div>
+  </header>
+  <section style="padding-top:0">
+    <div class="wrap">
+      <Tiers campaign="pricing" />
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Also on the site</p>
+      <div class="cards c3">
+        <article class="card">
+          <div class="k">The app</div>
+          <h3>Join the waitlist</h3>
+          <p>A place in the build. Nothing is charged from this website. <a href="/circle">The Circle</a>.</p>
+        </article>
+        <article class="card">
+          <div class="k">The book</div>
+          <h3>Nobody’s Looking</h3>
+          <p>A method, starting at the sound. Part Zero is free on the page. The price of the rest is not settled. <a href="/workbook">Read it</a>.</p>
+        </article>
+        <article class="card">
+          <div class="k">By application</div>
+          <h3>Creator Labs</h3>
+          <p>Mentorship, priced with your offer. <a href="/labs">Apply</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> Getting hired</p>
+      <h2>A fee only when you’re paid.</h2>
+      <p class="lead">No fee to be listed. Nothing upfront. The rate on work you win through CITY JAM is named with the offer. We are not printing a percentage while that rate is still in question, and we are not describing a buyer fee we have not agreed to show.</p>
+      <div class="acts"><a class="btn ghost" href="/hired">How getting hired works</a></div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/founders', label: 'Founders', note: 'A hundred seats, once.' },
+    { href: '/circle', label: 'The waitlist', note: 'For the app. Not a checkout.' },
+    { href: '/labs', label: 'Creator Labs', note: 'If the magazine tier is not the thing you came for.' },
+  ]} />
+</Base>

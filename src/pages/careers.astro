@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+const roles = [
+  ['Founding Head of Sales', 'UK or AU · remote-friendly', 'Our first sales hire. Build the pipeline from zero, close the early deals, then hire the team behind you. Certified Studios, booker memberships, marketplace demand, brand partnerships. Music-native. A closer who is also a builder.'],
+  ['B2B Sales Representative', 'UK or AU · remote-friendly · 2–3 seats', 'Own a pipeline and close. Studios, marketplace demand, brand partnerships. Music-native, and happier building the book than sitting on a flat salary.'],
+  ['Product Lead', 'UK or remote · full-time', 'Own the app end to end. Echo Roulette, the feed, the workstation, the marketplace. The hard part is not shipping features. It is protecting a blind front door from every sensible-sounding reason to put faces on it.'],
+  ['Founding Engineer', 'Remote · full-time', 'Real-time audio for people jamming in different countries, a workstation that does not feel like a web page, and a discovery layer whose job is to know nothing about who made the track.'],
+  ['Head of Community', 'Remote · full-time', 'The Music Ambassadors, the city leads, the artists who arrived early and stayed. Nobody has to stop playing in order to promote.'],
+  ['Contributing Editor', 'Anywhere · per piece', 'Write for one of the ten desks. Long-form, from inside the room. You pitch, we edit properly, you keep the byline. Reviews with scores bore you.'],
+  ['Curator', 'Anywhere · part-time', 'Build the lists. Sound-first, sequenced on energy, with a hard screen against AI-generated tracks at both ends. You will listen to a great deal of music and reject most of it.'],
+  ['City Lead', 'Your city · part-time', 'Run CITY JAM where you live. Find the rooms, know the artists, put the nights on. One per city.'],
+];
+---
+<Base title="Careers — CITY JAM" description="Build the thing you wish existed." path="/careers">
+  <header class="hero">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Careers</p>
+      <h1>Build the thing you wish existed.</h1>
+      <p class="lede">A small team building a home for independent musicians. Sound first. Community first. Independent on purpose.</p>
+      <div class="acts">
+        <Funnel funnel="careers" campaign="careers" content="apply">Apply</Funnel>
+      </div>
+    </div>
+  </header>
+  <section id="job">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Open roles</p>
+      <div class="cards c2">
+        {roles.map(([title, meta, copy]) => (
+          <article class="card">
+            <div class="k">{meta}</div>
+            <h3>{title}</h3>
+            <p>{copy}</p>
+          </article>
+        ))}
+      </div>
+      <div class="acts">
+        <Funnel funnel="careers" campaign="careers" content="send-it">Send it</Funnel>
+      </div>
+      <p class="fine">No cover-letter theatre. Show us something you have already made. We read every one, and we say so if it isn’t a fit. No phone number on this site.</p>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Other ways in</p>
+      <div class="cards c3">
+        <a class="bcard" href="/teach"><div class="bk">Teach</div><h3>Become a maestro</h3><p>Real expertise. Real craft. Build a class. The audience is the part we carry.</p><span class="go">How it works</span></a>
+        <a class="bcard" href="/ambassadors"><div class="bk">Represent</div><h3>Become a Music Ambassador</h3><p>Play, jam, share what you love. The scene becomes yours to build.</p><span class="go">See the programme</span></a>
+        <a class="bcard" href="/industry"><div class="bk">Labels</div><h3>INDUSTRY.AIFF</h3><p>If you are a label with one signed artist still unfinished, that conversation is Pat’s, and it is not a job application.</p><span class="go">Talk to Pat</span></a>
+        <a class="bcard" href="/business"><div class="bk">Partner</div><h3>Studios and brands</h3><p>Certification, bookings and partnerships.</p><span class="go">For business</span></a>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/teach', label: 'Teach', note: 'A course, not a staff role.' },
+    { href: '/ambassadors', label: 'Music Ambassadors', note: 'One per scene.' },
+    { href: '/manifesto', label: 'The manifesto', note: 'Read this before you apply.' },
+  ]} />
+</Base>

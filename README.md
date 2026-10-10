@@ -1,28 +1,24 @@
 # CITY JAM — joinourjam.com
 
-Single-file site. No build step. `index.html` is the entire application.
+Static site. Astro builds one HTML file per route, which is what Vercel serves. There is no client-side router.
 
-## Deploy checklist
-1. Put these at the repo root: `index.html` · `404.html` · `og.jpg` · `sitemap.xml` · `robots.txt` · `CNAME`
-2. `og.jpg` must sit next to index.html — social crawlers reject inline images.
-3. Point the domain: GitHub Pages → Settings → Pages → custom domain (CNAME file is already here).
+## Run locally
 
-## Routing — read this before choosing a host
-The site uses real crawlable URLs (`/manifesto`, `/nobodys-looking`…) when served
-over http, and falls back to hash routing when opened as a file.
+```bash
+npm install
+npm run dev
+```
 
-- **GitHub Pages**: `404.html` (an exact copy of index.html) makes deep links *work*
-  for humans — but GitHub serves them with a **404 status**, so search engines will
-  not index the deep pages. Fine for a preview; wrong for launch.
-- **Netlify / Vercel / Cloudflare Pages** (recommended for launch): use the included
-  `_redirects` / `vercel.json` — deep links return **200** and the SEO work
-  (unique titles, canonicals, sitemap) actually counts.
+`npm run build` writes `dist/`. `npm run check` builds, then checks that every route rendered and that the calls to action point where they should.
 
-## After every copy change
-Re-copy `index.html` over `404.html` so the two never drift:
-`cp index.html 404.html`
+## Intake
 
-## Forms
-Delivery is wired (FormSubmit now, Apps Script when `CJMAIL.gas` is set — see
-`cityjam_forms_backend.gs`). First live submission triggers a one-time activation
-email to hi.impat@joinourjam.com.
+Every Perspective URL lives in `src/lib/funnels.ts`. Replace each `PASTE_PERSPECTIVE_URL_…` value with the published https link. Until you do, the button opens a holding page that stores nothing and sends nothing.
+
+The magazine’s reading and the £18 subscribe button go to `https://dispatch.joinourjam.com` with UTM tags. That host is not a Perspective funnel.
+
+## Host files left in place
+
+`CNAME`, `_redirects` and `.htaccess` are still in the repo. Which account hosts the domain is unanswered, so they were not deleted. The old “send every path to index.html” rules were removed, because they would hide the real pages.
+
+Do not deploy from a pull request. Hosting and DNS stay as they are.

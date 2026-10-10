@@ -1,0 +1,54 @@
+---
+interface Props { path: string }
+const { path } = Astro.props;
+const links = [
+  ['/magazine', 'Magazine'],
+  ['/app', 'The App'],
+  ['/labs', 'Creator Labs'],
+  ['/ambassadors', 'Music Ambassadors'],
+  ['/playlists', 'Playlists'],
+  ['/manifesto', 'Manifesto'],
+];
+---
+<nav>
+  <div class="wrap">
+    <div class="row">
+      <a href="/" aria-label="CITY JAM, home">
+        <img class="logo" src="/assets/logo-on-light.png" alt="CITY JAM" />
+      </a>
+      <div class="links">
+        {links.map(([href, label]) => (
+          <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>
+        ))}
+      </div>
+      <div class="nav-cta">
+        <button class="snd" id="snd" type="button" aria-pressed="false">♪ off</button>
+        <a class="btn solid" href="/circle">Join the waitlist</a>
+        <label class="burger" for="nav-open"><span></span><span class="sr">Menu</span></label>
+      </div>
+    </div>
+    <input id="nav-open" type="checkbox" />
+    <div class="mob">
+      <div class="grp">Main</div>
+      <a href="/magazine">Magazine</a>
+      <a href="/app">The App</a>
+      <a href="/labs">Creator Labs</a>
+      <a href="/teach">Become a maestro</a>
+      <a href="/maestros">Maestro classes</a>
+      <a href="/ambassadors">Music Ambassadors</a>
+      <a href="/playlists">Playlists</a>
+      <a href="/manifesto">Manifesto</a>
+      <div class="grp">More</div>
+      <a href="/desks">The Desks</a>
+      <a href="/workbook">Nobody’s Looking</a>
+      <a href="/learn">Learn</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/cities">Cities</a>
+      <a href="/founders">Founders</a>
+      <a href="/circle">Join the waitlist</a>
+    </div>
+  </div>
+</nav>
+<style>
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>

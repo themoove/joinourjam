@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Next from '../components/Next.astro';
+---
+<Base title="Marketplace — CITY JAM" description="Get booked for the sound, not the follower count." path="/hired">
+  <header class="hero dark bg-deep">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Marketplace · in build</p>
+      <h1>Get found by sound.<br />Get paid for it.</h1>
+      <p class="lede">Independent musicians, hired for local gigs, session work, brand and sync. Found by sound. Booked with a contract. It opens with the app. Nothing is charged to join the waitlist.</p>
+      <div class="acts">
+        <a class="btn solid lg" href="/circle">Get on the waitlist</a>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> How it works</p>
+      <div class="cards c3">
+        <article class="card"><div class="k">01</div><h3>Be found by sound</h3><p>Buyers search by ear, city, budget and availability. Not by follower count.</p></article>
+        <article class="card"><div class="k">02</div><h3>Agree the work</h3><p>The fee is clear before you play. The contract is part of the booking.</p></article>
+        <article class="card"><div class="k">03</div><h3>Do the work. Get paid.</h3><p>The money is held, then released when you’ve delivered. You handle the playing.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> The fee</p>
+      <h2>Only charged when you’re paid.</h2>
+      <p class="lead">No fee to be listed. Nothing upfront. One fee on work you win through CITY JAM, covering discovery, contracts and getting you paid. The percentage is not on this page. Our notes don’t agree on what to disclose, and a number we might have to retract is worse than a blank.</p>
+      <div class="acts">
+        <a class="btn solid" href="/circle">Join the waitlist</a>
+        <a class="btn ghost" href="/business">Hiring musicians?</a>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/bookers', label: 'Bookers', note: 'The rooms doing the hiring.' },
+    { href: '/circle', label: 'The waitlist', note: 'Same list as the app. It is not open yet.' },
+    { href: '/app', label: 'The app', note: 'Where the marketplace lives.' },
+  ]} />
+</Base>

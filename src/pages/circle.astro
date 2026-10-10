@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Mag from '../components/Mag.astro';
+import Next from '../components/Next.astro';
+---
+<Base
+  title="Join the waitlist — CITY JAM"
+  description="Be in the room before it opens."
+  path="/circle"
+>
+  <header class="hero dark bg-deep">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> The Circle</p>
+      <h1>Get in the room before it opens.</h1>
+      <p class="lede">The waitlist holds a place for the app, and puts you in the circle we build it with. Nothing is charged on this page. A contribution, if there is one, will be named when there is a way to pay. There isn’t one here.</p>
+      <div class="acts">
+        <Funnel funnel="circleWaitlist" campaign="circle" content="join-the-waitlist">Join the waitlist</Funnel>
+      </div>
+      <p class="fine">Give this a miss if you only want to read. The magazine is open to everyone.</p>
+    </div>
+  </header>
+  <section>
+    <div class="wrap cards c3">
+      <article class="card"><div class="k">Your place</div><h3>Held</h3><p>First through the door when your city opens.</p></article>
+      <article class="card"><div class="k">The build</div><h3>Inside it</h3><p>What we’re making and why, before anyone else.</p></article>
+      <article class="card"><div class="k">A voice</div><h3>Asked, not told</h3><p>The circle gets the question. It does not get a silent changelog.</p></article>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow" style="text-align:center">
+      <h2>The magazine doesn’t need an invitation.</h2>
+      <p class="lead" style="margin-inline:auto">If you want to see how we think while you wait, start there. The playlists are the same way.</p>
+      <div class="acts" style="justify-content:center">
+        <Mag campaign="circle" content="read-the-magazine">Read the magazine</Mag>
+        <a class="btn ghost lg" href="/playlists">Hear the playlists</a>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/app', label: 'The app', note: 'What the waitlist is actually for.' },
+    { href: '/cities', label: 'Your city', note: 'Live, or an opening.' },
+    { href: '/pricing', label: 'Pricing', note: 'Signal is free. The magazine is £18 a month.' },
+  ]} />
+</Base>

@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+---
+<Base title="Sync Studios — CITY JAM" description="Music your audience has never heard. Cleared, screened, unheard." path="/sync">
+  <header class="hero dark bg-deep">
+    <div class="wrap narrow">
+      <p class="kick"><span class="dot"></span> Sync Studios · film, TV, games, ads</p>
+      <h1>The cue nobody else can hand you.</h1>
+      <p class="lede">Cleared, screened, and nothing like the pond everyone else fishes. You are in this job because of a cue. A scene landed and you could not say why, and then you could: it was the music.</p>
+      <div class="acts">
+        <Funnel funnel="syncBrief" campaign="sync" content="send-us-the-brief">Send us the brief</Funnel>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Why the shortlist feels wrong</p>
+      <h2>There are three piles.<br />You only ever get shown two.</h2>
+      <div class="cards c3">
+        <article class="card"><div class="k">Pile one</div><h3>The library</h3><p>Cheap, instant, and every supervisor in the building is fishing it. Your scene lands on a cue three other shows used this year.</p></article>
+        <article class="card"><div class="k">Pile two</div><h3>The name</h3><p>Six weeks to clear, and when it lands the audience spends four seconds thinking about the artist. Four seconds not spent on your scene.</p></article>
+        <article class="card"><div class="k">Pile three</div><h3>Finished. Excellent. Unheard.</h3><p>Nobody is looking in it, because finding it means listening to everything instead of sorting by streams. That is the only thing we do.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> The mechanism</p>
+      <h2>Found by ear. Which is the whole edge.</h2>
+      <ul class="list">
+        <li><b>Unheard, not unfinished.</b> Independent does not mean rough. These are mastered records.</li>
+        <li><b>Screened against AI at both ends.</b> You will not clear a machine by accident.</li>
+        <li><b>Rights mapped before you hear it.</b> We do not send you a track we cannot clear.</li>
+        <li><b>A person, not a search box.</b> You send the scene. We send five things, four of which will be wrong. The fifth is why you called.</li>
+      </ul>
+      <p class="lead">Give this a miss if the trailer needs a track the audience recognises in one bar. Go and buy the name. We will say so on the first reply rather than waste the budget.</p>
+      <div class="acts" id="sy">
+        <Funnel funnel="syncBrief" campaign="sync" content="send-us-the-brief-close">Send us the brief</Funnel>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/business', label: 'The other four', note: 'If the job is not a cue.' },
+    { href: '/industry', label: 'INDUSTRY.AIFF', note: 'If the artist is signed and still unfinished.' },
+    { href: '/manifesto', label: 'The firewall', note: 'A placement is not a review.' },
+  ]} />
+</Base>

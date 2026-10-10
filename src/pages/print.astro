@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+const ship = ['United Kingdom', 'United States', 'Canada', 'Ireland', 'Netherlands', 'Germany', 'France', 'Spain', 'Italy', 'Singapore'];
+---
+<Base title="The Magazine in print — CITY JAM" description="Issue 001. Music as a culture, not a content category." path="/print">
+  <header class="hero dark bg-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick"><span class="dot"></span> Issue 001 · in production</p>
+        <h1>Close your eyes and <em>listen</em>.</h1>
+        <p class="lede">A print magazine about how music actually gets made, and what it means when a scene decides something matters. Issue 001 sets out the argument. The issues after it are where we hold ourselves to it.</p>
+        <div class="acts">
+          <Funnel funnel="brandPartner" campaign="print" content="request-the-media-kit">Request the media kit</Funnel>
+          <a class="btn ghost lg" href="/magazine#submit">Submit for Issue 001</a>
+        </div>
+      </div>
+      <div class="poster keep"><img src="/assets/cover-issue-001.jpg" alt="CITY JAM Issue 001 cover." /></div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> The issue</p>
+      <h2>Music as a culture. Not a content category.</h2>
+      <p class="lead">Most music press tells you who is winning. This one asks what a scene is building. Ten desks, one standard. Teardowns you can hear while you read them. Reviews with no scores. If it only works because you already recognise the name, it does not go in.</p>
+      <p class="lead">The cover price is not settled between our notes, so it is not printed here. You pay for the magazine and the postage you were shown. Nothing else. If we cannot get it to you honestly, we would rather you read it on a screen.</p>
+    </div>
+  </section>
+  <section class="slab">
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> Where print ships</p>
+      <h2>These countries. Not “selected regions”.</h2>
+      <div class="citygrid">
+        {ship.map((country) => (
+          <div class="city"><span class="cn">{country}</span><span class="cs">Print</span></div>
+        ))}
+      </div>
+      <p class="lead">Everywhere else, the digital issue. Same words. Not a consolation. The writing is the magazine.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap narrow" style="text-align:center">
+      <h2>Be in the first one, or send the record.</h2>
+      <p class="lead" style="margin-inline:auto">Partners talk to us about the issue. Artists send music to the listening pile. Those are different doors, and they stay different.</p>
+      <div class="acts" style="justify-content:center">
+        <Funnel funnel="brandPartner" campaign="print" content="request-the-media-kit-close">Request the media kit</Funnel>
+        <a class="btn ghost lg" href="/magazine#submit">Submit for Issue 001</a>
+      </div>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/magazine', label: 'The magazine', note: 'Live now, including the listening pile.' },
+    { href: '/desks', label: 'The ten desks', note: 'What Issue 001 is built from.' },
+    { href: '/partners', label: 'Partners', note: 'Nights, stages, seasons.' },
+  ]} />
+</Base>

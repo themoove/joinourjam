@@ -1,0 +1,129 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Mag from '../components/Mag.astro';
+import Vinyl from '../components/Vinyl.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  noindex?: boolean;
+  closerHref?: string;
+  closerLabel?: string;
+  closerExternal?: boolean;
+}
+
+const { title, description, path, noindex = false, closerHref, closerLabel, closerExternal = false } = Astro.props;
+const canonical = new URL(path || '/', 'https://joinourjam.com').toString();
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CITY JAM',
+  url: 'https://joinourjam.com/',
+  logo: 'https://joinourjam.com/og.jpg',
+  description: 'A global, identity-blind platform and magazine for independent music. Judged on sound alone.',
+  slogan: 'Make music making fun again.',
+};
+const pageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: canonical,
+  isPartOf: { '@type': 'WebSite', name: 'CITY JAM', url: 'https://joinourjam.com/' },
+};
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#08060C" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CITY JAM" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://joinourjam.com/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://joinourjam.com/og.jpg" />
+    <link rel="icon" href="/assets/logo-on-light.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify(org)} />
+    <script type="application/ld+json" set:html={JSON.stringify(pageLd)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Nav path={path} />
+    <main id="main">
+      <slot />
+      <section class="closer">
+        <div class="wrap">
+          <p class="kick" style="justify-content:center">Close your eyes and listen</p>
+          <h2>Make music making fun again.</h2>
+          <div class="acts">
+            {closerHref ? (
+              <a class="btn solid lg" href={closerHref} {...(closerExternal ? { target: '_blank', rel: 'noopener' } : {})}>{closerLabel}</a>
+            ) : (
+              <Mag campaign="site" content="closer">Read the magazine</Mag>
+            )}
+          </div>
+          <Vinyl size="sm" />
+        </div>
+      </section>
+    </main>
+    <Footer />
+    <script>
+      const btn = document.getElementById('snd');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let ctx: AudioContext | null = null;
+      let on = false;
+      const scale = [261.63, 293.66, 329.63, 392, 440, 523.25];
+      let step = 0;
+      function pluck() {
+        if (!on || reduce) return;
+        try {
+          if (!ctx) ctx = new AudioContext();
+          const o = ctx.createOscillator();
+          const g = ctx.createGain();
+          const t = ctx.currentTime;
+          o.type = 'triangle';
+          o.frequency.value = scale[step % scale.length];
+          step += 1;
+          g.gain.setValueAtTime(0.0001, t);
+          g.gain.exponentialRampToValueAtTime(0.08, t + 0.02);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + 0.28);
+          o.connect(g);
+          g.connect(ctx.destination);
+          o.start(t);
+          o.stop(t + 0.3);
+        } catch {
+          on = false;
+          if (btn) btn.textContent = '♪ off';
+        }
+      }
+      btn?.addEventListener('click', () => {
+        on = !on;
+        btn.textContent = on ? '♪ on' : '♪ off';
+        if (on) pluck();
+      });
+      document.addEventListener('click', (event) => {
+        const link = (event.target as Element | null)?.closest?.('a');
+        if (link && link.getAttribute('href')?.startsWith('/')) pluck();
+      });
+    </script>
+  </body>
+</html>

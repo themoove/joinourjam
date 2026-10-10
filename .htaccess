@@ -1,10 +1,7 @@
-# Apache. Serve real files; send everything else to the SPA.
+# Kept because the host decision is still open. Production target is Vercel.
+# Real files are served as themselves. The old catch-all to /index.html was
+# removed so it cannot hide those pages.
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-  RewriteRule . /index.html [L]
+  RewriteRule ^nobodys-looking/?$ /workbook [R=301,L]
 </IfModule>

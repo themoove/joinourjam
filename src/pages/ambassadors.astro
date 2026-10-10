@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Funnel from '../components/Funnel.astro';
+import Next from '../components/Next.astro';
+---
+<Base
+  title="Music Ambassadors — CITY JAM"
+  description="Nobody should have to stop playing to promote."
+  path="/ambassadors"
+>
+  <header class="hero dark bg-band">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick"><span class="dot"></span> Music Ambassadors</p>
+        <h1>Just jam.<br />That’s the <em>job</em>.</h1>
+        <p class="lede">Music Ambassadors run CITY JAM in their own city. One per scene. Selected, not signed up. The work is playing, and telling people what is good. The scene becomes yours to build.</p>
+        <div class="acts">
+          <Funnel funnel="musicAmbassador" campaign="ambassadors" content="apply-for-your-city">Apply for your city</Funnel>
+        </div>
+      </div>
+      <div class="frame"><img src="/assets/photo-ambassadors.jpg" alt="A room with people in it, in black and white." /></div>
+    </div>
+  </header>
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> What you actually get</p>
+      <div class="cards c3">
+        <article class="card"><div class="k">A scholarship</div><h3>Creator Labs, free</h3><p>Self-paced, with new resources monthly. You can’t represent a programme you haven’t been inside.</p></article>
+        <article class="card"><div class="k">The app</div><h3>Free, on purpose</h3><p>You can’t represent a room you’re locked out of.</p></article>
+        <article class="card"><div class="k">The campaign</div><h3>Your music, in it</h3><p>Part of the campaign. Not a person promoting it from the side.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="slab" id="apply">
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> Give this a miss if</p>
+      <h2>You don’t actually play.</h2>
+      <p class="lead">This is for working musicians. If you want a code to hand out and a dashboard to watch, it isn’t this. One Music Ambassador per scene. We read the applications. We say no.</p>
+      <div class="acts">
+        <Funnel funnel="musicAmbassador" campaign="ambassadors" content="apply">Apply for your city</Funnel>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap narrow prose">
+      <p class="kick"><span class="dot"></span> After the playing</p>
+      <h2>There is a share. It is not the job.</h2>
+      <p class="lead">Referrals can pay a commission, capped, on what those people actually pay. The model is not agreed, so this page will not lead with a number or a projection.</p>
+      <p class="lead">The line under any arithmetic we do publish later will stay the same. It is arithmetic, not a promise.</p>
+    </div>
+  </section>
+  <Next items={[
+    { href: '/cities', label: 'Cities', note: 'Where a scene is live, and where it isn’t.' },
+    { href: '/labs', label: 'Creator Labs', note: 'The scholarship, if you are selected.' },
+    { href: '/teach', label: 'Teach', note: 'A different role. Maestros build a class.' },
+  ]} />
+</Base>
