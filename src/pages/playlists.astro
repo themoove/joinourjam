@@ -25,6 +25,7 @@ import { playlists } from '../data/playlists';
       <div class="cards c3">
         {playlists.map((list) => (
           <article class="card">
+            <div class="casswin" aria-hidden="true"><span class="reel"><i></i><i></i><i></i></span><span class="tape"></span><span class="reel"><i></i><i></i><i></i></span></div>
             <div class="k">{String(list.n).padStart(2, '0')} · {list.size} tracks</div>
             <h3 style="font-size:20px">{list.title}</h3>
             <p>{list.detail}</p>

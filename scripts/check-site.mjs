@@ -27,6 +27,10 @@ const banned = [
   '£149',
   'data-nav',
   '#/circle',
+  '[Price TBC]',
+  '[Opens TBC]',
+  '[Outline draft]',
+  '[$299',
 ];
 
 function read(name) {
@@ -69,7 +73,11 @@ has('business.html', 'href="#ways"', 'five ways in');
 has('business.html', 'href="/industry"', 'industry card');
 has('industry.html', 'Talk to Pat', 'talk to pat');
 has('industry.html', 'industrydotaiff.substack.com', 'substack');
-has('maestros.html', '/intake/maestroWaitlist', 'maestro funnel');
+has('maestros.html', 'perspectivefunnel.co/6ab2dc44fede1ceb0e88b5de/6aca3343f884244686648f30/', 'maestro funnel');
+has('maestros.html', 'utm_source=joinourjam', 'maestro utm');
+has('maestros.html', 'Waitlist open now. Details coming soon.', 'waitlist line');
+has('index.html', 'class="vdisc"', 'spinning vinyl');
+has('index.html', 'data-crate', 'vinyl crate');
 has('magazine.html', '/intake/magFreeMember', 'free member');
 has('magazine.html', '/intake/musicSubmission', 'submission');
 has('pricing.html', 'dispatch.joinourjam.com', 'subscribe external');

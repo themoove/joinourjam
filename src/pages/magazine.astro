@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Mag from '../components/Mag.astro';
 import Funnel from '../components/Funnel.astro';
 import Next from '../components/Next.astro';
+import Crate from '../components/Crate.astro';
 ---
 <Base
   title="The Magazine — CITY JAM"
@@ -12,7 +13,8 @@ import Next from '../components/Next.astro';
   <header class="hero dark bg-hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="kick"><span class="dot"></span> The magazine · live now</p>
+        <p class="kick"><span class="dot"></span> The magazine</p>
+        <p class="pill">Live now</p>
         <h1>The record gets<br />the whole <em>page</em>.</h1>
         <p class="lede"><b>Long reads about how records actually get made.</b> A bedroom producer with nine listeners gets the same space as anyone with a chart position, and the same question: is it any good?</p>
         <div class="acts">
@@ -26,6 +28,14 @@ import Next from '../components/Next.astro';
       </div>
     </div>
   </header>
+
+  <section>
+    <div class="wrap">
+      <p class="kick"><span class="dot"></span> This week</p>
+      <h2>Ten desks. One standard.</h2>
+      <Crate />
+    </div>
+  </section>
 
   <section class="slab">
     <div class="wrap narrow prose">

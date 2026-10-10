@@ -2,14 +2,15 @@
 import Base from '../layouts/Base.astro';
 import Mag from '../components/Mag.astro';
 import Next from '../components/Next.astro';
-import { desks } from '../data/desks';
+import Vinyl from '../components/Vinyl.astro';
+import Crate from '../components/Crate.astro';
 ---
 <Base
   title="CITY JAM — Make music making fun again"
   description="The platform for independent music. Judged on sound alone."
   path="/"
 >
-  <header class="hero dark bg-hero">
+  <header class="hero">
     <div class="wrap hero-grid">
       <div>
         <p class="kick"><span class="dot"></span> The platform for independent music</p>
@@ -20,9 +21,7 @@ import { desks } from '../data/desks';
           <a class="btn ghost lg" href="/manifesto">Why we do this</a>
         </div>
       </div>
-      <div class="poster keep">
-        <img src="/assets/poster-home.jpg" alt="CITY JAM. Make music making fun again." />
-      </div>
+      <Vinyl />
     </div>
   </header>
 
@@ -62,14 +61,7 @@ import { desks } from '../data/desks';
       <p class="kick"><span class="dot"></span> 01 · The magazine</p>
       <h2>Ten desks. One standard.</h2>
       <p class="lead">Your record, read the way you always wanted it read. From inside the room, for the take, the mix, the one small move that makes it land. No hype. No scores. No praise that is not earned by something you can hear.</p>
-      <div class="crate" aria-label="The ten desks">
-        {desks.map((desk) => (
-          <a class="sleeve" href="/desks">
-            <img src={`/assets/desk-${desk.key}.jpg`} alt="" />
-            <span>{desk.name}<small>{desk.tag}</small></span>
-          </a>
-        ))}
-      </div>
+      <Crate />
       <div class="acts">
         <Mag campaign="home" content="read-the-magazine-desks">Read the magazine</Mag>
         <a class="btn ghost" href="/desks">The ten desks</a>

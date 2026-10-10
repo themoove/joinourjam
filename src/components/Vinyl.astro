@@ -1,0 +1,7 @@
+---
+interface Props { label?: string; size?: 'lg' | 'sm' }
+const { label = 'CITY JAM', size = 'lg' } = Astro.props;
+---
+<div class:list={['vdisc-box', size === 'sm' && 'vdisc-sm']} aria-hidden="true">
+  <div class="vdisc"><span>{label}</span></div>
+</div>

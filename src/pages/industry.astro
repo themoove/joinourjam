@@ -2,24 +2,32 @@
 import Base from '../layouts/Base.astro';
 import Funnel from '../components/Funnel.astro';
 import Next from '../components/Next.astro';
+import Vinyl from '../components/Vinyl.astro';
 import { letters } from '../data/letters';
-import { resolveLetter } from '../lib/funnels';
+import { resolveFunnel, resolveLetter } from '../lib/funnels';
 const letterHome = resolveLetter('industry', 'weekday-letter');
+const talk = resolveFunnel('industryTalkToPat', 'industry', 'closer');
 ---
 <Base
   title="INDUSTRY.AIFF — CITY JAM"
   description="Finishing through launch, for labels and artist-services companies."
   path="/industry"
+  closerHref={talk.href}
+  closerLabel="Talk to Pat"
+  closerExternal={talk.external}
 >
-  <header class="hero dark bg-deep">
-    <div class="wrap narrow">
-      <p class="kick"><span class="dot"></span> INDUSTRY.AIFF · for labels</p>
-      <h1>Signed, but still <em>unfinished</em>.</h1>
-      <p class="lede">A label has signed an artist, and the artist is still unfinished. INDUSTRY.AIFF treats songwriting, production, finishing and launch as one programme. It is for labels and artist-services companies. It is not a consumer product.</p>
-      <div class="acts">
-        <Funnel funnel="industryTalkToPat" campaign="industry" content="talk-to-pat">Talk to Pat about one signed artist</Funnel>
-        <a class="btn ghost lg" href={letterHome} target="_blank" rel="noopener">Read the weekday letter</a>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick"><span class="dot"></span> INDUSTRY.AIFF · for labels</p>
+        <h1>Signed, but still <em>unfinished</em>.</h1>
+        <p class="lede">A label has signed an artist, and the artist is still unfinished. INDUSTRY.AIFF treats songwriting, production, finishing and launch as one programme. It is for labels and artist-services companies. It is not a consumer product.</p>
+        <div class="acts">
+          <Funnel funnel="industryTalkToPat" campaign="industry" content="talk-to-pat">Talk to Pat about one signed artist</Funnel>
+          <a class="btn ghost lg" href={letterHome} target="_blank" rel="noopener">Read the weekday letter</a>
+        </div>
       </div>
+      <Vinyl label="AIFF" />
     </div>
   </header>
 

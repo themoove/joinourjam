@@ -106,9 +106,9 @@ export const funnels: Record<FunnelKey, Funnel> = {
   maestroWaitlist: {
     name: 'CITY JAM Maestro — Waitlist',
     draftId: '6aca3343f884244686648f30',
-    url: 'PASTE_PERSPECTIVE_URL_MAESTRO_WAITLIST',
+    url: 'https://perspectivefunnel.co/6ab2dc44fede1ceb0e88b5de/6aca3343f884244686648f30/',
     lane: 'maestro',
-    note: 'Student waitlist for /maestros. Perspective routes this to both Nutshell and HubSpot.',
+    note: 'Live Perspective quiz. /maestros hands off to this URL. The quiz is not rebuilt on the site. Perspective routes it to Nutshell and HubSpot.',
   },
   syncBrief: {
     name: 'CITY JAM Sync brief',

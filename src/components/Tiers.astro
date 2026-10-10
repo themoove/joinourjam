@@ -36,16 +36,25 @@ const tiers = [
 <div class="shelf">
   {tiers.map((tier) => (
     <article class:list={['rack', tier.feat && 'on']}>
-      <div class="k">{tier.name}</div>
-      <div class="ramt">{tier.price} <small>{tier.unit}</small></div>
-      <p class="lead" style="font-size:15px">{tier.lede}</p>
-      <ul class="rhas">{tier.has.map((item) => <li>{item}</li>)}</ul>
-      {tier.hasnt.length > 0 && <ul class="rnot">{tier.hasnt.map((item) => <li>{item}</li>)}</ul>}
-      {tier.external ? (
-        <Mag class={tier.feat ? 'btn solid' : 'btn ghost'} campaign={campaign} content="subscribe">{tier.cta}</Mag>
-      ) : (
-        <a class="btn ghost" href={tier.href} data-cta={tier.name.toLowerCase()}>{tier.cta}</a>
-      )}
+      <div class="rsleeve" aria-hidden="true">
+        <div class="cdisc"><span class="turn"><span class="vface"></span><span class="vlabel"></span></span></div>
+        <div class="rface">
+          <div class="rn">{tier.feat ? 'Open now' : 'When it opens'}</div>
+          <div class="rname">{tier.name}</div>
+        </div>
+      </div>
+      <div class="rbody">
+        {tier.feat && <span class="pill">Open now</span>}
+        <div class="ramt">{tier.price} <small>{tier.unit}</small></div>
+        <p class="lead" style="font-size:15px">{tier.lede}</p>
+        <ul class="rhas">{tier.has.map((item) => <li>{item}</li>)}</ul>
+        {tier.hasnt.length > 0 && <ul class="rnot">{tier.hasnt.map((item) => <li>{item}</li>)}</ul>}
+        {tier.external ? (
+          <Mag class={tier.feat ? 'btn solid' : 'btn ghost'} campaign={campaign} content="subscribe">{tier.cta}</Mag>
+        ) : (
+          <a class="btn ghost" href={tier.href} data-cta={tier.name.toLowerCase()}>{tier.cta}</a>
+        )}
+      </div>
     </article>
   ))}
 </div>
