@@ -28,11 +28,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --field:#08060C;--pur:#7D0BA0;--lilac:#C77BEE;--gold:#C9A23A;--paper:#F7F5F1;
+  --field:#08060C;--black:#08060C;--pur:#7D0BA0;--purple:#7D0BA0;--gel:#8A2BB0;--lilac:#C77BEE;--gold:#C9A23A;--amber:#E9A24B;--paper:#F7F5F1;
   --ink:#171219;--muted:#6d6572;--line:rgba(247,245,241,.14);
   --disp:'Schibsted Grotesk',system-ui,sans-serif;
   --sans:'Hanken Grotesk',system-ui,sans-serif;
   --mono:'Space Mono',ui-monospace,monospace;
+  --spring:cubic-bezier(.34,1.32,.5,1);--ease:cubic-bezier(.2,.7,.1,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -77,8 +78,29 @@ h1{margin:0}
 .hero p.dek{margin:22px 0 0;max-width:42ch;color:rgba(247,245,241,.74);font-size:18px}
 .hero .acts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:28px}
 .fine{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:rgba(247,245,241,.62)}
-.hero-art{position:relative;min-height:520px;background:#000}
-.hero-art img{width:100%;height:100%;object-fit:cover;object-position:58% 22%}
+.hero-art{position:relative;min-height:520px;background:#000;overflow:hidden}
+.hero-art img{width:100%;height:100%;object-fit:cover;object-position:58% 22%;filter:contrast(1.08) saturate(.82) sepia(.06) brightness(.96)}
+/* grain: page overlay plus the card grain on imagery */
+.page-grain{position:fixed;inset:0;pointer-events:none;z-index:55;background:url(grain.png) 0 0/256px;mix-blend-mode:overlay;opacity:.12}
+.grain{position:absolute;inset:-40px;pointer-events:none;z-index:2;background-image:url(grain.png);background-size:256px;mix-blend-mode:overlay;opacity:.26}
+/* glass plate: N9. One per frame, only over imagery */
+.glass{position:absolute;border-radius:26px;overflow:hidden;
+ background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05) 60%,rgba(255,255,255,.08));
+ -webkit-backdrop-filter:blur(26px) saturate(1.5) brightness(.9);backdrop-filter:blur(26px) saturate(1.5) brightness(.9);
+ border:1px solid rgba(255,255,255,.24);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -1px 0 rgba(255,255,255,.08),inset 0 0 40px rgba(255,255,255,.04),0 30px 80px rgba(0,0,0,.35)}
+.glass::before{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+ background:radial-gradient(60% 120% at var(--gx,18%) -10%,rgba(255,255,255,.22),transparent 55%);mix-blend-mode:screen}
+.hero-plate{left:16px;right:16px;bottom:16px;padding:8px 20px 10px;z-index:3;color:#fff}
+.hero-plate .row{position:relative;z-index:1;display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:9px 0;border-top:1px solid rgba(255,255,255,.18)}
+.hero-plate .row:first-child{border-top:0}
+.hero-plate .row span:last-child{color:var(--lilac)}
+/* pointer light. Approved by Pat, 31 Oct 2026 */
+#glow{position:fixed;left:0;top:0;width:620px;height:620px;margin:-310px 0 0 -310px;border-radius:50%;pointer-events:none;z-index:2;
+ background:radial-gradient(circle,rgba(138,43,176,.22),rgba(233,162,75,.06) 38%,transparent 66%);mix-blend-mode:screen;will-change:transform}
+#dotc{position:fixed;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--gel);pointer-events:none;z-index:70;box-shadow:0 0 16px 4px rgba(138,43,176,.6);transition:width .3s var(--spring),height .3s var(--spring),margin .3s var(--spring),background .3s}
+#dotc.hot{width:38px;height:38px;margin:-19px 0 0 -19px;background:rgba(138,43,176,.18);border:1px solid rgba(199,123,238,.8)}
+@media (hover:none){#glow,#dotc{display:none}}
 .prop{padding:92px 0 80px;border-top:1px solid var(--line)}
 .quote{margin:0;max-width:18em;font-family:var(--disp);font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.05;letter-spacing:-.02em;color:#fff}
 .prop-side{margin-top:28px;max-width:46ch;color:rgba(247,245,241,.76)}
@@ -201,10 +223,14 @@ footer a{color:rgba(247,245,241,.8)}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .pin .halo{animation:none}
+  #dotc{transition:none}
 }
 </style>
 </head>
 <body>
+<div id="glow" aria-hidden="true"></div>
+<div id="dotc" aria-hidden="true"></div>
+<div class="page-grain" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 <nav>
   <a class="logo" href="/"><img src="cityjam-wordmark-white-nav.png" width="357" height="240" alt="CITY JAM™"></a>
@@ -238,6 +264,12 @@ footer a{color:rgba(247,245,241,.8)}
     </div>
     <figure class="hero-art">
       <img src="hero.jpg" width="1280" height="1499" alt="Black studio portrait: a musician with a guitar and a keyboard.">
+      <div class="grain" aria-hidden="true"></div>
+      <div class="glass hero-plate">
+        <div class="row"><span>Deadline</span><span>12 November 2026</span></div>
+        <div class="row"><span>From</span><span>$2,000 a month</span></div>
+        <div class="row"><span>Locked tier</span><span>Preparation</span></div>
+      </div>
     </figure>
   </header>
 
@@ -435,6 +467,34 @@ footer a{color:rgba(247,245,241,.8)}
   </div>
 </footer>
 
+<script>
+/* pointer light with spring follow. Approved by Pat, 31 Oct 2026 */
+(function(){
+  var B=document.body;
+  var RM=matchMedia('(prefers-reduced-motion: reduce)');
+  if(RM.matches) B.classList.add('noMotion');
+  function motionOn(){return !B.classList.contains('noMotion');}
+  var mx=innerWidth/2,my=innerHeight/2,gx=mx,gy=my,vx=0,vy=0;
+  var dot=document.getElementById('dotc'), glow=document.getElementById('glow');
+  addEventListener('pointermove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.transform='translate('+mx+'px,'+my+'px)';
+    var g=e.target.closest&&e.target.closest('.glass');
+    if(g){var r=g.getBoundingClientRect();g.style.setProperty('--gx',((mx-r.left)/r.width*100)+'%');}
+    dot.classList.toggle('hot',!!(e.target.closest&&e.target.closest('button,a,.glass')));
+  },{passive:true});
+  function loop(){
+    var k=motionOn()?.12:1;
+    vx+=(mx-gx)*k;vy+=(my-gy)*k;
+    vx*=motionOn()?.72:0;vy*=motionOn()?.72:0;
+    gx+=vx;gy+=vy;
+    if(!motionOn()){gx=mx;gy=my;}
+    glow.style.transform='translate('+gx+'px,'+gy+'px)';
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
 <script>
 (function(){
   var LAT_MIN=-58, LAT_MAX=84, W=960, H=500, KEY='cj-rebels-tour-pins-v1';
