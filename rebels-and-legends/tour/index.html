@@ -37,7 +37,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--field);color:var(--paper);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--field);color:var(--paper);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--lilac);outline-offset:3px}
@@ -184,20 +184,34 @@ h2{font-family:var(--disp);font-size:clamp(34px,4.4vw,56px);line-height:1.02;fon
 .run-arrows{display:flex;gap:8px}
 .run-arrows button{width:40px;height:40px;border-radius:50%;border:1px solid rgba(247,245,241,.3);background:rgba(255,255,255,.04);color:#fff;font:inherit;font-size:20px;line-height:1;cursor:pointer}
 .run-arrows button:hover{border-color:#fff}
-.tier-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
-.tier-well{margin-top:22px;padding:16px;border-radius:28px;background:radial-gradient(90% 80% at 10% 0%,rgba(138,43,176,.42),transparent 55%),radial-gradient(70% 60% at 100% 100%,rgba(199,123,238,.16),transparent 50%),#100c16}
-.tier-box{position:relative;overflow:hidden;border-radius:20px;padding:20px 18px 18px;display:flex;flex-direction:column;gap:8px;min-height:100%;color:#fff;
+.bespoke-line{margin:10px 0 0;font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.2vw,42px);letter-spacing:-.03em;line-height:1.05;color:var(--ink)}
+.tier-grid{display:flex;align-items:stretch;gap:12px;margin:0}
+.tier-well{width:100vw;margin:22px 0 0 calc(50% - 50vw);padding:18px max(16px,calc((100vw - 1280px)/2));border-radius:0;background:radial-gradient(90% 80% at 10% 0%,rgba(138,43,176,.42),transparent 55%),radial-gradient(70% 60% at 100% 100%,rgba(199,123,238,.16),transparent 50%),#100c16}
+.tier-box{position:relative;flex:1 1 0;min-width:0;min-height:250px;background:none;border:0;padding:0;color:#fff;cursor:pointer;text-align:left;font:inherit}
+.tier-box .face{position:relative;height:100%;overflow:hidden;border-radius:20px;padding:20px 18px 18px;display:flex;flex-direction:column;gap:8px;
  background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05) 60%,rgba(255,255,255,.08));
  -webkit-backdrop-filter:blur(26px) saturate(1.5) brightness(.9);backdrop-filter:blur(26px) saturate(1.5) brightness(.9);
  border:1px solid rgba(255,255,255,.24);
- box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -1px 0 rgba(255,255,255,.08),0 24px 50px rgba(0,0,0,.35)}
-.tier-box::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(80% 60% at var(--gx,20%) -10%,rgba(255,255,255,.2),transparent 55%)}
-.tier-box>*{position:relative;z-index:1}
-.tier-box.locked{border-color:rgba(201,162,58,.85);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 1px rgba(201,162,58,.35),0 24px 50px rgba(0,0,0,.4)}
-.tier-box.proposed{opacity:.78}
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -1px 0 rgba(255,255,255,.08),0 24px 50px rgba(0,0,0,.35);
+ transition:width .45s var(--ease),box-shadow .35s var(--ease),transform .45s var(--spring)}
+.tier-box .face::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(80% 60% at var(--gx,20%) -10%,rgba(255,255,255,.2),transparent 55%)}
+.tier-box .face>*{position:relative;z-index:1}
+.tier-box.locked .face{border-color:rgba(201,162,58,.85);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 1px rgba(201,162,58,.35),0 24px 50px rgba(0,0,0,.4)}
+.tier-box.proposed .face{opacity:.86}
 .tier-box h3{margin:0;font-family:var(--disp);font-size:28px;line-height:1;color:#fff}
 .tier-box .price{font-size:18px;color:#fff}
 .tier-box p{margin:0;font-size:15px;line-height:1.45;color:rgba(247,245,241,.78)}
+.tier-box .detail{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .45s var(--ease),opacity .3s var(--ease)}
+.tier-box .detail ul{overflow:hidden;min-height:0;margin:0;padding:2px 0 0 18px}
+.tier-box .detail li{margin:8px 0;color:rgba(247,245,241,.9);font-size:15.5px;line-height:1.4}
+.tier-box:hover,.tier-box:focus-within,.tier-box.open{z-index:4}
+.tier-box:hover .detail,.tier-box:focus-within .detail,.tier-box.open .detail{grid-template-rows:1fr;opacity:1}
+.tier-box:hover .face,.tier-box:focus-within .face,.tier-box.open .face{position:absolute;top:-8px;width:60vw;height:auto;min-height:calc(100% + 16px);z-index:5;opacity:1;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 30px 70px rgba(0,0,0,.5),0 0 0 1px rgba(199,123,238,.45)}
+.tier-box:nth-child(1):hover .face,.tier-box:nth-child(1):focus-within .face,.tier-box:nth-child(1).open .face{left:0}
+.tier-box:nth-child(2):hover .face,.tier-box:nth-child(2):focus-within .face,.tier-box:nth-child(2).open .face{left:50%;transform:translateX(-50%)}
+.tier-box:nth-child(3):hover .face,.tier-box:nth-child(3):focus-within .face,.tier-box:nth-child(3).open .face{right:0;left:auto}
+.tier-box.locked:hover .face,.tier-box.locked:focus-within .face,.tier-box.locked.open .face{box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 0 0 1px rgba(201,162,58,.75),0 30px 80px rgba(201,162,58,.22)}
 .who-list{list-style:none;margin:14px 0 8px;padding:0;display:flex;flex-direction:column;gap:12px}
 .who-list li{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center}
 .who-list .ico{margin:0;width:28px;height:28px}
@@ -210,24 +224,31 @@ h2{font-family:var(--disp);font-size:clamp(34px,4.4vw,56px);line-height:1.02;fon
 .ladder button{width:100%;display:flex;align-items:center;gap:10px;text-align:left;color:#fff;font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)}
 .ladder button .ico{margin:0;flex:none}
 .ladder button b{font-family:var(--disp);font-weight:600;letter-spacing:-.02em}
-.ladder li:nth-child(1) button{width:48%;min-height:40px;padding:6px 10px;opacity:.5}
-.ladder li:nth-child(1) .ico{width:16px;height:16px}
-.ladder li:nth-child(1) b{font-size:14px;font-weight:500}
-.ladder li:nth-child(2) button{width:58%;min-height:46px;padding:7px 11px;opacity:.62}
-.ladder li:nth-child(2) .ico{width:18px;height:18px}
-.ladder li:nth-child(2) b{font-size:15px}
-.ladder li:nth-child(3) button{width:68%;min-height:52px;padding:8px 12px;opacity:.74}
-.ladder li:nth-child(3) .ico{width:22px;height:22px}
-.ladder li:nth-child(3) b{font-size:16px}
-.ladder li:nth-child(4) button{width:78%;min-height:58px;padding:9px 12px;opacity:.86}
-.ladder li:nth-child(4) .ico{width:26px;height:26px}
-.ladder li:nth-child(4) b{font-size:18px}
-.ladder li:nth-child(5) button{width:90%;min-height:66px;padding:10px 14px}
-.ladder li:nth-child(5) .ico{width:30px;height:30px}
-.ladder li:nth-child(5) b{font-size:20px;font-weight:700}
-.ladder li:nth-child(6) button{width:100%;min-height:76px;padding:12px 14px}
-.ladder li:nth-child(6) .ico{width:36px;height:36px;color:#fff}
-.ladder li:nth-child(6) b{font-size:22px;font-weight:700}
+.ladder button b{line-height:1.05}
+.ladder li:nth-child(1) button{width:40%;min-height:36px;padding:6px 10px;opacity:.46}
+.ladder li:nth-child(1) .ico{width:14px;height:14px}
+.ladder li:nth-child(1) b{font-size:13px;font-weight:500}
+.ladder li:nth-child(2) button{width:48%;min-height:42px;padding:6px 10px;opacity:.54}
+.ladder li:nth-child(2) .ico{width:16px;height:16px}
+.ladder li:nth-child(2) b{font-size:14px}
+.ladder li:nth-child(3) button{width:56%;min-height:48px;padding:7px 11px;opacity:.62}
+.ladder li:nth-child(3) .ico{width:18px;height:18px}
+.ladder li:nth-child(3) b{font-size:15px}
+.ladder li:nth-child(4) button{width:64%;min-height:54px;padding:8px 12px;opacity:.7}
+.ladder li:nth-child(4) .ico{width:22px;height:22px}
+.ladder li:nth-child(4) b{font-size:16px}
+.ladder li:nth-child(5) button{width:72%;min-height:60px;padding:8px 12px;opacity:.78}
+.ladder li:nth-child(5) .ico{width:24px;height:24px}
+.ladder li:nth-child(5) b{font-size:17px}
+.ladder li:nth-child(6) button{width:82%;min-height:66px;padding:9px 12px;opacity:.86}
+.ladder li:nth-child(6) .ico{width:28px;height:28px}
+.ladder li:nth-child(6) b{font-size:18px;font-weight:650}
+.ladder li:nth-child(7) button{width:92%;min-height:74px;padding:10px 14px;opacity:.94}
+.ladder li:nth-child(7) .ico{width:32px;height:32px}
+.ladder li:nth-child(7) b{font-size:20px;font-weight:700}
+.ladder li:nth-child(8) button{width:100%;min-height:84px;padding:12px 14px}
+.ladder li:nth-child(8) .ico{width:38px;height:38px;color:#fff}
+.ladder li:nth-child(8) b{font-size:22px;font-weight:700}
 .ladder li.on button{opacity:1;border-color:var(--lilac);background:rgba(138,43,176,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
 .run-stage{position:relative;overflow:hidden;min-height:300px;border-radius:26px;padding:28px 26px 22px;color:#fff;
  background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05) 60%,rgba(255,255,255,.08));
@@ -238,18 +259,22 @@ h2{font-family:var(--disp);font-size:clamp(34px,4.4vw,56px);line-height:1.02;fon
 .run-stage .n{font-family:var(--mono);letter-spacing:.14em;color:var(--lilac);font-size:12px}
 .run-stage h3{margin:8px 0 10px;font-family:var(--disp);letter-spacing:-.03em;line-height:1}
 .run-stage p{margin:0;max-width:36ch;color:rgba(247,245,241,.8)}
-.run-stage[data-level="0"] h3{font-size:26px}
-.run-stage[data-level="1"] h3{font-size:30px}
-.run-stage[data-level="1"] .ico{width:38px;height:38px}
-.run-stage[data-level="2"] h3{font-size:34px}
-.run-stage[data-level="2"] .ico{width:42px;height:42px}
-.run-stage[data-level="3"] h3{font-size:38px}
-.run-stage[data-level="3"] .ico{width:46px;height:46px}
-.run-stage[data-level="4"] h3{font-size:42px}
-.run-stage[data-level="4"] .ico{width:52px;height:52px}
-.run-stage[data-level="5"]{border-color:rgba(199,123,238,.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 30px 70px rgba(138,43,176,.35)}
-.run-stage[data-level="5"] h3{font-size:48px}
-.run-stage[data-level="5"] .ico{width:60px;height:60px;color:#fff;filter:drop-shadow(0 0 12px rgba(138,43,176,.9))}
+.run-stage[data-level="0"] h3{font-size:24px}
+.run-stage[data-level="1"] h3{font-size:28px}
+.run-stage[data-level="1"] .ico{width:36px;height:36px}
+.run-stage[data-level="2"] h3{font-size:32px}
+.run-stage[data-level="2"] .ico{width:40px;height:40px}
+.run-stage[data-level="3"] h3{font-size:36px}
+.run-stage[data-level="3"] .ico{width:44px;height:44px}
+.run-stage[data-level="4"] h3{font-size:40px}
+.run-stage[data-level="4"] .ico{width:48px;height:48px}
+.run-stage[data-level="5"] h3{font-size:44px}
+.run-stage[data-level="5"] .ico{width:52px;height:52px}
+.run-stage[data-level="6"] h3{font-size:48px}
+.run-stage[data-level="6"] .ico{width:56px;height:56px}
+.run-stage[data-level="7"]{border-color:rgba(199,123,238,.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 30px 70px rgba(138,43,176,.35)}
+.run-stage[data-level="7"] h3{font-size:52px}
+.run-stage[data-level="7"] .ico{width:64px;height:64px;color:#fff;filter:drop-shadow(0 0 12px rgba(138,43,176,.9))}
 .run-controls{display:flex;gap:8px;margin-top:22px}
 .run-controls button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(247,245,241,.32);background:transparent;color:#fff;font:inherit;font-weight:600;cursor:pointer}
 .run-controls button.next{background:var(--paper);color:var(--black);border-color:transparent}
@@ -360,15 +385,9 @@ footer a{color:rgba(247,245,241,.8)}
   .line{max-width:16ch}
   .split,.work-grid,.else-grid,.maplayout,.facts,.who-layout,.tier-grid,.runplay{grid-template-columns:1fr}
   .run-stage{order:-1}
-  .ladder{flex-direction:row;align-items:flex-end}
-  .ladder li:nth-child(n) button{width:100%;min-height:0;padding:8px 6px;flex-direction:column;align-items:flex-start}
-  .ladder li:nth-child(1) button{height:64px}
-  .ladder li:nth-child(2) button{height:78px}
-  .ladder li:nth-child(3) button{height:92px}
-  .ladder li:nth-child(4) button{height:108px}
-  .ladder li:nth-child(5) button{height:124px}
-  .ladder li:nth-child(6) button{height:142px}
-  .ladder button b{font-size:11px}
+  .tier-grid{flex-direction:column}
+  .tier-box{min-height:0}
+  .tier-box:hover .face,.tier-box:focus-within .face,.tier-box.open .face,.tier-box:nth-child(n):hover .face,.tier-box:nth-child(n).open .face{position:relative;top:auto;left:auto;right:auto;width:100%;min-height:0;transform:none}
   .tiers thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
   .tiers,.tiers tbody,.tiers tr,.tiers td{display:block;width:100%}
   .tiers tr{border-bottom:1px solid rgba(23,18,25,.12);padding:8px 0 14px}
@@ -379,6 +398,7 @@ footer a{color:rgba(247,245,241,.8)}
   html{scroll-behavior:auto}
   .pin .halo{animation:none}
   #dotc{transition:none}
+  .tier-box,.tier-box .detail{transition:none}
 }
 </style>
 </head>
@@ -478,15 +498,17 @@ footer a{color:rgba(247,245,241,.8)}
     <div class="wrap">
       <p class="eyebrow">The run</p>
       <h2 id="path-h">You own the music. The year rises with you.</h2>
-      <p class="lead" style="color:rgba(247,245,241,.74)">Planned with you: strategy, optimisation, and business development that stay yours. The route is part of that plan, not the whole of it. Nothing here is a promise of a result.</p>
+      <p class="lead" style="color:rgba(247,245,241,.74)">Every journey is bespoke. The year is planned with you. Strategy, optimisation, and business development have their own rung, before any tour deal. Nothing here is a promise of a result.</p>
       <div class="runplay">
         <ol class="ladder" id="ladder">
           <li><button type="button" data-step="0"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 24.5a3.2 3.2 0 1 1 0-1V9.2L23 6v11.2a3.2 3.2 0 1 1-1.6-2.8V8.4l-8.8 2.4v10.6a3.2 3.2 0 0 1-1.6 3.1z" fill="currentColor"/></svg><b>The songs</b></button></li>
           <li><button type="button" data-step="1"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 16.5 14.2 20 21 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><b>Tour-ready</b></button></li>
-          <li><button type="button" data-step="2"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M9 6h10l5 5v15a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M18 6v6h6M11 18h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><b>Your rights</b></button></li>
-          <li><button type="button" data-step="3"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="14" r="2" fill="currentColor"/></svg><b>The campaign</b></button></li>
-          <li><button type="button" data-step="4"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="21" cy="13" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 23c.6-3 2.8-4.5 6-4.5s5.4 1.5 6 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><b>The fans</b></button></li>
-          <li><button type="button" data-step="5"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 10h20v8a2 2 0 0 1-2 2h-5l-3 3v-3H8a2 2 0 0 1-2-2v-8z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 14h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><b>The tour deal</b></button></li>
+          <li><button type="button" data-step="2"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="13" y="4" width="6" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 13a6 6 0 0 0 12 0M16 19v5M12 26h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><b>Artist positioning</b></button></li>
+          <li><button type="button" data-step="3"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="16" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 4v3M16 25v3M4 16h3M25 16h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><b>Branding</b></button></li>
+          <li><button type="button" data-step="4"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 12h5l6-5v18l-6-5H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M22 12a5 5 0 0 1 0 8M25 9a9 9 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><b>Marketing</b></button></li>
+          <li><button type="button" data-step="5"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="21" cy="13" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 23c.6-3 2.8-4.5 6-4.5s5.4 1.5 6 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><b>Fan base</b></button></li>
+          <li><button type="button" data-step="6"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 24V8M6 24h20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 20l5-6 4 3 7-9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><b>The business</b></button></li>
+          <li><button type="button" data-step="7"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 10h20v8a2 2 0 0 1-2 2h-5l-3 3v-3H8a2 2 0 0 1-2-2v-8z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 14h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><b>The tour deal</b></button></li>
         </ol>
         <div class="run-stage" id="runstage" data-level="0" aria-live="polite"></div>
       </div>
@@ -514,26 +536,54 @@ footer a{color:rgba(247,245,241,.8)}
     <div class="wrap">
       <p class="eyebrow">Membership</p>
       <h2>From $2,000 a month to more.</h2>
-      <p class="lead">Preparation is the locked tier, at $2,000 a month. Presence and Bespoke go further. They are on the page so the shape is visible, and they stay marked proposed until they are confirmed. US dollars.</p>
+      <p class="bespoke-line">Every journey is bespoke.</p>
+      <p class="lead">Preparation is the locked tier, at $2,000 a month. Presence and Bespoke go further. They stay marked proposed until they are confirmed. US dollars. No tier promises an outcome.</p>
       <div class="tier-well">
-      <div class="tier-grid">
-        <article class="tier-box locked">
+      <div class="tier-grid" id="tiergrid">
+        <article class="tier-box locked" tabindex="0" aria-expanded="false">
+          <div class="face">
           <span class="badge lock">Locked</span>
           <h3>Preparation</h3>
           <p class="price">$2,000 / month</p>
-          <p>The songs, and a tour plan made with you: strategy, optimisation, and business development you can run. This is the membership that is confirmed.</p>
+          <p>Planning, strategy, and the songs made ready. This is the membership that is confirmed.</p>
+          <div class="detail"><ul>
+            <li>Planning for the year you will run.</li>
+            <li>Strategy, worked to you.</li>
+            <li>Optimisation as that plan moves.</li>
+            <li>Song and record preparation: what needs to be planned for the songs and the records.</li>
+            <li>The route follows the listeners. You own the music.</li>
+          </ul></div>
+          </div>
         </article>
-        <article class="tier-box proposed">
+        <article class="tier-box proposed" tabindex="0" aria-expanded="false">
+          <div class="face">
           <span class="badge pend">Proposed · pending</span>
           <h3>Presence</h3>
           <p class="price">$3,500 / month</p>
-          <p>Proposed only. Preparation, plus socials and the release. Do not treat this price as agreed.</p>
+          <p>Proposed only. Preparation, plus how the season is seen. Do not treat this price as agreed.</p>
+          <div class="detail"><ul>
+            <li>Everything in Preparation.</li>
+            <li>Socials and the release, when that work is on.</li>
+            <li>The posts, the pitch, and the artwork around the release.</li>
+            <li>How you are seen between the songs and the dates.</li>
+            <li>Still proposed. The price is not agreed.</li>
+          </ul></div>
+          </div>
         </article>
-        <article class="tier-box proposed">
+        <article class="tier-box proposed" tabindex="0" aria-expanded="false">
+          <div class="face">
           <span class="badge pend">Proposed · pending</span>
           <h3>Bespoke</h3>
           <p class="price">From $5,000 / month</p>
-          <p>Proposed only. Shaped to you, including the catalogue and socials. Do not treat this price as agreed.</p>
+          <p>Proposed only. Shaped further to you. Do not treat this price as agreed.</p>
+          <div class="detail"><ul>
+            <li>Every journey is already bespoke. This tier goes further, shaped to you.</li>
+            <li>Catalogue work, when that is the job.</li>
+            <li>Socials and the release, plus the pieces that are particular to you.</li>
+            <li>Strategy, optimisation, and business development at the depth the year needs.</li>
+            <li>Still proposed. The price is not agreed.</li>
+          </ul></div>
+          </div>
         </article>
       </div>
       </div>
@@ -934,11 +984,13 @@ footer a{color:rgba(247,245,241,.8)}
   if(!ladder||!stage) return;
   var copy=[
     ['01','The songs','The tracks, the set, the pace. Built around you, not a pack.'],
-    ['02','Tour-ready','A plain read of the work, the listeners, and the plan you will run. Strategy and optimisation, worked over to you. If it is early, you hear it.'],
-    ['03','Your rights','Splits, registrations, the paperwork. The songs stay yours.'],
-    ['04','The campaign','Your name, the artwork, how the season is told. Tied to the dates.'],
-    ['05','The fans','Where they already are, before a favourite city gets a date.'],
-    ['06','The tour deal','Dates, fees, terms, from the fan regions out. When CITY JAM does this, CITY JAM receives 25% of the tour revenue. Outside the monthly fee. Not assumed.']
+    ['02','Tour-ready','A plain read of the work and the listeners. If it is early, you hear it.'],
+    ['03','Artist positioning','Where you stand, and who the music is for. Said plainly, so the year has a centre.'],
+    ['04','Branding','Your name, the artwork, the look of the season. Yours, not a template.'],
+    ['05','Marketing','How the season is told: the posts, the pitch, the release, when that work is on.'],
+    ['06','Fan base','Where they already are, before a favourite city gets a date.'],
+    ['07','The business','Strategy, business development, and optimisation, worked to you. The plan you keep. The route sits inside it.'],
+    ['08','The tour deal','Dates, fees, terms, from the fan regions out. When CITY JAM does this, CITY JAM receives 25% of the tour revenue. Outside the monthly fee. Not assumed.']
   ];
   var buttons=Array.prototype.slice.call(ladder.querySelectorAll('button'));
   var i=0;
@@ -961,6 +1013,32 @@ footer a{color:rgba(247,245,241,.8)}
     show(+b.getAttribute('data-step'));
   });
   show(0);
+})();
+</script>
+<script>
+(function(){
+  var grid=document.getElementById('tiergrid');
+  if(!grid) return;
+  var boxes=Array.prototype.slice.call(grid.querySelectorAll('.tier-box'));
+  var coarse=window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  function setOpen(box,on){
+    boxes.forEach(function(b){
+      var open=b===box&&on;
+      b.classList.toggle('open',open);
+      b.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  boxes.forEach(function(box){
+    box.addEventListener('click',function(){
+      if(!coarse) return;
+      setOpen(box,!box.classList.contains('open'));
+    });
+    box.addEventListener('keydown',function(e){
+      if(e.key!=='Enter'&&e.key!==' ') return;
+      e.preventDefault();
+      setOpen(box,!box.classList.contains('open'));
+    });
+  });
 })();
 </script>
 </body>
