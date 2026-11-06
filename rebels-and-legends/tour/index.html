@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>REBELS AND LEGENDS. — Creator Labs tour | CITY JAM</title>
-<meta name="description" content="Creator Labs · REBELS AND LEGENDS. A CITY JAM membership for women and LGBTQIA independent artists, built around the tour and the live season. Worldwide music representation. From $2,000 a month.">
+<meta name="description" content="Creator Labs · REBELS AND LEGENDS. A CITY JAM membership for global independent artists who are ready. Own your music. Worldwide music representation. From $2,000 a month to more.">
 <link rel="canonical" href="https://joinourjam.com/rebels-and-legends/tour">
 <meta name="theme-color" content="#08060C">
 <meta name="color-scheme" content="dark">
@@ -13,13 +13,13 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://joinourjam.com/rebels-and-legends/tour">
 <meta property="og:title" content="REBELS AND LEGENDS. — CITY JAM">
-<meta property="og:description" content="We study where your fan base is. That’s where you should be touring — not where you want to tour. Creator Labs, from $2,000 a month.">
-<meta property="og:image" content="https://joinourjam.com/rebels-and-legends/tour/hero.jpg">
-<meta property="og:image:alt" content="Black studio portrait for CITY JAM.">
+<meta property="og:description" content="We study where your fan base is. That’s where you should be touring — not where you want to tour. Creator Labs, from $2,000 a month to more.">
+<meta property="og:image" content="https://joinourjam.com/rebels-and-legends/tour/hero-cutout.png">
+<meta property="og:image:alt" content="A musician with a guitar and a keyboard.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="REBELS AND LEGENDS. — CITY JAM">
 <meta name="twitter:description" content="We study where your fan base is. That’s where you should be touring — not where you want to tour.">
-<meta name="twitter:image" content="https://joinourjam.com/rebels-and-legends/tour/hero.jpg">
+<meta name="twitter:image" content="https://joinourjam.com/rebels-and-legends/tour/hero-cutout.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"REBELS AND LEGENDS. — Creator Labs","url":"https://joinourjam.com/rebels-and-legends/tour","inLanguage":"en-GB","isPartOf":{"@type":"WebSite","name":"CITY JAM","url":"https://joinourjam.com/"}}
 </script>
@@ -78,8 +78,8 @@ h1{margin:0}
 .hero p.dek{margin:22px 0 0;max-width:42ch;color:rgba(247,245,241,.74);font-size:18px}
 .hero .acts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:28px}
 .fine{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:rgba(247,245,241,.62)}
-.hero-art{position:relative;min-height:520px;background:#000;overflow:hidden}
-.hero-art img{width:100%;height:100%;object-fit:cover;object-position:58% 22%;filter:contrast(1.08) saturate(.82) sepia(.06) brightness(.96)}
+.hero-art{position:relative;min-height:520px;background:var(--field);overflow:hidden}
+.hero-art img{width:100%;height:100%;object-fit:contain;object-position:center bottom;background:transparent}
 /* grain: page overlay plus the card grain on imagery */
 .page-grain{position:fixed;inset:0;pointer-events:none;z-index:55;background:url(grain.png) 0 0/256px;mix-blend-mode:overlay;opacity:.12}
 .grain{position:absolute;inset:-40px;pointer-events:none;z-index:2;background-image:url(grain.png);background-size:256px;mix-blend-mode:overlay;opacity:.26}
@@ -123,6 +123,21 @@ h2{font-family:var(--disp);font-size:clamp(32px,4.2vw,52px);line-height:1.05;mar
 .panel ul{margin:12px 0 8px;padding-left:18px}
 .panel li{margin:8px 0}
 .panel.not li{color:rgba(247,245,241,.84)}
+.who-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,.72fr);gap:28px;margin-top:34px;align-items:start}
+.panel.ready{padding:34px 32px 22px}
+.panel.ready h3{font-size:clamp(36px,4vw,52px);line-height:1.02}
+.panel.ready li{font-size:18.5px;margin:12px 0}
+.panel.quiet{background:transparent;border-color:rgba(23,18,25,.08);padding:8px 4px 0;color:#6a6270}
+.panel.quiet h3{font-size:18px;font-weight:500;color:#6a6270}
+.panel.quiet ul{margin-top:8px}
+.panel.quiet li{font-size:14.5px;color:#6a6270;margin:8px 0}
+.flow-scroller{margin-top:28px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.flow{display:flex;gap:14px;list-style:none;margin:0;padding:0;width:max-content}
+.flow li{scroll-snap-align:start;flex:0 0 min(300px,78vw);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;background:rgba(255,255,255,.03)}
+.flow .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--lilac)}
+.flow h3{margin:10px 0 8px;font-family:var(--disp);font-size:22px}
+.flow p{margin:0;color:rgba(247,245,241,.74);font-size:15.5px}
+.flow-hint{margin:12px 0 0;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(247,245,241,.55)}
 
 .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
 .work{border:1px solid var(--line);border-radius:16px;padding:20px 20px 16px;background:rgba(255,255,255,.03)}
@@ -213,7 +228,7 @@ footer a{color:rgba(247,245,241,.8)}
   .hero{grid-template-columns:1fr}
   .hero-art{min-height:0;height:min(78vw,640px)}
   .hero-copy{padding:42px 22px 36px}
-  .split,.work-grid,.else-grid,.maplayout,.facts{grid-template-columns:1fr}
+  .split,.work-grid,.else-grid,.maplayout,.facts,.who-layout{grid-template-columns:1fr}
   .tiers thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
   .tiers,.tiers tbody,.tiers tr,.tiers td{display:block;width:100%}
   .tiers tr{border-bottom:1px solid rgba(23,18,25,.12);padding:8px 0 14px}
@@ -237,6 +252,7 @@ footer a{color:rgba(247,245,241,.8)}
   <button class="navtoggle" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
   <div class="navlinks" id="navlinks">
     <a href="#who">Who it’s for</a>
+    <a href="#path">The path</a>
     <a href="#work">What we do</a>
     <a href="#tiers">Tiers</a>
     <a href="#map">The map</a>
@@ -255,19 +271,19 @@ footer a{color:rgba(247,245,241,.8)}
       </div>
       <h1 class="tag"><span class="words">REBELS AND LEGENDS.</span><sup>™</sup></h1>
       <p class="line">Independent doesn’t always mean small.</p>
-      <p class="dek">A membership for women and LGBTQIA independent artists, with the tour and the live season at the centre. Worldwide music representation. From $2,000 a month.</p>
+      <p class="dek">Own your music. Be a rebel. Become the legend. Creator Labs holds the process a label would usually run, for independent artists who are ready. Worldwide. From $2,000 a month to more.</p>
       <div class="acts">
         <a class="btn solid lg" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply for membership<span class="sr"> (opens the application)</span></a>
-        <a class="btn ghost" href="#map">Explore the map</a>
+        <a class="btn ghost" href="#map">Fan region to tour destination</a>
       </div>
       <p class="fine" style="margin-top:14px">Applications close 12 November 2026.</p>
     </div>
     <figure class="hero-art">
-      <img src="hero.jpg" width="1280" height="1499" alt="Black studio portrait: a musician with a guitar and a keyboard.">
+      <img src="hero-cutout.png" width="1280" height="1499" alt="A musician with a guitar and a keyboard.">
       <div class="grain" aria-hidden="true"></div>
       <div class="glass hero-plate">
         <div class="row"><span>Deadline</span><span>12 November 2026</span></div>
-        <div class="row"><span>From</span><span>$2,000 a month</span></div>
+        <div class="row"><span>From</span><span>$2,000 a month to more</span></div>
         <div class="row"><span>Locked tier</span><span>Preparation</span></div>
       </div>
     </figure>
@@ -281,7 +297,7 @@ footer a{color:rgba(247,245,241,.8)}
       <p class="prop-side">The live season follows the listeners. The cities you already fancy come after that, not before it. This page is the membership. It is not a promise of a sold-out room, a headline, or a result.</p>
       <ul class="facts">
         <li><b>Worldwide</b><span>Music representation</span></li>
-        <li><b>$2,000</b><span>a month to begin</span></li>
+        <li><b>$2,000</b><span>a month to more</span></li>
         <li><b>Preparation</b><span>The tier that is locked</span></li>
       </ul>
     </div>
@@ -290,26 +306,46 @@ footer a{color:rgba(247,245,241,.8)}
   <section class="paper" id="who">
     <div class="wrap">
       <p class="eyebrow">The room</p>
-      <h2>Who it’s for, and who it isn’t.</h2>
-      <p class="lead">The distinction is the point of the programme. It is specific on purpose.</p>
-      <div class="split">
-        <article class="panel">
+      <h2>For global artists who are ready.</h2>
+      <p class="lead">The gate is readiness. It is the same test for every artist. Women and LGBTQIA artists are welcome in Creator Labs, REBELS AND LEGENDS. Identity is not the entry. A released body of work, and listeners you can already point to, are.</p>
+      <div class="who-layout">
+        <article class="panel ready">
           <h3>Who it’s for</h3>
           <ul>
-            <li>Women and LGBTQIA independent artists.</li>
-            <li>Artists with a body of work who want a live season planned properly, not a one-off date drawn from habit.</li>
-            <li>Artists willing to let the fan base set the map, including when that map is not the one they would have picked.</li>
+            <li>Global independent artists with music already out. A released body of work, not a plan for one.</li>
+            <li>Artists who can point to streaming, or to an audience that already listens. Traction means those listeners exist. It is not a forecast of more.</li>
+            <li>Artists ready to let the fan regions set the tour destinations, including when that route is not the one they would have drawn.</li>
+            <li>Artists who want the season run properly, and who keep ownership of the music.</li>
           </ul>
         </article>
-        <article class="panel not">
+        <aside class="panel quiet">
           <h3>Who it isn’t for</h3>
           <ul>
-            <li>Artists outside that community. This is not a general open call, and that is not a judgement of the work.</li>
+            <li>Anyone earlier than that. The Career Path Audit is the step before a paid membership.</li>
             <li>Anyone who wants the route drawn only around the cities they already love.</li>
             <li>Anyone shopping for a guarantee. We do not promise streams, press, income, bookings, or deals.</li>
           </ul>
-        </article>
+        </aside>
       </div>
+    </div>
+  </section>
+
+  <section id="path">
+    <div class="wrap">
+      <p class="eyebrow">The path</p>
+      <h2 id="path-h">Six steps. One process.</h2>
+      <p class="lead" style="color:rgba(247,245,241,.74)">This is the work a label would usually hold, set out in order for independents who own their music. Scroll the steps. Nothing here is a promise of a result.</p>
+      <div class="flow-scroller" tabindex="0" aria-labelledby="path-h">
+        <ol class="flow">
+          <li><div class="n">01</div><h3>Artist development</h3><p>The songs, the set, and the pace, shaped around this artist. Not a pack handed to everyone.</p></li>
+          <li><div class="n">02</div><h3>Artist readiness</h3><p>A plain read of the work and the audience, and of whether a live season is the right next step. If it is early, we say so.</p></li>
+          <li><div class="n">03</div><h3>Music-business infrastructure</h3><p>The agreements, the catalogue record, and the admin that usually sit in a label office, arranged so you still own the music.</p></li>
+          <li><div class="n">04</div><h3>Strategic branding and marketing</h3><p>How you are named, and how the season is told, tied to the dates rather than a campaign for its own sake.</p></li>
+          <li><div class="n">05</div><h3>Fan-base development</h3><p>Where the listeners already are, and what it takes to meet them there, before anyone books a favourite city.</p></li>
+          <li><div class="n">06</div><h3>Global tour negotiation</h3><p>The dates, the fees, and the terms, negotiated from the fan regions outward. When CITY JAM does this, CITY JAM receives 25% of the tour revenue. That fee sits outside the monthly membership. It is not assumed.</p></li>
+        </ol>
+      </div>
+      <p class="flow-hint">Scroll sideways for every step</p>
     </div>
   </section>
 
@@ -317,24 +353,22 @@ footer a{color:rgba(247,245,241,.8)}
     <div class="wrap">
       <p class="eyebrow">The work</p>
       <h2>What we do.</h2>
-      <p class="lead" style="color:rgba(247,245,241,.74)">Membership is a working relationship around the live season. It is customised. It is not a template, and it is not an outcome.</p>
+      <p class="lead" style="color:rgba(247,245,241,.74)">The path above is the order of the work. These are the pieces you can name. Each one is concrete. None of them is included as a surprise inside the monthly fee, and none of them is a promise.</p>
       <div class="work-grid">
-        <article class="work"><div class="n">01</div><h3>Customised development</h3><p>The plan is built around the artist in front of us — the songs, the stage, the pace — not a pack we hand to everyone.</p></article>
-        <article class="work"><div class="n">02</div><h3>Tour planning</h3><p>Where to play, and where not to, studied from where the fan base actually is. Wanting a city is not the same as being called there.</p></article>
-        <article class="work"><div class="n">03</div><h3>Strategy and data monitoring</h3><p>We watch what the audience is doing and keep the plan honest as it moves. Monitoring is the work. It is not a forecast of success.</p></article>
-        <article class="work"><div class="n">04</div><h3>Social, on the higher tiers</h3><p>Social sits with Presence and Bespoke. Both of those tiers are still proposed, and still pending.</p></article>
-        <article class="work"><div class="n">05</div><h3>Catalogue exploration</h3><p>Looking at the catalogue as a way to fund the next cycle — the songs already made, put to work for the season ahead.</p></article>
-        <article class="work"><div class="n">06</div><h3>Negotiation and licence</h3><p>When that work is engaged, it starts at 20%. It is separate from membership. It is not included in the monthly fee, and it is not assumed.</p></article>
+        <article class="work"><div class="n">01</div><h3>Tour planning</h3><p>The route, drawn in order: fan region first, tour destination second. Where to play, and where not to. Wanting a city is not the same as being called there.</p></article>
+        <article class="work"><div class="n">02</div><h3>Social negotiation</h3><p>The terms around the social side of the season, negotiated when that work is engaged. Social sits with Presence and Bespoke. Both of those tiers are still proposed.</p></article>
+        <article class="work"><div class="n">03</div><h3>Licensing</h3><p>Licence requests for music you own, handled as their own piece of work. Not included in the monthly fee, and not assumed. A request is not a closed licence.</p></article>
+        <article class="work"><div class="n">04</div><h3>Catalogue acquisition</h3><p>Songs already made, and catalogues that could fund the next cycle. Acquisition, when it happens, is separate from membership. It is not a promise that a catalogue will be bought or sold.</p></article>
       </div>
-      <p class="aside">Nothing in this list is a promise that a show will be booked, a fee will be won, or a licence will close. If we cannot do the work, we would rather say so.</p>
+      <p class="aside">When CITY JAM negotiates a tour, CITY JAM receives 25% of the tour revenue. That fee is not part of the monthly membership, and it is not assumed. If we cannot do the work, we would rather say so.</p>
     </div>
   </section>
 
   <section class="paper" id="tiers">
     <div class="wrap">
       <p class="eyebrow">Membership</p>
-      <h2>From $2,000 a month.</h2>
-      <p class="lead">Preparation is locked. Presence and Bespoke are on the page so the shape of the higher tiers is visible, and they are marked proposed until they are confirmed. US dollars.</p>
+      <h2>From $2,000 a month to more.</h2>
+      <p class="lead">Preparation is the locked tier, at $2,000 a month. Presence and Bespoke go further. They are on the page so the shape is visible, and they stay marked proposed until they are confirmed. US dollars.</p>
       <table class="tiers">
         <thead>
           <tr><th scope="col">Tier</th><th scope="col">Monthly</th><th scope="col">Status</th><th scope="col">What it covers</th></tr>
@@ -360,7 +394,7 @@ footer a{color:rgba(247,245,241,.8)}
           </tr>
         </tbody>
       </table>
-      <p class="note">Negotiation and licence work, when it is engaged, starts at 20% and sits outside every tier. It is not part of the monthly membership. No tier promises an outcome.</p>
+      <p class="note">When CITY JAM negotiates a tour, CITY JAM receives 25% of the tour revenue. That fee sits outside every tier. It is not part of the monthly membership, and it is not assumed. Licensing, when it is engaged, is separate too. No tier promises an outcome.</p>
     </div>
   </section>
 
@@ -431,7 +465,7 @@ footer a{color:rgba(247,245,241,.8)}
       <div class="apply-primary">
         <p class="eyebrow">Membership</p>
         <h2>Apply for membership.</h2>
-        <p class="lead" style="color:rgba(247,245,241,.74)">Creator Labs, with the tour at the centre. Preparation is $2,000 a month, and it is the locked tier. We read what you send. If it is not a fit, we will say so.</p>
+        <p class="lead" style="color:rgba(247,245,241,.74)">Creator Labs, with the tour at the centre. Membership runs from $2,000 a month to more. Preparation is the locked tier. We read what you send. If it is not a fit, we will say so.</p>
         <p class="deadline-kicker">Deadline</p>
         <p class="deadline">12 November 2026</p>
         <a class="btn solid lg" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply for membership<span class="sr"> (opens the application)</span></a>
