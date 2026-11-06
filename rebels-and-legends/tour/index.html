@@ -289,7 +289,10 @@ h2{font-family:var(--disp);font-size:clamp(34px,4.4vw,56px);line-height:1.02;fon
 .run-stage[data-level="7"] .ico{width:64px;height:64px;color:#fff;filter:drop-shadow(0 0 12px rgba(138,43,176,.9))}
 .run-controls{display:flex;gap:8px;margin-top:22px}
 .run-controls button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(247,245,241,.32);background:transparent;color:#fff;font:inherit;font-weight:600;cursor:pointer}
-.run-controls button.next{background:var(--paper);color:var(--black);border-color:transparent}
+.run-controls button.next{background:transparent;color:#fff;border-color:rgba(247,245,241,.32)}
+.field-cta{border-top-color:var(--line)}
+.field-cta .cta-line{color:#fff}
+.tier-box.locked .detail{grid-template-rows:1fr;opacity:1}
 .pin .pinx{cursor:pointer}
 .pin .pinx circle{fill:#08060C;stroke:#F7F5F1;stroke-width:1.1}
 .pin .pinx text{font-family:'Space Mono',monospace;font-size:12px;fill:#F7F5F1;stroke:none;paint-order:normal}
@@ -443,9 +446,9 @@ footer a{color:rgba(247,245,241,.8)}
       <p class="line">Hello, rebel.</p>
       <p class="line">Hello, legend.</p>
       <p class="prep">Your story begins now.</p>
-      <p class="dek">Own your music. From $2,000 a month to more.</p>
+      <p class="dek">Own your music. The year is planned with you, from $2,000 a month to more.</p>
       <div class="acts">
-        <a class="btn ghost" href="#map">Fan region to tour destination</a>
+        <a class="btn ghost" href="#who">See if you’re ready</a>
       </div>
       <p class="fine" style="margin-top:14px">Applications close 12 November 2026.</p>
     </div>
@@ -493,7 +496,7 @@ footer a{color:rgba(247,245,241,.8)}
     <div class="wrap">
       <p class="eyebrow">The room</p>
       <h2>For global artists who are ready.</h2>
-      <p class="lead">The gate is readiness. It is the same test for every artist. Women and LGBTQIA artists are welcome in Creator Labs, REBELS AND LEGENDS. Identity is not the entry. A released body of work, and listeners you can already point to, are.</p>
+      <p class="lead">The gate is readiness, the same test for every artist. Music out, and listeners you can name. Women and LGBTQIA artists are welcome in Creator Labs, REBELS AND LEGENDS. Identity is not the entry.</p>
       <div class="who-layout">
         <article class="panel ready">
           <h3>Who it’s for</h3>
@@ -515,7 +518,7 @@ footer a{color:rgba(247,245,241,.8)}
       </div>
       <div class="cta-band">
         <div>
-          <p class="cta-line">Own your music.</p>
+          <p class="cta-line">If the music is out, apply.</p>
           <p class="fine">Music out. Listeners you can name. Applications close 12 November 2026.</p>
         </div>
         <a class="btn solid lg" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply for membership<span class="sr"> (opens the application)</span></a>
@@ -527,7 +530,7 @@ footer a{color:rgba(247,245,241,.8)}
     <div class="wrap">
       <p class="eyebrow">The run</p>
       <h2 id="path-h">You own the music. The year rises with you.</h2>
-      <p class="lead" style="color:rgba(247,245,241,.74)">Every journey is bespoke. The year is planned with you. Strategy, optimisation, and business development have their own rung, before any tour deal. Nothing here is a promise of a result.</p>
+      <p class="lead" style="color:rgba(247,245,241,.74)">Every journey is bespoke. The songs, the business, then the tour. Nothing here is a promise of a result.</p>
       <div class="runplay">
         <ol class="ladder" id="ladder">
           <li><button type="button" data-step="0"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 24.5a3.2 3.2 0 1 1 0-1V9.2L23 6v11.2a3.2 3.2 0 1 1-1.6-2.8V8.4l-8.8 2.4v10.6a3.2 3.2 0 0 1-1.6 3.1z" fill="currentColor"/></svg><b>The songs</b></button></li>
@@ -541,6 +544,13 @@ footer a{color:rgba(247,245,241,.8)}
         </ol>
         <div class="run-stage" id="runstage" data-level="0" aria-live="polite"></div>
       </div>
+      <div class="cta-band field-cta">
+        <div>
+          <p class="cta-line">If this is the year, apply.</p>
+          <p class="fine">Applications close 12 November 2026.</p>
+        </div>
+        <a class="btn solid lg" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply for membership<span class="sr"> (opens the application)</span></a>
+      </div>
     </div>
   </section>
 
@@ -548,12 +558,12 @@ footer a{color:rgba(247,245,241,.8)}
     <div class="wrap">
       <p class="eyebrow">On the record</p>
       <h2>What we do.</h2>
-      <p class="lead" style="color:rgba(247,245,241,.74)">The work, in the names you already use. The tour plan is business development with you. None of this is a surprise inside the monthly fee, and none of it is a promise.</p>
+      <p class="lead" style="color:rgba(247,245,241,.74)">The tour plan is business development with you. None of this sits hidden inside the monthly fee, and none of it is a promise.</p>
       <div class="work-grid">
-        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="8" cy="20" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="22" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 20h6l5-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">01</div><h3>The tour plan</h3><p>Business development with you: strategy, optimisation, and the plan you keep. The route sits inside that — fan region first, tour destination second — it is not a list of dates on its own. Wanting a city is not the same as being called there.</p></article>
-        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="4" width="12" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 8h4M13 24h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 12c-2 1.2-2 6.8 0 8M25 12c2 1.2 2 6.8 0 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">02</div><h3>Socials and the release</h3><p>The posts, the pitch, and the terms around the release, when that work is on. It sits with Presence and Bespoke. Both are still proposed.</p></article>
-        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="16" r="3" fill="currentColor"/><path d="M16 7v3M16 22v3M7 16h3M22 16h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">03</div><h3>Sync and licensing</h3><p>Sync and other licence requests for music you own. Separate from the monthly fee, and not assumed. A request is not a closed licence.</p></article>
-        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="13" cy="18" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="13" cy="18" r="2" fill="currentColor"/><circle cx="20" cy="13" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="20" cy="13" r="1.6" fill="currentColor"/></svg><div class="n">04</div><h3>Your catalogue</h3><p>Songs you have already made, put to work for the next run. If a catalogue is bought or sold, that is its own piece of work. It is not a promise either way.</p></article>
+        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="8" cy="20" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="22" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 20h6l5-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">01</div><h3>The tour plan</h3><p>Strategy, optimisation, and the plan you keep. Fan region first, tour destination second. A list of dates is not the plan.</p></article>
+        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="4" width="12" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 8h4M13 24h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 12c-2 1.2-2 6.8 0 8M25 12c2 1.2 2 6.8 0 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">02</div><h3>Socials and the release</h3><p>The posts, the pitch, and the terms around the release, when that work is on. Presence and Bespoke. Both still proposed.</p></article>
+        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="16" r="3" fill="currentColor"/><path d="M16 7v3M16 22v3M7 16h3M22 16h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">03</div><h3>Sync and licensing</h3><p>Licence requests for music you own. Separate from the monthly fee, and not assumed.</p></article>
+        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="13" cy="18" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="13" cy="18" r="2" fill="currentColor"/><circle cx="20" cy="13" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="20" cy="13" r="1.6" fill="currentColor"/></svg><div class="n">04</div><h3>Your catalogue</h3><p>Songs you have already made, put to work. A sale, if it happens, is its own piece of work. Not a promise.</p></article>
         <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M9 6h10l5 5v15H8V7a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M18 6v6h6" stroke="currentColor" stroke-width="1.6"/></svg><div class="n">05</div><h3>Splits and registrations</h3><p>Who owns what, written down, and the songs registered. You keep the music.</p></article>
         <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 10h20v8a2 2 0 0 1-2 2h-5l-3 3v-3H8a2 2 0 0 1-2-2v-8z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 14h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">06</div><h3>The tour deal</h3><p>Dates, fees, and terms, from the fan regions out. When CITY JAM does this, CITY JAM receives 25% of the tour revenue. Outside the monthly fee. Not assumed.</p></article>
       </div>
@@ -566,7 +576,7 @@ footer a{color:rgba(247,245,241,.8)}
       <p class="eyebrow">Membership</p>
       <h2>From $2,000 a month to more.</h2>
       <p class="bespoke-line">Every journey is bespoke.</p>
-      <p class="lead">Preparation is the locked tier, at $2,000 a month. Presence and Bespoke go further. They stay marked proposed until they are confirmed. US dollars. No tier promises an outcome.</p>
+      <p class="lead">Preparation is confirmed, at $2,000 a month. Presence and Bespoke stay proposed. US dollars. No tier promises an outcome.</p>
       <div class="tier-well">
       <div class="tier-grid" id="tiergrid">
         <article class="tier-box locked" tabindex="0" aria-expanded="false">
@@ -635,7 +645,7 @@ footer a{color:rgba(247,245,241,.8)}
           <h2>Pin the listeners. Then pin the dates.</h2>
         </div>
       </div>
-      <p class="lead" style="color:rgba(247,245,241,.74);margin-top:14px">An illustrative map, not a live audience. The lilac pins are example fan regions. The gold pins are example cities an artist might want to tour. Nothing here is measured from a real catalogue, and nothing you add is sent to us.</p>
+      <p class="lead" style="color:rgba(247,245,241,.74);margin-top:14px">An illustrative map, not a live audience. Lilac is where listeners already are. Gold is a city someone might want. Nothing you add is sent to us.</p>
       <div class="maplayout">
         <div>
           <div class="stage">
@@ -694,7 +704,7 @@ footer a{color:rgba(247,245,241,.8)}
       <div class="apply-primary">
         <p class="eyebrow">Membership</p>
         <h2>Own your music.</h2>
-        <p class="lead" style="color:rgba(247,245,241,.74)">Membership runs from $2,000 a month to more. We read what you send. If it is not a fit, we will say so.</p>
+        <p class="lead" style="color:rgba(247,245,241,.74)">We read what you send. If it is not a fit, we will say so. Membership runs from $2,000 a month to more.</p>
         <p class="deadline-kicker">Deadline</p>
         <p class="deadline">12 November 2026</p>
         <a class="btn solid lg" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply for membership<span class="sr"> (opens the application)</span></a>
