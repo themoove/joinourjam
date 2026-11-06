@@ -102,9 +102,9 @@ h1{margin:0}
 #dotc{position:fixed;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--gel);pointer-events:none;z-index:70;box-shadow:0 0 16px 4px rgba(138,43,176,.6);transition:width .3s var(--spring),height .3s var(--spring),margin .3s var(--spring),background .3s}
 #dotc.hot{width:38px;height:38px;margin:-19px 0 0 -19px;background:rgba(138,43,176,.18);border:1px solid rgba(199,123,238,.8)}
 @media (hover:none){#glow,#dotc{display:none}}
-.prop{padding:92px 0 80px;border-top:1px solid var(--line)}
+.shift{padding:92px 0 80px;border-top:1px solid var(--line)}
 .quote{margin:0;max-width:18em;font-family:var(--disp);font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.05;letter-spacing:-.02em;color:#fff}
-.prop-side{margin-top:28px;max-width:46ch;color:rgba(247,245,241,.76)}
+.shift-side{margin-top:28px;max-width:46ch;color:rgba(247,245,241,.76)}
 .world{margin:18px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,245,241,.72)}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:36px 0 0;padding:0;list-style:none}
 .facts li{border-top:1px solid var(--line);padding-top:14px}
@@ -138,7 +138,28 @@ h2{font-family:var(--disp);font-size:clamp(34px,4.4vw,56px);line-height:1.02;fon
 .flow .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--lilac)}
 .flow h3{margin:10px 0 8px;font-family:var(--disp);font-size:22px}
 .flow p{margin:0;color:rgba(247,245,241,.74);font-size:15.5px}
-.flow-hint{margin:12px 0 0;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(247,245,241,.55)}
+.flow-scroller{cursor:grab;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 48px),transparent)}
+.flow-scroller::-webkit-scrollbar{display:none}
+.flow-scroller:active{cursor:grabbing}
+.ico{width:28px;height:28px;display:block;color:var(--lilac);margin-bottom:12px}
+.paper .ico{color:var(--purple)}
+.run-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px}
+.dots{display:flex;gap:8px;align-items:center}
+.dots .dot{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:rgba(247,245,241,.28);cursor:pointer}
+.dots .dot.on{width:22px;background:var(--lilac)}
+.run-arrows{display:flex;gap:8px}
+.run-arrows button{width:40px;height:40px;border-radius:50%;border:1px solid rgba(247,245,241,.3);background:rgba(255,255,255,.04);color:#fff;font:inherit;font-size:20px;line-height:1;cursor:pointer}
+.run-arrows button:hover{border-color:#fff}
+.tier-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+.tier-box{border:1px solid rgba(23,18,25,.16);border-radius:16px;padding:18px 16px 16px;background:#fff;display:flex;flex-direction:column;gap:8px;min-height:100%}
+.tier-box.locked{border-color:var(--gold);box-shadow:inset 0 0 0 1px rgba(201,162,58,.45)}
+.tier-box.proposed{background:#f4f1eb}
+.tier-box h3{margin:0;font-family:var(--disp);font-size:28px;line-height:1}
+.tier-box .price{font-size:18px}
+.tier-box p{margin:0;font-size:15px;line-height:1.45;color:#3c3642}
+.pin .pinx{cursor:pointer}
+.pin .pinx circle{fill:#08060C;stroke:#F7F5F1;stroke-width:1.1}
+.pin .pinx text{font-family:'Space Mono',monospace;font-size:12px;fill:#F7F5F1;stroke:none;paint-order:normal}
 
 .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
 .work{border:1px solid var(--line);border-radius:16px;padding:20px 20px 16px;background:rgba(255,255,255,.03)}
@@ -235,7 +256,7 @@ footer a{color:rgba(247,245,241,.8)}
   .hero-copy{padding:42px 22px 36px}
   .flow li{flex-basis:calc(100vw - 92px)}
   .line{max-width:16ch}
-  .split,.work-grid,.else-grid,.maplayout,.facts,.who-layout{grid-template-columns:1fr}
+  .split,.work-grid,.else-grid,.maplayout,.facts,.who-layout,.tier-grid{grid-template-columns:1fr}
   .tiers thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
   .tiers,.tiers tbody,.tiers tr,.tiers td{display:block;width:100%}
   .tiers tr{border-bottom:1px solid rgba(23,18,25,.12);padding:8px 0 14px}
@@ -259,7 +280,7 @@ footer a{color:rgba(247,245,241,.8)}
   <button class="navtoggle" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
   <div class="navlinks" id="navlinks">
     <a href="#who">Who it’s for</a>
-    <a href="#path">The path</a>
+    <a href="#path">The run</a>
     <a href="#work">What we do</a>
     <a href="#tiers">Tiers</a>
     <a href="#map">The map</a>
@@ -297,16 +318,16 @@ footer a{color:rgba(247,245,241,.8)}
     </figure>
   </header>
 
-  <section class="prop" aria-labelledby="prop-h">
+  <section class="shift" aria-labelledby="shift-h">
     <div class="wrap">
-      <p class="eyebrow">The proposition</p>
-      <h2 id="prop-h" class="quote">We study where your fan base is. That’s where you should be touring — not where you want to tour.</h2>
-      <p class="world">Worldwide music representation</p>
-      <p class="prop-side">The live season follows the listeners. The cities you already fancy come after that, not before it. This page is the membership. It is not a promise of a sold-out room, a headline, or a result.</p>
+      <p class="eyebrow">Your year</p>
+      <h2 id="shift-h" class="quote">Your fans already know the cities. 2027 is when you play them.</h2>
+      <p class="world">You own the music</p>
+      <p class="shift-side">The places you fancy come after the people who already play you. The preparation starts now. This is not a promise of a sold-out room, a headline, or a result.</p>
       <ul class="facts">
-        <li><b>Worldwide</b><span>Music representation</span></li>
+        <li><b>You</b><span>Own the songs</span></li>
         <li><b>$2,000</b><span>a month to more</span></li>
-        <li><b>Preparation</b><span>The tier that is locked</span></li>
+        <li><b>2027</b><span>The year you go out</span></li>
       </ul>
     </div>
   </section>
@@ -347,33 +368,39 @@ footer a{color:rgba(247,245,241,.8)}
 
   <section id="path">
     <div class="wrap">
-      <p class="eyebrow">The path</p>
-      <h2 id="path-h">Six steps. You own the music.</h2>
-      <p class="lead" style="color:rgba(247,245,241,.74)">The work a label would usually hold, in order. Swipe the row. Nothing here is a promise of a result.</p>
-      <div class="flow-scroller" tabindex="0" aria-labelledby="path-h">
+      <p class="eyebrow">The run</p>
+      <h2 id="path-h">Six moves. You own the music.</h2>
+      <p class="lead" style="color:rgba(247,245,241,.74)">The year, in the order it actually runs. Nothing here is a promise of a result.</p>
+      <div class="flow-scroller" id="flow" tabindex="0" aria-labelledby="path-h">
         <ol class="flow">
-          <li><div class="n">01</div><h3>Artist development</h3><p>Songs, set, and pace. Built for this artist, not a pack.</p></li>
-          <li><div class="n">02</div><h3>Artist readiness</h3><p>A plain read of the work and the audience. If it is early, we say so.</p></li>
-          <li><div class="n">03</div><h3>Music-business infrastructure</h3><p>Agreements, catalogue, admin. You still own the music.</p></li>
-          <li><div class="n">04</div><h3>Strategic branding and marketing</h3><p>How you are named, and how the season is told. Tied to the dates.</p></li>
-          <li><div class="n">05</div><h3>Fan-base development</h3><p>Where the listeners are, before anyone books a favourite city.</p></li>
-          <li><div class="n">06</div><h3>Global tour negotiation</h3><p>Dates, fees, terms, from the fan regions out. When CITY JAM does this, CITY JAM receives 25% of the tour revenue. Outside the monthly fee. Not assumed.</p></li>
+          <li><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 24.5a3.2 3.2 0 1 1 0-1V9.2L23 6v11.2a3.2 3.2 0 1 1-1.6-2.8V8.4l-8.8 2.4v10.6a3.2 3.2 0 0 1-1.6 3.1z" fill="currentColor"/></svg><div class="n">01</div><h3>The songs</h3><p>The tracks, the set, the pace. Built around you, not a pack.</p></li>
+          <li><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 16.5 14.2 20 21 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="n">02</div><h3>Tour-ready</h3><p>A plain read of the work and the listeners. If it is early, you hear it.</p></li>
+          <li><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M9 6h10l5 5v15a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M18 6v6h6M11 18h10M11 22h7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">03</div><h3>Your rights</h3><p>Splits, registrations, the paperwork. The songs stay yours.</p></li>
+          <li><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="14" r="2" fill="currentColor"/><path d="M5 21l6-5 4 3 4-4 8 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><div class="n">04</div><h3>The campaign</h3><p>Your name, the artwork, how the season is told. Tied to the dates.</p></li>
+          <li><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="21" cy="13" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 23c.6-3 2.8-4.5 6-4.5s5.4 1.5 6 4.5M18 22.5c.4-2 1.8-3.2 4-3.2 2 0 3.4 1 4 2.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">05</div><h3>The fans</h3><p>Where they already are, before a favourite city gets a date.</p></li>
+          <li><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 10h20v8a2 2 0 0 1-2 2h-5l-3 3v-3H8a2 2 0 0 1-2-2v-8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M11 14h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">06</div><h3>The tour deal</h3><p>Dates, fees, terms, from the fan regions out. When CITY JAM does this, CITY JAM receives 25% of the tour revenue. Outside the monthly fee. Not assumed.</p></li>
         </ol>
       </div>
-      <p class="flow-hint">Scroll sideways for every step</p>
+      <div class="run-nav">
+        <div class="dots" id="flowdots" role="tablist" aria-label="Steps in the run"></div>
+        <div class="run-arrows">
+          <button type="button" id="flowprev" aria-label="Previous step">‹</button>
+          <button type="button" id="flownext" aria-label="Next step">›</button>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="work">
     <div class="wrap">
-      <p class="eyebrow">The work</p>
-      <h2>What we do.</h2>
-      <p class="lead" style="color:rgba(247,245,241,.74)">The path above is the order of the work. These are the pieces you can name. Each one is concrete. None of them is included as a surprise inside the monthly fee, and none of them is a promise.</p>
+      <p class="eyebrow">On the record</p>
+      <h2>What you get.</h2>
+      <p class="lead" style="color:rgba(247,245,241,.74)">Four pieces with names you already use. None of them is a surprise inside the monthly fee, and none of them is a promise.</p>
       <div class="work-grid">
-        <article class="work"><div class="n">01</div><h3>Tour planning</h3><p>The route, drawn in order: fan region first, tour destination second. Where to play, and where not to. Wanting a city is not the same as being called there.</p></article>
-        <article class="work"><div class="n">02</div><h3>Social negotiation</h3><p>The terms around the social side of the season, negotiated when that work is engaged. Social sits with Presence and Bespoke. Both of those tiers are still proposed.</p></article>
-        <article class="work"><div class="n">03</div><h3>Licensing</h3><p>Licence requests for music you own, handled as their own piece of work. Not included in the monthly fee, and not assumed. A request is not a closed licence.</p></article>
-        <article class="work"><div class="n">04</div><h3>Catalogue acquisition</h3><p>Songs already made, and catalogues that could fund the next cycle. Acquisition, when it happens, is separate from membership. It is not a promise that a catalogue will be bought or sold.</p></article>
+        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="8" cy="20" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="22" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 20h6l5-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">01</div><h3>The tour plan</h3><p>Your route: fan region first, tour destination second. Where to play, and where not to. Wanting a city is not the same as being called there.</p></article>
+        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="4" width="12" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 8h4M13 24h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 12c-2 1.2-2 6.8 0 8M25 12c2 1.2 2 6.8 0 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">02</div><h3>Socials and the release</h3><p>The posts, the pitch, and the terms around the release, when that work is on. It sits with Presence and Bespoke. Both are still proposed.</p></article>
+        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="16" r="3" fill="currentColor"/><path d="M16 7v3M16 22v3M7 16h3M22 16h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="n">03</div><h3>Sync and licensing</h3><p>Sync and other licence requests for music you own. Separate from the monthly fee, and not assumed. A request is not a closed licence.</p></article>
+        <article class="work"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="13" cy="18" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="13" cy="18" r="2" fill="currentColor"/><circle cx="20" cy="13" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="20" cy="13" r="1.6" fill="currentColor"/></svg><div class="n">04</div><h3>Your catalogue</h3><p>Songs you have already made, put to work for the next run. If a catalogue is bought or sold, that is its own piece of work. It is not a promise either way.</p></article>
       </div>
       <p class="aside">When CITY JAM negotiates a tour, CITY JAM receives 25% of the tour revenue. That fee is not part of the monthly membership, and it is not assumed. If we cannot do the work, we would rather say so.</p>
     </div>
@@ -384,31 +411,26 @@ footer a{color:rgba(247,245,241,.8)}
       <p class="eyebrow">Membership</p>
       <h2>From $2,000 a month to more.</h2>
       <p class="lead">Preparation is the locked tier, at $2,000 a month. Presence and Bespoke go further. They are on the page so the shape is visible, and they stay marked proposed until they are confirmed. US dollars.</p>
-      <table class="tiers">
-        <thead>
-          <tr><th scope="col">Tier</th><th scope="col">Monthly</th><th scope="col">Status</th><th scope="col">What it covers</th></tr>
-        </thead>
-        <tbody>
-          <tr class="locked">
-            <td data-label="Tier">Preparation</td>
-            <td class="price" data-label="Monthly">$2,000 / month</td>
-            <td data-label="Status"><span class="badge lock">Locked</span></td>
-            <td data-label="What it covers">Customised development, tour planning, and strategy with data monitoring. The confirmed membership.</td>
-          </tr>
-          <tr class="proposed">
-            <td data-label="Tier">Presence</td>
-            <td class="price" data-label="Monthly">$3,500 / month</td>
-            <td data-label="Status"><span class="badge pend">Proposed · pending</span></td>
-            <td data-label="What it covers">Proposed only. Preparation, plus social. Do not treat this price as agreed.</td>
-          </tr>
-          <tr class="proposed">
-            <td data-label="Tier">Bespoke</td>
-            <td class="price" data-label="Monthly">From $5,000 / month</td>
-            <td data-label="Status"><span class="badge pend">Proposed · pending</span></td>
-            <td data-label="What it covers">Proposed only. Shaped to the artist, including catalogue exploration to fund the next cycle, and social. Do not treat this price as agreed.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="tier-grid">
+        <article class="tier-box locked">
+          <span class="badge lock">Locked</span>
+          <h3>Preparation</h3>
+          <p class="price">$2,000 / month</p>
+          <p>The songs, the tour plan, and a watch on the numbers. This is the membership that is confirmed.</p>
+        </article>
+        <article class="tier-box proposed">
+          <span class="badge pend">Proposed · pending</span>
+          <h3>Presence</h3>
+          <p class="price">$3,500 / month</p>
+          <p>Proposed only. Preparation, plus socials and the release. Do not treat this price as agreed.</p>
+        </article>
+        <article class="tier-box proposed">
+          <span class="badge pend">Proposed · pending</span>
+          <h3>Bespoke</h3>
+          <p class="price">From $5,000 / month</p>
+          <p>Proposed only. Shaped to you, including the catalogue and socials. Do not treat this price as agreed.</p>
+        </article>
+      </div>
       <p class="note">When CITY JAM negotiates a tour, CITY JAM receives 25% of the tour revenue. That fee sits outside every tier. It is not part of the monthly membership, and it is not assumed. Licensing, when it is engaged, is separate too. No tier promises an outcome.</p>
       <div class="cta-band">
         <div>
@@ -635,7 +657,9 @@ footer a{color:rgba(247,245,241,.8)}
         label='<text x="'+dx+'" y="'+dy+'" text-anchor="'+anc+'">'+escapeHtml(p.name)+'</text>';
       }
       return '<g class="pin '+p.kind+(p.illustrative?' example':'')+(p.id===selected?' selected':'')+'" data-id="'+p.id+'" transform="translate('+xy[0].toFixed(1)+' '+xy[1].toFixed(1)+')"'+hidden+'>'
-        +'<circle class="halo" r="16"></circle><circle class="head" r="6.5"></circle>'+label+'</g>';
+        +'<circle class="halo" r="16"></circle><circle class="head" r="6.5"></circle>'+label
+        +'<g class="pinx" data-remove="'+p.id+'" aria-label="Remove '+escapeHtml(p.name)+'">'
+        +'<circle cx="14" cy="-12" r="7"></circle><text x="14" y="-8" text-anchor="middle">×</text></g></g>';
     }).join('');
     var fans=state.filter(function(p){return p.kind==='fan';}).length;
     var tours=state.filter(function(p){return p.kind==='tour';}).length;
@@ -650,10 +674,17 @@ footer a{color:rgba(247,245,241,.8)}
       return '<li class="'+(p.id===selected?'selected':'')+'" data-id="'+p.id+'">'
         +'<i class="sw '+p.kind+'"></i>'
         +'<button type="button" class="linkish"><b>'+escapeHtml(p.name)+'</b><span class="meta">'+kind+' · '+tag+(kindOn(p.kind)?'':' · hidden on the map')+'</span></button>'
-        +'<button type="button" class="x" data-remove="'+p.id+'" aria-label="Remove '+escapeHtml(p.name)+'">Remove</button></li>';
+        +'<button type="button" class="x" data-remove="'+p.id+'" aria-label="Remove '+escapeHtml(p.name)+'">×</button></li>';
     }).join('') || '<li><span class="meta">No pins yet.</span></li>';
   }
   function render(){renderPins(); renderList();}
+  function removePin(id){
+    var p=find(id);
+    state=state.filter(function(x){return x.id!==id;});
+    if(selected===id) selected=null;
+    save(); render();
+    say((p?p.name:'Pin')+' removed. Still only in this tab.');
+  }
 
   function addPin(partial){
     var pin={
@@ -678,6 +709,8 @@ footer a{color:rgba(247,245,241,.8)}
   }
 
   svg.addEventListener('click', function(e){
+    var kill=e.target.closest && e.target.closest('.pinx');
+    if(kill){suppress=true; removePin(kill.getAttribute('data-remove')); return;}
     if(suppress){suppress=false; return;}
     if(e.target.closest && e.target.closest('.pin')) return;
     var p=clientToSvg(e);
@@ -686,6 +719,7 @@ footer a{color:rgba(247,245,241,.8)}
     addPin({lat:ll[1], lon:ll[0], name:named, kind:currentKind()});
   });
   svg.addEventListener('pointerdown', function(e){
+    if(e.target.closest && e.target.closest('.pinx')) return;
     var g=e.target.closest && e.target.closest('.pin');
     if(!g) return;
     drag={id:g.getAttribute('data-id'), x:e.clientX, y:e.clientY, moved:false};
@@ -733,9 +767,10 @@ footer a{color:rgba(247,245,241,.8)}
   svg.addEventListener('pointerleave', function(){tipt.hidden=true;});
   document.addEventListener('keydown', function(e){
     if(!selected) return;
-    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].indexOf(e.key)<0) return;
     var ae=document.activeElement;
     if(ae && (ae.tagName==='INPUT'||ae.tagName==='TEXTAREA'||ae.tagName==='SELECT')) return;
+    if(e.key==='Delete'||e.key==='Backspace'){e.preventDefault(); removePin(selected); return;}
+    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].indexOf(e.key)<0) return;
     var pin=find(selected); if(!pin) return;
     e.preventDefault();
     var step=e.shiftKey?4:1.2;
@@ -749,15 +784,7 @@ footer a{color:rgba(247,245,241,.8)}
   });
   listEl.addEventListener('click', function(e){
     var rm=e.target.closest('[data-remove]');
-    if(rm){
-      var id=rm.getAttribute('data-remove');
-      var p=find(id);
-      state=state.filter(function(x){return x.id!==id;});
-      if(selected===id) selected=null;
-      save(); render();
-      say((p?p.name:'Pin')+' removed.');
-      return;
-    }
+    if(rm){removePin(rm.getAttribute('data-remove')); return;}
     var li=e.target.closest('li[data-id]');
     if(li) select(li.getAttribute('data-id'));
   });
@@ -792,6 +819,46 @@ footer a{color:rgba(247,245,241,.8)}
   });
   window.addEventListener('resize', function(){renderPins();});
   render();
+})();
+</script>
+<script>
+(function(){
+  var scroller=document.getElementById('flow');
+  var dots=document.getElementById('flowdots');
+  var cards=scroller?Array.prototype.slice.call(scroller.querySelectorAll('.flow > li')):[];
+  if(!scroller||!cards.length||!dots) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var current=0;
+  cards.forEach(function(_,i){
+    var b=document.createElement('button');
+    b.type='button';
+    b.className='dot';
+    b.setAttribute('aria-label','Step '+(i+1)+' of '+cards.length);
+    b.addEventListener('click',function(){go(i);});
+    dots.appendChild(b);
+  });
+  function go(i){
+    i=Math.max(0,Math.min(cards.length-1,i));
+    var left=cards[i].getBoundingClientRect().left-scroller.getBoundingClientRect().left+scroller.scrollLeft;
+    scroller.scrollTo({left:left,behavior:reduce?'auto':'smooth'});
+  }
+  function sync(){
+    var edge=scroller.getBoundingClientRect().left;
+    var best=0,bestD=1e9;
+    cards.forEach(function(c,i){
+      var d=Math.abs(c.getBoundingClientRect().left-edge);
+      if(d<bestD){bestD=d;best=i;}
+    });
+    current=best;
+    Array.prototype.forEach.call(dots.children,function(d,i){
+      d.classList.toggle('on',i===best);
+      d.setAttribute('aria-current',i===best?'step':'false');
+    });
+  }
+  document.getElementById('flowprev').addEventListener('click',function(){go(current-1);});
+  document.getElementById('flownext').addEventListener('click',function(){go(current+1);});
+  scroller.addEventListener('scroll',sync,{passive:true});
+  sync();
 })();
 </script>
 </body>
