@@ -78,6 +78,14 @@ h1{margin:0}
 .prep{margin:12px 0 0;font-family:var(--disp);font-weight:600;font-size:clamp(20px,2.2vw,28px);letter-spacing:-.02em;color:#fff}
 .hero p.dek{margin:16px 0 0;max-width:36ch;color:rgba(247,245,241,.74);font-size:17px}
 .hero .acts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:28px}
+.press{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;padding:16px 7vw 22px;border-top:1px solid var(--line)}
+.press-k{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,245,241,.62)}
+.press ul{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin:0;padding:0}
+.press img{display:block;height:24px;width:auto;object-fit:contain;opacity:.82}
+@media(max-width:700px){
+  .press{padding:14px 22px 18px}
+  .press img{max-width:68vw;height:auto;max-height:24px}
+}
 .fine{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:rgba(247,245,241,.62)}
 .hero-art{position:relative;min-height:520px;background:var(--field);overflow:hidden}
 .hero-art img{width:100%;height:100%;object-fit:contain;object-position:center bottom;background:transparent}
@@ -422,7 +430,6 @@ footer a{color:rgba(247,245,241,.8)}
     <a href="#work">What we do</a>
     <a href="#tiers">Tiers</a>
     <a href="#map">The map</a>
-    <a href="#apply">Apply</a>
     <a class="btn solid small" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply<span class="sr"> (opens the application)</span></a>
   </div>
 </nav>
@@ -436,7 +443,6 @@ footer a{color:rgba(247,245,241,.8)}
       <p class="prep">Your story begins now.</p>
       <p class="dek">Own your music. Be a rebel. Become the legend. From $2,000 a month to more.</p>
       <div class="acts">
-        <a class="btn solid lg" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply for membership<span class="sr"> (opens the application)</span></a>
         <a class="btn ghost" href="#map">Fan region to tour destination</a>
       </div>
       <p class="fine" style="margin-top:14px">Applications close 12 November 2026.</p>
@@ -450,6 +456,21 @@ footer a{color:rgba(247,245,241,.8)}
         <div class="row"><span>Locked tier</span><span>Preparation</span></div>
       </div>
     </figure>
+    <div class="press">
+      <p class="press-k">As seen on</p>
+      <ul>
+        <li><img src="press/ap-news.png" alt="AP"></li>
+        <li><img src="press/neon-music.png" alt="Neon Music"></li>
+        <li><img src="press/ibtimes-uk.png" alt="International Business Times"></li>
+        <li><img src="press/yahoo-finance.png" alt="Yahoo Finance"></li>
+        <li><img src="press/fox8.png" alt="FOX8"></li>
+        <li><img src="press/oxford-eagle.png" alt="The Oxford Eagle"></li>
+        <li><img src="press/the-scotsman.png" alt="The Scotsman"></li>
+        <li><img src="press/bloomberg.png" alt="Bloomberg"></li>
+        <li><img src="press/yorkshire-post.png" alt="The Yorkshire Post"></li>
+        <li><img src="press/londonworld.png" alt="LondonWorld"></li>
+      </ul>
+    </div>
   </header>
 
   <section class="shift" aria-labelledby="shift-h">
