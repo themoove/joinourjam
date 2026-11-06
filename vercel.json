@@ -1,6 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
+    { "source": "/rebels-and-legends/tour", "destination": "/rebels-and-legends/tour/index.html" },
+    { "source": "/rebels-and-legends/tour/", "destination": "/rebels-and-legends/tour/index.html" },
     { "source": "/((?!sitemap.xml|robots.txt|og.jpg|favicon.ico).*)", "destination": "/index.html" }
   ],
   "headers": [
