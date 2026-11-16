@@ -307,6 +307,38 @@ footer a{color:var(--ink)}
   html{scroll-behavior:auto}
   *{animation:none!important;transition:none!important}
 }
+
+body{overflow-x:clip}
+.hero{grid-template-columns:1.05fr 1fr;min-height:92vh;background:#F3F1EC;color:#0B0B0B}
+.hero-art{order:-1;min-height:70vh}
+.hero h1.tag{font-weight:800;font-size:clamp(46px,7vw,96px);letter-spacing:-.04em;line-height:.88;color:#0B0B0B;display:block;margin-top:8px}
+.hero .line{font-size:clamp(22px,2.6vw,32px);font-weight:800;letter-spacing:-.02em;max-width:16ch;color:#0B0B0B}
+.tileph{position:relative;aspect-ratio:1;overflow:hidden;margin:0 0 14px}
+.tileph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+.render{position:absolute;top:10px;right:10px;background:#0009;color:#fff;padding:3px 7px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em}
+.bmedia{background:#F3F1EC;border-bottom:1px solid #D9D6CF}
+.bposters{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bposters .poster{aspect-ratio:3/4.2;position:relative;overflow:hidden;margin:0}
+.bposters .poster>img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+.bposters .ov{position:absolute;inset:0;padding:22px;display:flex;flex-direction:column;justify-content:space-between;color:#F3F1EC;background:linear-gradient(#0008,transparent 42%,#000c)}
+.bposters .pt{font-weight:800;font-size:clamp(32px,3vw,44px);line-height:.86;letter-spacing:-.04em}
+.bposters .pt i{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.bposters .foot{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.bposters .foot .lg,.screen .lg{height:28px;width:auto;filter:none;object-fit:contain}
+.dot{width:9px;height:9px;border-radius:50%;background:#8B3FD1;display:inline-block;margin-right:7px}
+.phones{display:flex;gap:22px;overflow-x:auto;padding:28px 0 8px}
+.phone{flex:0 0 230px;aspect-ratio:9/19.5;border-radius:34px;background:#111;padding:8px}
+.screen{position:relative;height:100%;border-radius:27px;overflow:hidden;background:#000;color:#fff}
+.screen>img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+.screen .ov{position:absolute;inset:0;padding:36px 16px 22px;display:flex;flex-direction:column;justify-content:flex-end}
+.screen .big{font-weight:800;font-size:32px;line-height:.92;letter-spacing:-.03em}
+.notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:78px;height:20px;border-radius:12px;background:#000;z-index:3}
+section{border-bottom:1px solid #D9D6CF}
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .bposters{grid-template-columns:1fr}
+  .hero h1.tag{font-size:clamp(42px,12vw,68px)}
+}
 </style>
 </head>
 <body>
@@ -342,7 +374,7 @@ footer a{color:var(--ink)}
       <p class="fine" style="margin-top:14px">Applications close 12 November 2026.</p>
     </div>
     <figure class="hero-art">
-      <img src="hero.jpg" width="1280" height="1499" alt="Black studio portrait: a musician with a guitar and a keyboard.">
+      <img src="/assets/hero.jpg" alt="Black and white portrait of a person with eyes closed, wearing headphones and a leather jacket, listening.">
     </figure>
   </header>
 
@@ -392,12 +424,12 @@ footer a{color:var(--ink)}
       <h2>What we do.</h2>
       <p class="lead" style="color:rgba(247,245,241,.74)">Membership is a working relationship around the live season. It is customised. It is not a template, and it is not an outcome.</p>
       <div class="work-grid">
-        <article class="work"><div class="n">01</div><h3>Customised development</h3><p>The plan is built around the artist in front of us — the songs, the stage, the pace — not a pack we hand to everyone.</p></article>
-        <article class="work"><div class="n">02</div><h3>Tour planning</h3><p>Where to play, and where not to, studied from where the fan base actually is. Wanting a city is not the same as being called there.</p></article>
-        <article class="work"><div class="n">03</div><h3>Strategy and data monitoring</h3><p>We watch what the audience is doing and keep the plan honest as it moves. Monitoring is the work. It is not a forecast of success.</p></article>
-        <article class="work"><div class="n">04</div><h3>Social, on the higher tiers</h3><p>Social sits with Presence and Bespoke. Both of those tiers are still proposed, and still pending.</p></article>
-        <article class="work"><div class="n">05</div><h3>Catalogue exploration</h3><p>Looking at the catalogue as a way to fund the next cycle — the songs already made, put to work for the season ahead.</p></article>
-        <article class="work"><div class="n">06</div><h3>Negotiation and licence</h3><p>When that work is engaged, it starts at 20%. It is separate from membership. It is not included in the monthly fee, and it is not assumed.</p></article>
+        <article class="work"><figure class="tileph"><img src="/assets/studio.jpg" alt="Black and white photograph of a person at a mixing desk in a studio."><span class="render">RENDER</span></figure><div class="n">01</div><h3>Customised development</h3><p>The plan is built around the artist in front of us — the songs, the stage, the pace — not a pack we hand to everyone.</p></article>
+        <article class="work"><figure class="tileph"><img src="/assets/session.jpg" alt="Black and white photograph of four people gathered around a laptop beside a piano."><span class="render">RENDER</span></figure><div class="n">02</div><h3>Tour planning</h3><p>Where to play, and where not to, studied from where the fan base actually is. Wanting a city is not the same as being called there.</p></article>
+        <article class="work"><figure class="tileph"><img src="/assets/night.jpg" alt="Black and white photograph of a crowd with hands raised under a spotlight."><span class="render">RENDER</span></figure><div class="n">03</div><h3>Strategy and data monitoring</h3><p>We watch what the audience is doing and keep the plan honest as it moves. Monitoring is the work. It is not a forecast of success.</p></article>
+        <article class="work"><figure class="tileph"><img src="/assets/gear.jpg" alt="Black and white close-up of hands on a drum machine and pad controller."><span class="render">RENDER</span></figure><div class="n">04</div><h3>Social, on the higher tiers</h3><p>Social sits with Presence and Bespoke. Both of those tiers are still proposed, and still pending.</p></article>
+        <article class="work"><figure class="tileph"><img src="/assets/drop.jpg" alt="Black and white photograph of a guitarist mid-motion, hair flying across the face."><span class="render">RENDER</span></figure><div class="n">05</div><h3>Catalogue exploration</h3><p>Looking at the catalogue as a way to fund the next cycle — the songs already made, put to work for the season ahead.</p></article>
+        <article class="work"><figure class="tileph"><img src="/assets/room.jpg" alt="Black and white photograph of an empty stage, a single microphone, and rows of chairs."><span class="render">RENDER</span></figure><div class="n">06</div><h3>Negotiation and licence</h3><p>When that work is engaged, it starts at 20%. It is separate from membership. It is not included in the monthly fee, and it is not assumed.</p></article>
       </div>
       <p class="aside">Nothing in this list is a promise that a show will be booked, a fee will be won, or a licence will close. If we cannot do the work, we would rather say so.</p>
     </div>
@@ -499,6 +531,21 @@ footer a{color:var(--ink)}
     </div>
   </section>
 
+
+  <section class="bmedia">
+    <div class="wrap">
+      <div class="bposters">
+        <figure class="poster"><img src="/assets/studio.jpg" alt="Black and white photograph of a person at a mixing desk in a studio."><span class="render">RENDER</span><div class="ov"><div class="pt">Do the<br><i>thing.</i></div><div class="foot"><span class="mono"><span class="dot"></span>REBELS &amp; LEGENDS</span><img class="lg" src="/logo-white.png" alt="CITY JAM"></div></div></figure>
+        <figure class="poster"><img src="/assets/night.jpg" alt="Black and white photograph of a crowd with hands raised under a spotlight."><span class="render">RENDER</span><div class="ov"><div class="pt">Fund your<br><i>dream.</i></div><div class="foot"><span class="mono"><span class="dot"></span>REBELS &amp; LEGENDS</span><img class="lg" src="/logo-white.png" alt="CITY JAM"></div></div></figure>
+        <figure class="poster"><img src="/assets/room.jpg" alt="Black and white photograph of an empty stage, a single microphone, and rows of chairs."><span class="render">RENDER</span><div class="ov"><div class="pt">Close your eyes<br>and <i>listen.</i></div><div class="foot"><span class="mono"><span class="dot"></span>REBELS &amp; LEGENDS</span><img class="lg" src="/logo-white.png" alt="CITY JAM"></div></div></figure>
+      </div>
+      <div class="phones">
+        <div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="/assets/gear.jpg" alt="Black and white close-up of hands on a drum machine and pad controller."><span class="render">RENDER</span><div class="ov"><img class="lg" src="/logo-white.png" alt="CITY JAM"><div class="big">Do the<br>thing.</div></div></div></div>
+        <div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="/assets/drop.jpg" alt="Black and white photograph of a guitarist mid-motion, hair flying across the face."><span class="render">RENDER</span><div class="ov"><img class="lg" src="/logo-white.png" alt="CITY JAM"><div class="big">Fund your<br>dream.</div></div></div></div>
+        <div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="/assets/hero.jpg" alt="Black and white portrait of a person with eyes closed, wearing headphones and a leather jacket, listening."><span class="render">RENDER</span><div class="ov"><img class="lg" src="/logo-white.png" alt="CITY JAM"><div class="big">Apply.</div></div></div></div>
+      </div>
+    </div>
+  </section>
   <section class="apply" id="apply">
     <div class="wrap">
       <div class="apply-primary">

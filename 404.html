@@ -1745,14 +1745,95 @@ footer .tg b{color:var(--paper)!important}
   .fade{opacity:1!important;transform:none!important}
   .slot:hover .sleeve,.slot:hover .disc,.card:hover,.desk:hover,.btn:hover,.tier:hover,.cass:hover{transform:none!important}
 }
+
+/* ── brand board layout ─────────────────────────────────────── */
+.view,.view.dark{background:#F3F1EC;color:#0B0B0B}
+.view.dark h1,.view.dark h2,.view.dark h3,.view.dark .hero h1{color:#0B0B0B}
+.view .lead,.view.dark .lead,.view .hero .sub,.view.dark .hero .sub{color:#6B6A66}
+.sec-dark,.view.dark .sec-dark{background:#0B0B0B!important;color:#F3F1EC;border-radius:0;margin:0;box-shadow:none}
+.gbg,.gbg-hero,.gbg-band,.gbg-deep,.gbg-ember{background-image:none!important}
+.sec-dark h1,.sec-dark h2,.sec-dark h3,.view.dark .sec-dark h1,.view.dark .sec-dark h2,.view.dark .sec-dark h3{color:#F3F1EC}
+.sec-dark .lead,.view.dark .sec-dark .lead,.sec-dark .hero .sub,.sec-dark .sub{color:rgba(243,241,236,.82)}
+.sec-dark .lead b,.sec-dark .sub b,.view.dark .sec-dark .lead b{color:#F3F1EC}
+nav{background:#F3F1EC;border-bottom:1px solid #D9D6CF}
+nav.dk{background:#F3F1EC;border-bottom-color:#D9D6CF}
+nav.dk .links a,nav .links a{color:#6B6A66}
+nav.dk .links a:hover,nav.dk .links a.on,nav .links a:hover,nav .links a.on{color:#0B0B0B}
+nav .logo{height:22px}
+.view > section,.view section{border-bottom:1px solid #D9D6CF;padding:72px 0;background:#F3F1EC;color:#0B0B0B}
+.view .sec-dark{border-bottom-color:#0B0B0B}
+.view h2:not(.kick){font-weight:800;font-size:clamp(30px,4.6vw,54px);letter-spacing:-.03em;line-height:.92;margin-bottom:22px}
+.view .kick{font-family:'Space Mono',monospace;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;line-height:1.4;color:#8B3FD1;margin-bottom:22px;display:flex;align-items:center;gap:8px}
+.sec-dark .kick,.view.dark .sec-dark .kick{color:#F3F1EC}
+.bhero{display:grid;grid-template-columns:1.05fr 1fr;min-height:92vh;background:#F3F1EC;color:#0B0B0B;border-bottom:1px solid #D9D6CF}
+.bhero .pic{position:relative;min-height:70vh;background:#111;overflow:hidden}
+.bhero .pic img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.04)}
+.bhero .txt{padding:40px 30px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;text-align:left}
+.bhero .wrap,.bhero .herogrid,.bhero .two{display:block;max-width:none;padding:0;margin:0;background:transparent;grid-template-columns:1fr}
+.bhero .ident{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8B3FD1;margin:0 0 18px}
+.bhero h1,.bhero .txt h1{font-weight:800;font-size:clamp(46px,6.4vw,92px);letter-spacing:-.04em;line-height:.88;color:#0B0B0B!important;max-width:12ch}
+.bhero h1 em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.02em;color:#0B0B0B}
+.bhero h2.kick{font-size:11px;font-weight:400;letter-spacing:.1em;line-height:1.4;color:#8B3FD1!important;margin:0 0 14px;text-transform:uppercase}
+.bhero .sub,.bhero .lead,.bhero .dek{font-size:17px;line-height:1.5;color:#6B6A66!important;max-width:42ch}
+.bhero .sub b,.bhero .lead b{color:#0B0B0B!important}
+.bhero .tiny,.bhero .fine{color:#6B6A66!important}
+.bhero .sign{display:flex;align-items:center;gap:14px;padding-top:22px}
+.bhero .sign img{height:84px;width:auto;filter:none}
+.bhero .sign span{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6A66}
+.bhero .bkw,.bhero .bkc{max-width:240px;margin-top:18px}
+.render{position:absolute;top:10px;right:10px;background:#0009;color:#fff;padding:3px 7px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;z-index:2}
+.bsec{background:#F3F1EC;border-bottom:1px solid #D9D6CF}
+.bposters,.btiles .tile,.tileph{margin:0}
+.bposters{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bposters .poster{aspect-ratio:3/4.2;position:relative;overflow:hidden;border-radius:0;box-shadow:none}
+.bposters .poster img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+.bposters .ov{position:absolute;inset:0;padding:22px;display:flex;flex-direction:column;justify-content:space-between;color:#F3F1EC;background:linear-gradient(#0008,transparent 42%,#000c)}
+.bposters .pt{font-weight:800;font-size:clamp(32px,3vw,44px);line-height:.86;letter-spacing:-.04em;color:#F3F1EC}
+.bposters .pt i{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.bposters .foot{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.bposters .foot img{height:28px;width:auto;filter:none}
+.btiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.btiles .tile{aspect-ratio:1;position:relative;overflow:hidden;display:block;color:#fff;text-decoration:none}
+.btiles .tile img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+.btiles .ov{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(transparent 40%,#000c)}
+.btiles .ov b{font-size:24px;letter-spacing:-.02em;line-height:1;font-weight:800}
+.phones{display:flex;gap:22px;overflow-x:auto;padding:28px 0 8px;scroll-snap-type:x mandatory}
+.phone{flex:0 0 230px;aspect-ratio:9/19.5;border-radius:34px;background:#111;padding:8px;scroll-snap-align:start}
+.screen{position:relative;width:100%;height:100%;border-radius:27px;overflow:hidden;background:#000;color:#fff}
+.screen>img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+.screen .ov{position:absolute;inset:0;padding:40px 16px 22px;display:flex;flex-direction:column;justify-content:flex-end}
+.screen .ov .lg{height:26px;width:auto;margin-bottom:10px;filter:none}
+.screen .big{font-weight:800;font-size:32px;line-height:.92;letter-spacing:-.03em}
+.notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:78px;height:20px;border-radius:12px;background:#000;z-index:3}
+.tileph{position:relative;aspect-ratio:1;overflow:hidden;margin:0 0 14px}
+.tileph img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.04)}
+.view .card,.view .trap,.view .bcard{padding:0 0 8px;border:0;background:transparent;box-shadow:none;border-radius:0}
+.view .card h3,.view .trap h3,.view .bcard h3{font-size:24px;letter-spacing:-.02em;margin:0 0 8px}
+.desk{border:0;background:transparent;box-shadow:none;padding:0}
+.deskCard{aspect-ratio:1;max-height:none;border-radius:0}
+.deskCard img{filter:grayscale(1) contrast(1.04)}
+footer{background:#0B0B0B;color:rgba(243,241,236,.72);border-top:1px solid #0B0B0B}
+@media(max-width:820px){
+  .bhero{grid-template-columns:1fr;min-height:0}
+  .bhero .pic{min-height:70vw}
+  .bhero .txt{padding:32px 22px 40px}
+  .bhero h1,.bhero .txt h1{font-size:clamp(40px,12vw,64px)}
+  .bhero .sign img{height:64px}
+  .bposters,.btiles{grid-template-columns:1fr}
+  .view section{padding:64px 0}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .bhero .pic img,.tileph img,.btiles img{transition:none}
+}
 </style></head><body>
 <div id="gate"><img src="/logo-white.png" alt="CITY JAM">
 <div class="meter" id="meter"><div class="mHead"><span>CH 01 &middot; INPUT</span><span id="mDb">-&#8734; dB</span></div><div class="mBars" id="mBars"></div><div class="mFoot"><span class="mLed"></span> STANDBY</div></div>
 <button id="play" aria-label="Play"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
 <div class="cap">Press play &middot; sound on</div></div>
 <div id="curtain"></div>
-<nav id="nav" class="dk"><div class="wrap"><div class="row">
-  <a href="/" data-nav><img class="logo" id="navlogo" src="/logo-white.png" alt="CITY JAM"></a>
+<nav id="nav"><div class="wrap"><div class="row">
+  <a href="/" data-nav><img class="logo" id="navlogo" src="/logo-black.png" alt="CITY JAM"></a>
   <div class="links">
     <a href="/magazine" data-nav data-v="magazine">Magazine</a>
     <a href="/app" data-nav data-v="app">The App</a>
@@ -2237,18 +2318,17 @@ function drawMap(){
   c.onmouseleave=function(){tip.classList.remove('on')};
 }
 function crate(){
-  return '<div class="crate fade"><div class="crNav"><button class="crBtn" id="crPrev" aria-label="Previous"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>'
-  +'<button class="crBtn" id="crNext" aria-label="Next"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button></div>'
-  +'<div class="crateScroll" id="crate">'+DESKS.map(function(d,i){
-    return '<div class="slot"><div class="disc'+(i%3?'':' spin')+'"><i class="pin"></i></div>'
-    +'<a class="sleeve" href="/desks" data-nav aria-label="'+d.n+'"><img src="data:image/jpeg;base64,'+DKIMG[d.k]+'" alt="'+d.n+'" loading="lazy"></a></div>'}).join('')
-  +'</div></div>';
+  return '<div class="btiles">'+DESKS.map(function(d,i){
+    var p=boardPhoto(i);
+    return '<a class="tile" href="/desks" data-nav><img src="'+p.src+'" alt="'+p.alt+'"><span class="render">RENDER</span><span class="ov"><span class="mono">'+d.tag+'</span><b>'+d.n+'</b></span></a>';
+  }).join('')+'</div>';
 }
 function deskGrid(n){
   var d=n?DESKS.slice(0,n):DESKS;
-  return '<div class="cards c2" style="margin-top:38px">'+d.map(function(x){
-    return '<div class="desk fade"><div class="deskCard"><img src="data:image/jpeg;base64,'+DKIMG[x.k]+'" alt="'+x.n+'" loading="lazy"></div>'
-    +'<div class="deskBody"><div class="tagline">'+x.tag+'</div><h2 class="deskH">'+x.n+'</h2><p>'+x.p+'</p><div class="fmt">'+x.f+'</div></div></div>'}).join('')+'</div>';
+  return '<div class="btiles">'+d.map(function(x,i){
+    var p=boardPhoto(i+2);
+    return '<a class="tile" href="/desks" data-nav><img src="'+p.src+'" alt="'+p.alt+'"><span class="render">RENDER</span><span class="ov"><span class="mono">'+x.tag+'</span><b>'+x.n+'</b></span></a>';
+  }).join('')+'</div>';
 }
 function playlists(n){
   var d=n?PLAYLISTS.slice(0,n):PLAYLISTS;
@@ -4302,9 +4382,76 @@ function setSeo(route){
   set('meta[name="twitter:title"]','content',d[0]);
   set('meta[name="twitter:description"]','content',d[1]);
 }
+
+var BOARD=[
+ {src:'/assets/hero.jpg', alt:'Black and white portrait of a person with eyes closed, wearing headphones and a leather jacket, listening.'},
+ {src:'/assets/studio.jpg', alt:'Black and white photograph of a person at a mixing desk in a studio.'},
+ {src:'/assets/night.jpg', alt:'Black and white photograph of a crowd with hands raised under a spotlight.'},
+ {src:'/assets/session.jpg', alt:'Black and white photograph of four people gathered around a laptop beside a piano.'},
+ {src:'/assets/gear.jpg', alt:'Black and white close-up of hands on a drum machine and pad controller.'},
+ {src:'/assets/drop.jpg', alt:'Black and white photograph of a guitarist mid-motion, hair flying across the face.'},
+ {src:'/assets/room.jpg', alt:'Black and white photograph of an empty stage, a single microphone, and rows of chairs.'}
+];
+function boardPhoto(i){return BOARD[((i%BOARD.length)+BOARD.length)%BOARD.length];}
+function boardify(html,key){
+  var order={home:0,magazine:1,labs:2,teach:3,learn:4,ambassadors:5,hired:6,playlists:0,app:1,circle:2,manifesto:3,desks:4,pricing:5,workbook:6,cities:0,founders:1,careers:2,print:3,business:4,sync:5,studios:6,partners:1,bookers:2,terms:3,privacy:4};
+  var start=order[key]||0, n=start+1;
+  var photo=boardPhoto(start);
+  html=html.replace(/<img([^>]*?)src="data:[^"]+"([^>]*)>/g, function(full,pre,post){
+    if(/\bbk[bc]\b/.test(pre+post)) return full;
+    var p=boardPhoto(n++);
+    var tag='<img'+pre+'src="'+p.src+'"'+post+'>';
+    if(/alt="/.test(tag)) tag=tag.replace(/alt="[^"]*"/,'alt="'+p.alt+'"');
+    else tag=tag.replace(/<img/,'<img alt="'+p.alt+'"');
+    return tag;
+  });
+  var replaced=false;
+  html=html.replace(/<header class="hero\b[^>]*>[\s\S]*?<\/header>/, function(block){
+    replaced=true;
+    var inner=block.replace(/^<header[^>]*>/,'').replace(/<\/header>$/,'');
+    inner=inner.replace(/<div class="poster\b[^>]*>[\s\S]*?<\/div>/g,'');
+    inner=inner.replace(/<div class="ph\b[^>]*>[\s\S]*?<\/div>/g,'');
+    return '<header class="bhero"><figure class="pic"><img src="'+photo.src+'" alt="'+photo.alt+'"><span class="render">RENDER</span></figure><div class="txt"><p class="ident"><span class="dot"></span>REBELS &amp; LEGENDS</p>'+inner+'<div class="sign"><img class="lg" src="/logo-black.png" alt="CITY JAM"><span>Close your eyes and listen.</span></div></div></header>';
+  });
+  if(!replaced) return html;
+  var posters='';
+  var pts=['Do the<br><i>thing.</i>','Fund your<br><i>dream.</i>','Close your eyes<br>and <i>listen.</i>'];
+  for(var i=0;i<3;i++){
+    var p=boardPhoto(start+1+i);
+    posters+='<figure class="poster"><img src="'+p.src+'" alt="'+p.alt+'"><span class="render">RENDER</span><div class="ov"><div class="pt">'+pts[i]+'</div><div class="foot"><span class="mono"><span class="dot"></span>REBELS &amp; LEGENDS</span><img class="lg" src="/logo-white.png" alt="CITY JAM"></div></div></figure>';
+  }
+  var tiles='';
+  var caps=['Do the thing.','Close your eyes and listen.','Independent, playing in the big leagues.'];
+  for(var t=0;t<3;t++){
+    var q=boardPhoto(start+4+t);
+    tiles+='<figure class="tile"><img src="'+q.src+'" alt="'+q.alt+'"><span class="render">RENDER</span><span class="ov"><b>'+caps[t]+'</b></span></figure>';
+  }
+  var frames='';
+  var bigs=['Do the<br>thing.','Fund your<br>dream.','Apply.'];
+  for(var f=0;f<3;f++){
+    var r=boardPhoto(start+2+f);
+    frames+='<div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="'+r.src+'" alt="'+r.alt+'"><span class="render">RENDER</span><div class="ov"><img class="lg" src="/logo-white.png" alt="CITY JAM"><div class="big">'+bigs[f]+'</div></div></div></div>';
+  }
+  var strip='<section class="bsec bmedia"><div class="wrap"><div class="bposters">'+posters+'</div><div class="btiles">'+tiles+'</div><div class="phones">'+frames+'</div></div></section>';
+  return html.replace('</header>','</header>'+strip);
+}
+function dressCards(root,key){
+  var order={home:0,magazine:1,labs:2,teach:3,learn:4,ambassadors:5,hired:6,app:1,desks:4,partners:1,bookers:2,business:4,sync:5,studios:6,careers:2,print:3};
+  var n=(order[key]||0)+3;
+  root.querySelectorAll('.card, .trap, .bcard').forEach(function(el){
+    if(el.closest('.bhero')||el.querySelector('img')) return;
+    var p=boardPhoto(n++);
+    var fig=document.createElement('figure');
+    fig.className='tileph';
+    fig.innerHTML='<img src="'+p.src+'" alt="'+p.alt+'"><span class="render">RENDER</span>';
+    el.insertBefore(fig, el.firstChild);
+  });
+}
+
 function render(){
   var k=key(),v=V[k];
-  main.innerHTML='<div class="view on'+(v.dark?' dark':'')+'">'+v.html()+'</div>';
+  main.innerHTML='<div class="view on'+(v.dark?' dark':'')+'">'+boardify(v.html(),k)+'</div>';
+  dressCards(main,k);
   syncNav();
   document.querySelectorAll('nav .links a').forEach(function(a){a.classList.toggle('on',a.dataset.v===k)});
   setSeo(k);
@@ -4314,12 +4461,8 @@ function render(){
 }
 var darkNow=null;
 function syncNav(){
-  var first=main.querySelector('.sec-dark');
-  var dark=false;
-  if(first){var r=first.getBoundingClientRect();dark=(r.top<=64&&r.bottom>=64)}
-  if(dark===darkNow)return;darkNow=dark;
-  nav.classList.toggle('dk',dark);
-  navlogo.src=dark?LW:LP;
+  nav.classList.remove('dk');
+  if(navlogo) navlogo.src=LP;
 }
 window.addEventListener('scroll',syncNav,{passive:true});
 window.addEventListener('resize',syncNav);
