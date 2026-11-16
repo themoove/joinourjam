@@ -1925,11 +1925,14 @@ html.js body[data-move="pulse"] .live::after{
 .feed h3{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;font-size:30px;letter-spacing:-.02em;color:#F3F1EC;line-height:1.05;margin:0}
 @media(min-width:768px){.ccards{grid-template-columns:repeat(3,1fr)}}
 .pillar-grid{display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
-.pillar .lead{font-family:var(--disp);font-weight:800;font-size:clamp(26px,4vw,40px);line-height:1.15;letter-spacing:-.03em;color:#0B0B0B;max-width:16em}
+.pillar h2{font-family:var(--disp);font-weight:800;font-size:clamp(26px,4vw,40px);line-height:1.15;letter-spacing:-.03em;color:#0B0B0B;max-width:14em;margin:8px 0 0}
+.pillar .subline{margin-top:14px;font-size:17px;line-height:1.45;color:#6B6A66;max-width:34em}
 .pillar .quiet{display:inline-block;margin-top:18px}
 .pillar-shot{margin:0;background:#050505}
+.wrap>.pillar-shot,.wrap>.pillar-phone,.wrap>.hand{margin-top:22px}
+.wrap>.pillar-shot+h2,.wrap>.pillar-phone+h2,.wrap>.plist+h2{margin-top:26px}
 .pillar-shot img{width:100%;height:auto;display:block;filter:none!important}
-.quiet{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0B0B0B;border-bottom:1px solid #0B0B0B;padding-bottom:2px}
+.quiet{display:inline-block;margin-top:18px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0B0B0B;border-bottom:1px solid #0B0B0B;padding-bottom:2px}
 .plist{display:grid;gap:12px;margin-top:28px}
 .plist a{display:block;border:1px solid #D9D6CF;padding:18px 16px;color:#0B0B0B}
 .plist a b{display:block;font-family:var(--disp);font-weight:800;font-size:22px;letter-spacing:-.03em;margin-bottom:6px}
@@ -2696,76 +2699,81 @@ V.home={html:function(){return ''
 +'<p class="lead">Your story begins now.</p>'
 +'<div class="acts"><a class="btn solid act" href="#door">Get a direct call with Pat</a></div>'
 +'</header>'
-+pillarHome('Fans','/fans','Inside, the track plays first.',HAND,false)
-+pillarHome('Data','/data','Royalty statements and stream counts leave a lot out.',shot('stage-hand',ALT_STAGE,'pillar-shot'),true)
-+pillarHome('Access','/access','Pass the standard.','<div class="pillar-phone">'+shot('app-phone-hand',ALT_APP,'pillar-shot')+'</div>',false)
-+pillarHome('Community','/community','Musicians from every genre, met in person at CITY JAM nights.',shot('community-room',ALT_ROOM,'pillar-shot'),true)
++'<section><div class="wrap narrow">'
++'<p class="lead">CITY JAM\u2122 is the creative ecosystem that develops whole artists and connects them to the industry.</p>'
++'</div></section>'
++pillarHome('Fans','/fans','The people already listening.','',HAND,false)
++pillarHome('Data','/data','The prep comes first.','We sit down with you before each season and plan what it needs.',shot('stage-hand',ALT_STAGE,'pillar-shot'),true)
++pillarHome('Access','/access','Where the record gets made.','','<div class="pillar-phone">'+shot('app-phone-hand',ALT_APP,'pillar-shot')+'</div>',false)
++pillarHome('Community','/community','Your scene.','',shot('community-room',ALT_ROOM,'pillar-shot'),true)
++'<section><div class="wrap narrow">'
++'<p class="kick"><span class="dot"></span> Creator Labs | Membership</p>'
++'<h2>For the record and the tour.</h2>'
++'<a class="quiet" href="/labs" data-nav>Creator Labs</a>'
++'</div></section>'
++'<section><div class="wrap narrow">'
++'<blockquote class="mq">\u201cSo, you. If you\u2019re reading this and it resonates, come join us. Let\u2019s change the game and invent new rules. TOGETHER.\u201d</blockquote>'
++'<p class="credit">Pat Villaceran, founder of CITY JAM</p>'
++'<a class="quiet" href="/manifesto" data-nav>The manifesto</a>'
++'</div></section>'
 +'<section class="door" id="door"><div class="wrap narrow">'
 +'<div class="acts"><a class="btn solid act" href="#">Get a direct call with Pat</a></div>'
 +'<p class="hold">Coming soon</p>'
 +'</div></section>'
 }};
-function pillarHome(name,href,line,media,flip){
+function pillarHome(name,href,headline,sub,media,flip){
   return '<section class="pillar'+(flip?' flip':'')+'"><div class="wrap pillar-grid">'
     +media
     +'<div class="pillar-copy"><p class="kick"><span class="dot"></span> '+name+'</p>'
-    +'<p class="lead">'+line+'</p>'
+    +'<h2>'+headline+'</h2>'
+    +(sub?'<p class="subline">'+sub+'</p>':'')
     +'<a class="quiet" href="'+href+'" data-nav>'+name+'</a>'
     +'</div></div></section>';
 }
-function thread(){
-  return '<p class="thread">Your masters. Your career and business. <span class="hold">[NEEDS COPY]</span></p>';
-}
 V.fans={html:function(){return ''
 +'<section><div class="wrap">'
-+'<p class="kick"><span class="dot"></span> Fans</p>'
-+'<h1>Fans.</h1>'
-+'<p class="lead">Inside, the track plays first.</p>'
++'<p class="kick"><span class="dot"></span> REBELS AND LEGENDS.</p>'
++'<h1>Straight to the front row.</h1>'
 +HAND
 +'<div class="plist">'
 +'<a href="/app" data-nav><b>The app.</b><span>Inside, the track plays first.</span></a>'
-+'<a href="/rebels-and-legends/tour"><b>The tour.</b><span>Play where you\u2019re already heard.</span></a>'
 +'</div>'
-+thread()
++'<h2>Play where you\u2019re already heard.</h2>'
++'<p class="lead">Creator Labs plans the season from where your listeners are.</p>'
++'<p class="fine">No booking, fee or deal is promised.</p>'
++'<a class="quiet" href="/rebels-and-legends/tour">The tour</a>'
 +'</div></section>'
 }};
 V.data={html:function(){return ''
 +'<section><div class="wrap">'
-+'<p class="kick"><span class="dot"></span> Data</p>'
-+'<h1>Data.</h1>'
-+'<p class="lead">Royalty statements and stream counts leave a lot out.</p>'
++'<p class="kick"><span class="dot"></span> REBELS AND LEGENDS.</p>'
++'<h1>The season starts at the table.</h1>'
++'<p class="lead">We sit down with you before each season and plan what it needs.</p>'
 +shot('stage-hand',ALT_STAGE,'pillar-shot')
-+'<div class="plist">'
-+'<a href="/labs" data-nav><b>Creator Labs.</b><span>We plan your releases and live dates with you as one piece of work.</span></a>'
-+'</div>'
-+'<p class="thread">The dashboard. <span class="hold">[NEEDS COPY]</span></p>'
-+thread()
++'<h2>Creator Labs.</h2>'
++'<p class="lead">A live cohort that looks at everything you make.</p>'
++'<p class="lead">We plan your releases and live dates with you as one piece of work.</p>'
++'<p class="fine">Not a record deal or distribution. No outcome is promised.</p>'
++'<a class="quiet" href="/labs" data-nav>Creator Labs</a>'
 +'</div></section>'
 }};
 V.access={html:function(){return ''
 +'<section><div class="wrap">'
-+'<p class="kick"><span class="dot"></span> Access</p>'
-+'<h1>Access.</h1>'
-+'<p class="lead">Pass the standard.</p>'
++'<p class="kick"><span class="dot"></span> REBELS AND LEGENDS.</p>'
++'<h1>Judged on the sound.</h1>'
++'<p class="lead">Every room and every pitch starts with the record.</p>'
 +'<div class="pillar-phone">'+shot('app-phone-hand',ALT_APP,'pillar-shot')+'</div>'
-+'<div class="plist">'
-+'<a href="/studios" data-nav><b>Certified Studios.</b><span>Pass the standard.</span></a>'
-+'<a href="/sync" data-nav><b>Sync.</b><span>The right scene.</span></a>'
-+'</div>'
-+thread()
++'<h2>Pass the standard.</h2>'
++'<a class="quiet" href="/studios" data-nav>Certified Studios</a>'
 +'</div></section>'
 }};
 V.community={html:function(){return ''
 +'<section><div class="wrap">'
-+'<p class="kick"><span class="dot"></span> Community</p>'
-+'<h1>Community.</h1>'
-+'<p class="lead">Musicians from every genre, met in person at CITY JAM nights.</p>'
++'<p class="kick"><span class="dot"></span> REBELS AND LEGENDS.</p>'
++'<h1>Musicians in your city.</h1>'
++'<p class="lead">From every genre, met in person at CITY JAM nights.</p>'
 +shot('community-room',ALT_ROOM,'pillar-shot')
-+'<div class="plist">'
-+'<a href="/ambassadors" data-nav><b>Music Ambassadors.</b><span>Your city. You make the calls.</span></a>'
-+'<a href="/magazine" data-nav><b>The Magazine.</b><span class="hold">[NEEDS COPY]</span></a>'
-+'</div>'
-+thread()
++'<a class="quiet" href="/ambassadors" data-nav>Music Ambassadors</a>'
 +'</div></section>'
 }};
 V.magazine={html:function(){return ''
@@ -2881,10 +2889,8 @@ V.ambassadors={html:function(){return ''
 +'</header>'
 +'<section><div class="wrap">'
 +'<div class="cards c3">'
-+'<div class="card"><h3>The app, free.</h3><p>'+HOLD+'</p></div>'
 +'<div class="card"><h3>Your city.</h3><p>You make the calls.</p></div>'
 +'</div>'
-+'<p class="hold">Coming soon</p>'
 +'</div></section>'
 +'<section id="apply"><div class="wrap narrow">'
 +'<h2>Apply for your city.</h2>'
@@ -4098,10 +4104,10 @@ function bindForm(){
    fixes browser tabs, history and bookmarks, and it is exactly the
    data a pre-render step would consume if you move to real paths. */
 var SEO={
- 'fans':      ['Fans \u00b7 CITY JAM\u2122','Inside, the track plays first.'],
- 'data':      ['Data \u00b7 CITY JAM\u2122','Royalty statements and stream counts leave a lot out.'],
- 'access':    ['Access \u00b7 CITY JAM\u2122','Pass the standard.'],
- 'community': ['Community \u00b7 CITY JAM\u2122','Musicians from every genre, met in person at CITY JAM nights.'],
+ 'fans':      ['Fans \u00b7 CITY JAM\u2122','Straight to the front row.'],
+ 'data':      ['Data \u00b7 CITY JAM\u2122','We sit down with you before each season and plan what it needs.'],
+ 'access':    ['Access \u00b7 CITY JAM\u2122','Judged on the sound.'],
+ 'community': ['Community \u00b7 CITY JAM\u2122','From every genre, met in person at CITY JAM nights.'],
  'home':      ['CITY JAM\u2122 \u00b7 Hello rebel. Hello legend.','CITY JAM\u2122 is the creative ecosystem that develops whole artists and connects them to the industry, through Creator Labs live cohorts and Maestro courses.'],
  'magazine':  ['The Magazine \u00b7 CITY JAM','Coming soon.'],
  'desks':     ['The Desks \u00b7 CITY JAM','Ten desks, one standard. Teardowns, scene reports, craft.'],
