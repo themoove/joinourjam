@@ -1882,6 +1882,36 @@ html.js body[data-move="pulse"] .live::after{
   content:"";position:absolute;inset:-9px;border-radius:999px;border:1px solid #8B3FD1;
   pointer-events:none;animation:wave 2.6s cubic-bezier(.22,.61,.36,1) infinite}
 @keyframes wave{0%{transform:scale(.88);opacity:.8}100%{transform:scale(1.28);opacity:0}}
+.concept{background:#F3F1EC;color:#0B0B0B}
+.concept h1{max-width:14ch}
+.ccards{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+.ccard{display:flex;flex-direction:column;gap:8px;border:1px solid #D9D6CF;padding:22px;min-height:200px;color:#0B0B0B;background:#F3F1EC}
+.ccard b{font-size:28px;letter-spacing:-.03em;line-height:1}
+.ccard span{color:#6B6A66;font-size:16px;line-height:1.45}
+.stage{display:flex;justify-content:center;padding:8px 0 28px}
+.proto{width:min(390px,100%);background:#0B0B0B;color:#F3F1EC;border-radius:36px;padding:22px 18px 20px;min-height:700px}
+.view section.pscreen{display:flex;flex-direction:column;gap:16px;min-height:640px;background:#0B0B0B;color:#F3F1EC;border:0;padding:0;margin:0}
+.view .pscreen h2,.view .stat b,.view .feed h3{color:#F3F1EC}
+.view .pscreen .lead{color:rgba(243,241,236,.84)}
+.view .stat span,.view .sample{color:#C8C4BC}
+.pscreen[hidden]{display:none!important}
+.sample{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C8C4BC;margin:0}
+.proto h2{color:#F3F1EC;font-size:clamp(32px,8vw,42px);margin:0;max-width:12ch}
+.proto .lead{color:rgba(243,241,236,.84);font-size:16px;line-height:1.45;max-width:34ch}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{border:1px solid rgba(243,241,236,.28);padding:14px;border-radius:0}
+.stat b{display:block;font-size:22px;letter-spacing:-.03em;color:#F3F1EC;font-weight:800}
+.stat span{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#C8C4BC}
+.round3{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:auto}
+.round3 button{width:74px;height:74px;border-radius:50%;border:1px solid #F3F1EC;background:transparent;color:#F3F1EC;font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:13px;cursor:pointer}
+.round3 button.act{width:92px;height:92px;background:#F3F1EC;color:#0B0B0B;border-color:#F3F1EC}
+.proto .btn{cursor:pointer}
+.proto .btn.solid{background:#F3F1EC;color:#0B0B0B;border-color:#F3F1EC}
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rooms button{aspect-ratio:1;border:1px solid rgba(243,241,236,.45);background:transparent;color:#F3F1EC;font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.03em;border-radius:0;cursor:pointer}
+.rooms button.act{background:#F3F1EC;color:#0B0B0B;border-color:#F3F1EC}
+.feed h3{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;font-size:30px;letter-spacing:-.02em;color:#F3F1EC;line-height:1.05;margin:0}
+@media(min-width:768px){.ccards{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:800px){.owngrid{grid-template-columns:1fr;justify-items:center}.owncopy{text-align:left;width:100%}}
 @media(prefers-reduced-motion:reduce){
   #veil{display:none!important}
@@ -2398,14 +2428,14 @@ function drawMap(){
 function crate(){
   return '<div class="btiles">'+DESKS.map(function(d,i){
     var p=boardPhoto(i);
-    return '<a class="tile" href="/desks" data-nav><img src="'+p.src+'" alt="'+p.alt+'"><span class="render">RENDER</span><span class="ov"><span class="mono">'+d.tag+'</span><b>'+d.n+'</b></span></a>';
+    return '<a class="tile" href="/desks" data-nav><img src="'+p.src+'" alt="'+p.alt+'"><span class="ov"><span class="mono">'+d.tag+'</span><b>'+d.n+'</b></span></a>';
   }).join('')+'</div>';
 }
 function deskGrid(n){
   var d=n?DESKS.slice(0,n):DESKS;
   return '<div class="btiles">'+d.map(function(x,i){
     var p=boardPhoto(i+2);
-    return '<a class="tile" href="/desks" data-nav><img src="'+p.src+'" alt="'+p.alt+'"><span class="render">RENDER</span><span class="ov"><span class="mono">'+x.tag+'</span><b>'+x.n+'</b></span></a>';
+    return '<a class="tile" href="/desks" data-nav><img src="'+p.src+'" alt="'+p.alt+'"><span class="ov"><span class="mono">'+x.tag+'</span><b>'+x.n+'</b></span></a>';
   }).join('')+'</div>';
 }
 function playlists(n){
@@ -2423,7 +2453,7 @@ var TIERS=[
   has:['<b>Echo Roulette</b> \u2014 matched with a stranger by ear. Two of you, one take, live and blind.',
        'The app itself, on your phone, free',
        'No card, no trial clock, no countdown'],
-  hasnt:[], cta:'Get Signal \u2014 free', href:'#/circle'},
+  hasnt:[], cta:'Get Signal \u2014 free', href:'/circle'},
  {n:'B', name:'Magazine', price:'&pound;18', unit:'/month', feat:true, tag:'Read it now',
   lede:'The one thing here you can actually have today. Every issue, every desk, every teardown \u2014 the whole magazine, live now, while the rest of this is still being built.',
   has:['Everything in Signal',
@@ -2439,7 +2469,7 @@ var TIERS=[
        '<b>The social feed</b> \u2014 what the people you follow are making',
        '<b>A few stories a month</b> from the magazine, in the app'],
   hasnt:['Hosting your own jams','The full workstation \u2014 stems, mixes, version history'],
-  cta:'Join the waitlist', href:'#/circle'},
+  cta:'Join the waitlist', href:'/circle'},
  {n:'D', name:'Studio', price:'&pound;88', unit:'/month', tag:'The full kit',
   lede:'The complete workstation. Host the jam, run the session, keep every version, and put the record out from the same place you made it.',
   has:['Everything in Resident',
@@ -2447,7 +2477,7 @@ var TIERS=[
        '<b>The full workstation</b> \u2014 stems, mixes, feedback, version history',
        '<b>The whole magazine</b>, no meter',
        '<b>Marketplace</b> \u2014 turn the sound into paid work'],
-  hasnt:[], cta:'Join the waitlist', href:'#/circle'}
+  hasnt:[], cta:'Join the waitlist', href:'/circle'}
 ];
 function tierShelf(){
   return '<div class="shelf fade">'+TIERS.map(function(t){
@@ -2462,7 +2492,7 @@ function tierShelf(){
        +'<p class="rlede">'+t.lede+'</p>'
        +'<ul class="rhas">'+t.has.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'
        +(t.hasnt.length?'<ul class="rnot">'+t.hasnt.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>':'')
-       +'<a class="btn '+(t.feat?'solid':'ghost')+'" href="'+t.href+'" data-nav>'+t.cta+'</a>'
+       +'<a class="btn '+(t.feat?'solid':'ghost')+'" href="'+t.href+'"'+(/^https?:/i.test(t.href)?' target="_blank" rel="noopener"':' data-nav')+'>'+t.cta+'</a>'
      +'</div></div>';
   }).join('')+'</div>';
 }
@@ -2885,6 +2915,136 @@ V.app={html:function(){return ''
 +'</header>'
 +'<section class="own"><div class="wrap owngrid">'
 +HANDP
++'<p class="fine"><a href="/app/concepts" data-nav>Three concepts for the app</a></p>'
++'</div></section>'
+}};
+function pscreen(id, body, on){
+  return '<section class="pscreen" data-screen="'+id+'"'+(on?'':' hidden')+'>'
+    +'<p class="sample">Sample data</p>'+body+'</section>';
+}
+function goBtn(label, to, primary){
+  return '<button type="button" class="btn solid'+(primary?' act':'')+'" data-screen-go="'+to+'">'+label+'</button>';
+}
+V['app/concepts']={html:function(){return ''
++'<section class="concept"><div class="wrap">'
++'<p class="kick"><span class="dot"></span> The app</p>'
++'<h1>Three ways to see the career.</h1>'
++'<p class="lead">Each concept is a phone. The numbers are sample data. The artist is established, and the work crosses fields.</p>'
++'<div class="ccards">'
++'<a class="ccard" href="/app/concepts/a" data-nav><span class="kick">Concept A</span><b>Command</b><span>One calm dashboard, and three round buttons.</span></a>'
++'<a class="ccard" href="/app/concepts/b" data-nav><span class="kick">Concept B</span><b>Studio Notebook</b><span>An editorial feed of the career.</span></a>'
++'<a class="ccard" href="/app/concepts/c" data-nav><span class="kick">Concept C</span><b>The House</b><span>Rooms for Art, Fans, Live and Business.</span></a>'
++'</div>'
++'<p class="fine"><a href="/app" data-nav>The app</a></p>'
++'</div></section>'
+}};
+V['app/concepts/a']={html:function(){return ''
++'<section class="concept"><div class="wrap">'
++'<p class="kick"><a href="/app/concepts" data-nav>App concepts</a></p>'
++'<h1>Command.</h1>'
++'<p class="lead">One dashboard for the career and the business. Tap a button to go further.</p>'
++'<div class="stage"><div class="proto" id="proto" data-start="home">'
++pscreen('home',
+  '<h2>The whole career.</h2>'
+  +'<p class="lead">Fans, the catalogue, the next room, and the business. One view.</p>'
+  +'<div class="statgrid">'
+  +'<div class="stat"><b>128,400</b><span>Fans</span></div>'
+  +'<div class="stat"><b>£42,600</b><span>Royalties, this quarter</span></div>'
+  +'<div class="stat"><b>14 Mar</b><span>Next room, 1,800 seats</span></div>'
+  +'<div class="stat"><b>2</b><span>Agreements open</span></div>'
+  +'</div>'
+  +'<div class="round3">'
+  +'<button type="button" data-screen-go="fans">Fans</button>'
+  +'<button type="button" class="act" data-screen-go="work">Work</button>'
+  +'<button type="button" data-screen-go="live">Live</button>'
+  +'</div>', true)
++pscreen('fans',
+  '<h2>The fans.</h2>'
+  +'<p class="lead">128,400 people across 46 cities. 2,400 heard something new this week.</p>'
+  +'<div class="statgrid"><div class="stat"><b>46</b><span>Cities</span></div><div class="stat"><b>2,400</b><span>New this week</span></div></div>'
+  +'<div class="acts">'+goBtn('The catalogue','work',true)+'</div>')
++pscreen('work',
+  '<h2>The catalogue.</h2>'
+  +'<p class="lead">36 releases. Royalties this quarter, £42,600. The recordings stay with the artist.</p>'
+  +'<div class="statgrid"><div class="stat"><b>36</b><span>Releases</span></div><div class="stat"><b>£42,600</b><span>This quarter</span></div></div>'
+  +'<div class="acts">'+goBtn('The date','live',true)+'</div>')
++pscreen('live',
+  '<h2>The date.</h2>'
+  +'<p class="lead">14 March. A room of 1,800. The route follows where people are already listening.</p>'
+  +'<div class="acts">'+goBtn('The business','business',true)+'</div>')
++pscreen('business',
+  '<h2>The business.</h2>'
+  +'<p class="lead">Two agreements open. The figures stay with you. Music, and the work beside it.</p>'
+  +'<div class="statgrid"><div class="stat"><b>2</b><span>Open</span></div><div class="stat"><b>1</b><span>Field beside music</span></div></div>'
+  +'<div class="acts">'+goBtn('Command','home',true)+'</div>')
++'</div></div>'
++'<p class="fine"><a href="/app/concepts" data-nav>All concepts</a></p>'
++'</div></section>'
+}};
+V['app/concepts/b']={html:function(){return ''
++'<section class="concept"><div class="wrap">'
++'<p class="kick"><a href="/app/concepts" data-nav>App concepts</a></p>'
++'<h1>Studio Notebook.</h1>'
++'<p class="lead">The career, read as an issue. Five pages. All figures are sample data.</p>'
++'<div class="stage"><div class="proto" id="proto" data-start="cover">'
++pscreen('cover',
+  '<p class="kick" style="color:#C8C4BC">Issue 00</p>'
+  +'<div class="feed"><h3>This week in the career.</h3></div>'
+  +'<p class="lead">A page for the fans, the release, the room, and the books.</p>'
+  +'<div class="acts">'+goBtn('Open the issue','fans',true)+'</div>', true)
++pscreen('fans',
+  '<div class="feed"><h3>Who is listening.</h3></div>'
+  +'<p class="lead">128,400 fans. 46 cities. They found the work, then the name.</p>'
+  +'<div class="acts">'+goBtn('The release','release',true)+'</div>')
++pscreen('release',
+  '<div class="feed"><h3>The record, this quarter.</h3></div>'
+  +'<p class="lead">36 releases in the catalogue. £42,600 in royalties, marked as sample.</p>'
+  +'<div class="acts">'+goBtn('The room','live',true)+'</div>')
++pscreen('live',
+  '<div class="feed"><h3>14 March.</h3></div>'
+  +'<p class="lead">One room. 1,800 seats. The date sits where the listeners already are.</p>'
+  +'<div class="acts">'+goBtn('The books','books',true)+'</div>')
++pscreen('books',
+  '<div class="feed"><h3>The business, in brief.</h3></div>'
+  +'<p class="lead">Two agreements open. Music, and the work beside it. The numbers stay on this page.</p>'
+  +'<div class="acts">'+goBtn('The cover','cover',true)+'</div>')
++'</div></div>'
++'<p class="fine"><a href="/app/concepts" data-nav>All concepts</a></p>'
++'</div></section>'
+}};
+V['app/concepts/c']={html:function(){return ''
++'<section class="concept"><div class="wrap">'
++'<p class="kick"><a href="/app/concepts" data-nav>App concepts</a></p>'
++'<h1>The House.</h1>'
++'<p class="lead">Four rooms. Art, Fans, Live, Business. Tap a door.</p>'
++'<div class="stage"><div class="proto" id="proto" data-start="hall">'
++pscreen('hall',
+  '<h2>The hall.</h2>'
+  +'<p class="lead">Choose a room. The career is the house.</p>'
+  +'<div class="rooms">'
+  +'<button type="button" class="act" data-screen-go="art">Art</button>'
+  +'<button type="button" data-screen-go="fans">Fans</button>'
+  +'<button type="button" data-screen-go="live">Live</button>'
+  +'<button type="button" data-screen-go="business">Business</button>'
+  +'</div>', true)
++pscreen('art',
+  '<h2>Art.</h2>'
+  +'<p class="lead">36 releases, and the work beside the music. One practice, more than one room.</p>'
+  +'<div class="acts">'+goBtn('Fans','fans',true)+'</div>')
++pscreen('fans',
+  '<h2>Fans.</h2>'
+  +'<p class="lead">128,400 people. 46 cities. 2,400 new this week.</p>'
+  +'<div class="acts">'+goBtn('Live','live',true)+'</div>')
++pscreen('live',
+  '<h2>Live.</h2>'
+  +'<p class="lead">14 March. 1,800 seats. The room follows the listeners.</p>'
+  +'<div class="acts">'+goBtn('Business','business',true)+'</div>')
++pscreen('business',
+  '<h2>Business.</h2>'
+  +'<p class="lead">£42,600 this quarter, sample only. Two agreements open. The figures stay here.</p>'
+  +'<div class="acts">'+goBtn('The hall','hall',true)+'</div>')
++'</div></div>'
++'<p class="fine"><a href="/app/concepts" data-nav>All concepts</a></p>'
 +'</div></section>'
 }};
 V.hired={html:function(){return ''
@@ -3902,6 +4062,10 @@ var SEO={
  'ambassadors':['CITY JAM\u2122 Music Ambassadors','Working musicians who run CITY JAM in their city.'],
  'manifesto': ['The CITY JAM\u2122 manifesto','The manifesto.'],
  'app':       ['The CITY JAM\u2122 app','The app CITY JAM members work in.'],
+ 'app/concepts': ['App concepts \u00b7 CITY JAM','Three ways to see the career. Sample data only.'],
+ 'app/concepts/a': ['Command \u00b7 CITY JAM','A calm dashboard for the career and the business.'],
+ 'app/concepts/b': ['Studio Notebook \u00b7 CITY JAM','An editorial feed of the career. Sample data only.'],
+ 'app/concepts/c': ['The House \u00b7 CITY JAM','Rooms for Art, Fans, Live and Business.'],
  'print':     ['The Magazine in print \u00b7 CITY JAM','Issue 001. Music as a culture, not a content category.'],
  'business':  ['For business \u00b7 CITY JAM','Everyone else\u2019s discovery is a popularity contest. Ours is a listening test.'],
  'sync':      ['Sync \u00b7 CITY JAM\u2122','Finished records, put forward for picture on the sound alone.'],
@@ -4006,6 +4170,32 @@ function dressCards(root,key){
 }
 
 
+function bindConcepts(){
+  var root=document.getElementById('proto');
+  if(!root) return;
+  function show(id){
+    var screens=root.querySelectorAll('.pscreen');
+    var found=false;
+    screens.forEach(function(s){ if(s.getAttribute('data-screen')===id) found=true; });
+    if(!found) id=root.getAttribute('data-start')||'home';
+    screens.forEach(function(s){
+      var on=s.getAttribute('data-screen')===id;
+      if(on) s.removeAttribute('hidden'); else s.setAttribute('hidden','');
+    });
+    root.querySelectorAll('.live').forEach(function(el){ el.classList.remove('live'); });
+    var primary=root.querySelector('.pscreen:not([hidden]) .act');
+    if(primary && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      primary.classList.add('live');
+      if(document.body.dataset.move!=='listen') document.body.dataset.move='pulse';
+    }
+  }
+  root.addEventListener('click', function(e){
+    var b=e.target.closest('[data-screen-go]');
+    if(!b || !root.contains(b)) return;
+    show(b.getAttribute('data-screen-go'));
+  });
+  show(root.getAttribute('data-start')||'home');
+}
 function bindMotion(){
   var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('js');
@@ -4071,7 +4261,7 @@ function render(){
   setSeo(k);
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
   main.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
-  bindCrate();bindForm();bindSvc();bindAmb();bindKit();bindSub();bindAll();bindGf();bindRdr();bindHp();bindCert();bindPaper();bindNeedle();drawMap();bindMotion();window.scrollTo(0,0);darkNow=null;syncNav();
+  bindCrate();bindForm();bindSvc();bindAmb();bindKit();bindSub();bindAll();bindGf();bindRdr();bindHp();bindCert();bindPaper();bindNeedle();drawMap();bindConcepts();bindMotion();window.scrollTo(0,0);darkNow=null;syncNav();
 }
 var darkNow=null;
 function syncNav(){
@@ -4092,7 +4282,9 @@ function go(href){
 document.addEventListener('click',function(e){
   var a=e.target.closest('a');if(!a)return;
   var href=a.getAttribute('href')||'';
-  if(a.hasAttribute('data-nav')){e.preventDefault();mob.classList.remove('on');
+  if(a.hasAttribute('data-nav')){
+    if(/^https?:/i.test(href)) return;
+    e.preventDefault();mob.classList.remove('on');
     var here=CANPUSH?location.pathname:('/'+(location.hash||'').replace(/^#\/?/,''));
     if(href===here){click();window.scrollTo({top:0,behavior:'smooth'});return}
     go(href);
