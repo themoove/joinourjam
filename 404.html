@@ -427,8 +427,9 @@ background:repeating-radial-gradient(circle at 50% 50%,rgba(125,11,160,.09) 0 1p
 .ok h3{font-size:22px;margin-bottom:8px}
 .ok p{color:var(--mut);font-size:15px;max-width:38ch;margin:0 auto}
 footer{background:var(--ink);color:rgba(255,255,255,.66);padding:62px 0 34px}
-footer .ft{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
-@media(max-width:840px){footer .ft{grid-template-columns:1fr 1fr}}
+footer .ft{display:grid;grid-template-columns:repeat(5,1fr);gap:28px 22px}
+footer .ft>div:first-child{grid-column:1/-1;max-width:420px}
+@media(max-width:840px){footer .ft{grid-template-columns:1fr 1fr}footer .ft>div:first-child{grid-column:1/-1}}
 footer .fl{height:24px;margin-bottom:14px}
 footer .tg{font-size:14px;max-width:34ch}
 footer h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:12px}
@@ -1863,6 +1864,7 @@ html.js .bmedia.listen-pic.in .screen>img{clip-path:inset(0)}
 .standard li:last-child{border-bottom:1px solid #D9D6CF}
 .standard li::before{content:"";position:absolute;left:0;top:16px;width:14px;height:14px;border:1px solid #0B0B0B;background:transparent;border-radius:0}
 .door{background:#0B0B0B;color:#F3F1EC}
+.view section.door{background:#0B0B0B;color:#F3F1EC;border-bottom-color:#0B0B0B}
 .door h2{color:#F3F1EC}
 .door .lead{color:rgba(243,241,236,.82)}
 .door .hold{color:rgba(243,241,236,.62)}
@@ -1922,7 +1924,24 @@ html.js body[data-move="pulse"] .live::after{
 .rooms button.act{background:#F3F1EC;color:#0B0B0B;border-color:#F3F1EC}
 .feed h3{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;font-size:30px;letter-spacing:-.02em;color:#F3F1EC;line-height:1.05;margin:0}
 @media(min-width:768px){.ccards{grid-template-columns:repeat(3,1fr)}}
-.own-only{grid-template-columns:1fr;justify-items:center}
+.pillar-grid{display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+.pillar .lead{font-family:var(--disp);font-weight:800;font-size:clamp(26px,4vw,40px);line-height:1.15;letter-spacing:-.03em;color:#0B0B0B;max-width:16em}
+.pillar .quiet{display:inline-block;margin-top:18px}
+.pillar-shot{margin:0;background:#050505}
+.pillar-shot img{width:100%;height:auto;display:block;filter:none!important}
+.quiet{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0B0B0B;border-bottom:1px solid #0B0B0B;padding-bottom:2px}
+.plist{display:grid;gap:12px;margin-top:28px}
+.plist a{display:block;border:1px solid #D9D6CF;padding:18px 16px;color:#0B0B0B}
+.plist a b{display:block;font-family:var(--disp);font-weight:800;font-size:22px;letter-spacing:-.03em;margin-bottom:6px}
+.plist a:hover{border-color:#0B0B0B}
+.pillar-phone{width:min(420px,100%);margin:0 auto}
+.plist a span{color:#6B6A66;font-size:16px;line-height:1.4}
+.thread{margin-top:28px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6B6A66}
+@media(min-width:900px){
+  .pillar-grid{grid-template-columns:1.05fr .95fr;gap:48px}
+  .pillar.flip .pillar-copy{order:-1}
+}
+@media(max-width:480px){footer .ft{grid-template-columns:1fr}}
 @media(max-width:800px){.owngrid{grid-template-columns:1fr;justify-items:center}.owncopy{text-align:left;width:100%}}
 @media(prefers-reduced-motion:reduce){
   #veil{display:none!important}
@@ -1940,47 +1959,32 @@ html.js body[data-move="pulse"] .live::after{
 <nav id="nav"><div class="wrap"><div class="row">
   <a href="/" data-nav><img class="logo" id="navlogo" src="/logo-black.png" alt="CITY JAM"></a>
   <div class="links">
-    <div class="slot"><span>Get heard</span><div class="menu">
-      <a href="/magazine" data-nav data-v="magazine">The Magazine</a>
-      <a href="/ambassadors" data-nav data-v="ambassadors">Music Ambassadors</a>
-      <a href="/sync" data-nav data-v="sync">Sync</a>
-    </div></div>
-    <div class="slot"><span>Your fans</span><div class="menu">
-      <a href="/labs" data-nav data-v="labs">Creator Labs</a>
-      <a href="/teach" data-nav data-v="teach">Become a Maestro</a>
-    </div></div>
-    <div class="slot"><span>Play live</span><div class="menu">
-      <a href="/rebels-and-legends/tour">The tour</a>
-      <a href="/studios" data-nav data-v="studios">Certified Studios</a>
-    </div></div>
-    <div class="slot"><span>Learn</span><div class="menu">
-      <a href="/learn" data-nav data-v="learn">SKEWL//HAUS</a>
-    </div></div>
-    <a href="/manifesto" data-nav data-v="manifesto">Manifesto</a>
+    <a href="/fans" data-nav data-v="fans">Fans</a>
+    <a href="/data" data-nav data-v="data">Data</a>
+    <a href="/access" data-nav data-v="access">Access</a>
+    <a href="/community" data-nav data-v="community">Community</a>
+    <a href="/app" data-nav data-v="app">The app</a>
   </div>
-  <div class="cta"><span class="snd" id="snd">&#9834; on</span><a class="btn solid" href="#">Get a direct call with Pat</a>
+  <div class="cta"><span class="snd" id="snd">&#9834; on</span><a class="btn solid" href="/labs" data-nav>Apply</a>
   <span class="burger" id="burger"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5h16M2 10h16M2 15h16"/></svg></span></div>
 </div></div></nav>
 <div id="mob">
-  <div class="mgrp first">Get heard</div>
-  <a href="/magazine" data-nav>The Magazine</a><a href="/ambassadors" data-nav>Music Ambassadors</a><a href="/sync" data-nav>Sync</a>
-  <div class="mgrp">Your fans</div>
-  <a href="/labs" data-nav>Creator Labs</a><a href="/teach" data-nav>Become a Maestro</a>
-  <div class="mgrp">Play live</div>
-  <a href="/rebels-and-legends/tour">The tour</a><a href="/studios" data-nav>Certified Studios</a>
-  <div class="mgrp">Learn</div>
-  <a href="/learn" data-nav>SKEWL//HAUS</a>
-  <div class="mgrp">Manifesto</div>
-  <a href="/manifesto" data-nav>Manifesto</a>
+  <a href="/fans" data-nav>Fans</a>
+  <a href="/data" data-nav>Data</a>
+  <a href="/access" data-nav>Access</a>
+  <a href="/community" data-nav>Community</a>
+  <a href="/app" data-nav>The app</a>
+  <a href="/labs" data-nav>Apply</a>
 </div>
 <main id="main"></main>
 <footer><div class="wrap"><div class="ft">
   <div><img class="fl" src="/logo-white.png" alt="CITY JAM"><div class="tg">The only thing that counts is the sound. Close your eyes and listen.</div></div>
-  <div class="col"><h4>Read &amp; hear</h4><a href="/magazine" data-nav>CITY JAM Magazine</a><a href="/desks" data-nav>The Desks</a><a href="/playlists" data-nav>Playlists</a><a href="/manifesto" data-nav>Manifesto</a><a href="/business" data-nav>For business</a></div>
-  <div class="col"><h4>Grow</h4><a href="/labs" data-nav>Creator Labs</a><a href="/teach" data-nav>Become a maestro</a><a href="/learn" data-nav>Learn</a><a href="/ambassadors" data-nav>Music Ambassadors</a><a href="/workbook" data-nav>Nobody&rsquo;s Looking</a><a href="/app" data-nav>The App</a></div>
-  <div class="col"><h4>More</h4><a href="/pricing" data-nav>Pricing</a><a href="/cities" data-nav>Cities</a><a href="/founders" data-nav>Founders</a></div>
-  <div class="col"><h4>For business</h4><a href="/sync" data-nav>Sync Studios</a><a href="/studios" data-nav>Certified Studios</a><a href="/partners" data-nav>Brand Partners</a><a href="/bookers" data-nav>Bookers</a><a href="/print" data-nav>The Magazine</a></div>
-</div><div class="base"><span>&copy; 2026 CITY JAM · Sound first, always.</span><span class="baseLinks"><a href="/terms" data-nav>Terms</a><a href="/privacy" data-nav>Privacy</a><a href="/careers" data-nav>Careers</a></span></div></div></footer>
+  <div class="col"><h4>Fans</h4><a href="/fans" data-nav>Fans</a><a href="/app" data-nav>The app</a><a href="/rebels-and-legends/tour">The tour</a><a href="/app/concepts" data-nav>App concepts</a></div>
+  <div class="col"><h4>Data</h4><a href="/data" data-nav>Data</a><a href="/labs" data-nav>Creator Labs</a><a href="/learn" data-nav>SKEWL//HAUS</a><a href="/teach" data-nav>Become a Maestro</a></div>
+  <div class="col"><h4>Access</h4><a href="/access" data-nav>Access</a><a href="/studios" data-nav>Certified Studios</a><a href="/sync" data-nav>Sync</a></div>
+  <div class="col"><h4>Community</h4><a href="/community" data-nav>Community</a><a href="/ambassadors" data-nav>Music Ambassadors</a><a href="/magazine" data-nav>The Magazine</a><a href="/manifesto" data-nav>Manifesto</a></div>
+  <div class="col"><h4>More</h4><a href="/desks" data-nav>The Desks</a><a href="/playlists" data-nav>Playlists</a><a href="/print" data-nav>The Magazine in print</a><a href="/workbook" data-nav>Nobody&rsquo;s Looking</a><a href="/cities" data-nav>Cities</a><a href="/pricing" data-nav>Pricing</a><a href="/founders" data-nav>Founders</a><a href="/hired" data-nav>Marketplace</a><a href="/partners" data-nav>Brand Partners</a><a href="/bookers" data-nav>Bookers</a><a href="/business" data-nav>For business</a><a href="/careers" data-nav>Careers</a></div>
+</div><div class="base"><span>&copy; 2026 CITY JAM · Sound first, always.</span><span class="baseLinks"><a href="/terms" data-nav>Terms</a><a href="/privacy" data-nav>Privacy</a></span></div></div></footer>
 <script>
 /* ============================================================
    TOP STORIES — placeholder copy. Swap for real posts, or fetch
@@ -2526,6 +2530,7 @@ function shot(file, alt, cls){
 }
 var ALT_HOME='A hand holding a black phone in a dark room. The screen reads CITY JAM above three round controls, the centre one glowing violet.';
 var ALT_APP='A hand holding a phone over a mixing desk. The screen reads CITY JAM above three round controls, the centre one violet.';
+var ALT_STAGE='A hand wrapped around a chrome microphone stand, with a small violet light in the dark behind it.';
 var ALT_ROOM='A dark listening room, seen from behind the seats. People in black face a panelled wall, two phones glowing violet, a white lamp to the side.';
 var HAND='<div class="hand">'+shot('home-phone-hand', ALT_HOME, 'handshot')+'</div>';
 var MAN="<p class=\"fade\">Somewhere along the way, we started deciding whether music was worth hearing before we'd heard a second of it.</p><p class=\"fade\">We look first. At the face, the fit, the follower count. At whether the numbers are already big enough to make it safe to care. At the city on the map, the age on the passport, the story that's easy to sell. By the time the music actually plays, the verdict's mostly in. The sound arrives last, if it arrives at all.</p><p class=\"fade\">Some of the best music being made right now is being made by people who will never clear that bar. Not because the music isn't good &mdash; because the maker doesn't look the part, or doesn't have the numbers yet, or lives in the wrong postcode, or started too late to make a good story. They're making the real thing in bedrooms and box rooms and borrowed studios, and almost no one will hear it, because the gate went up long before the play button.</p><p class=\"big fade\">We think that's backwards. So we're going to do it the other way round.</p><p class=\"fade\">At CITY JAM, the only thing that counts is the sound. Not the image. Not the following. Not where you're from or how old you are or who you happen to know. We want to hear the music first &mdash; and let it, and only it, decide.</p><p class=\"fade\">That's the whole idea, and it's a bigger one than it looks. Take image off the table and something shifts. The playing field tilts back toward the work. A pianist in Lisbon. A guitarist in Tokyo. A vocalist in Lagos. They arrive at the same starting line carrying nothing but what they made. A folk song and a drill beat get weighed on the same scale: does it move you, is it made well, does it mean it. Genre stops being a ranking. It's just the room the sound happens to be standing in.</p><p class=\"lead fade\"><b>Then they find each other.</b> The pianist hears the guitarist. The guitarist hears the vocalist. They play, it works, they keep going &mdash; and a band exists that no chart, no scout and no algorithm would ever have put in the same room. Nobody had to look at anybody to make that happen.</p><p class=\"lead fade\">That is where the history starts. Every band you love started as strangers who heard each other first.</p><p class=\"fade\">And here's the part we care about most. When image is off the table, the only way forward is to get better. The work becomes the point again. That's not a punishment &mdash; it's the best thing about any of this. Ask anyone why they started making music and it wasn't for the metrics. It was for the feeling of making the thing: getting a take to sit right, chasing a sound in your head until it finally comes out of the speakers.</p><p class=\"fade\">That feeling got buried. Making music turned into performing everything around it &mdash; the posting, the posing, the endless proving you exist. We want to dig the making back out.</p><p class=\"fade\">The magazine is how we start. We write about music the way you'd talk about it with someone who actually makes it &mdash; from inside the room, into the real decisions, the take, the mix, the one small move that makes a track land. We'll take a bedroom producer as seriously as anyone with a chart position, because seriousness is a form of respect and the work has earned it. We won't deal in hype, and we won't hand out praise that isn't earned by something you can hear. When we tell you something is good, we'll tell you exactly why &mdash; and you'll be able to go and hear it for yourself.</p><p class=\"big fade\">This is a room, and the door is open. The volume is up, and the only thing anyone in here is listening to is the sound \u2014 built by the people who walk in, not handed to them.</p><p class=\"fade\">So here is the real invitation. CITY JAM is a movement, and we are building it with you, not for you \u2014 your music brought into a room that judges it on nothing but itself, made better in the open, and put in front of the people who were listening for it. You are already part of this. Close your eyes and listen. Then play us something.</p>";
@@ -2691,48 +2696,76 @@ V.home={html:function(){return ''
 +'<p class="lead">Your story begins now.</p>'
 +'<div class="acts"><a class="btn solid act" href="#door">Get a direct call with Pat</a></div>'
 +'</header>'
-+'<section class="own"><div class="wrap owngrid own-only">'
-+HAND
-+'</div></section>'
-+'<section><div class="wrap">'
-+'<h2 class="kick"><span class="dot"></span> 01 \u00b7 Ownership | Yours</h2>'
-+'<h2>What we look after with you.</h2>'
-+'<p class="lead">For musicians who also act or make work in other fields, and treat all of it as one career. We sit down with you before each season and plan what it needs.</p>'
-+'<div class="cards c3" style="margin-top:28px">'
-+'<div class="card"><h3>Your fans.</h3><p>'+HOLD+'</p></div>'
-+'<div class="card"><h3>Your masters.</h3><p>'+HOLD+'</p></div>'
-+'<div class="card"><h3>Your data.</h3><p>'+HOLD+'</p></div>'
-+'<div class="card"><h3>Your access.</h3><p>'+HOLD+'</p></div>'
-+'<div class="card"><h3>Your community.</h3><p>Musicians from every genre, met in person at CITY JAM nights.</p></div>'
-+'<div class="card"><h3>Your career and business.</h3><p>'+HOLD+'</p></div>'
-+'</div>'
-+shot('community-room', ALT_ROOM, 'wide-shot')
-+'</div></section>'
-+'<section><div class="wrap narrow">'
-+'<h2 class="kick"><span class="dot"></span> 02 \u00b7 Visibility | The whole picture</h2>'
-+'<h2>See the whole career at once.</h2>'
-+'<p class="lead">Royalty statements and stream counts leave a lot out.</p>'
-+'</div></section>'
-+'<section><div class="wrap narrow">'
-+'<h2 class="kick"><span class="dot"></span> 03 \u00b7 Live | The tour</h2>'
-+'<h2>Play where you\u2019re already heard.</h2>'
-+'<p class="lead">Creator Labs plans the season from where your listeners are.</p>'
-+'<div class="acts"><a class="btn ghost" href="/rebels-and-legends/tour">The tour</a></div>'
-+'</div></section>'
-+'<section><div class="wrap narrow">'
-+'<h2 class="kick"><span class="dot"></span> 04 \u00b7 Creator Labs | Membership</h2>'
-+'<h2>For the record and the tour.</h2>'
-+'<p class="lead">Independent artists who release and play live can apply. Membership covers label work, with no record deal attached.</p>'
-+'<div class="acts"><a class="btn ghost" href="/labs" data-nav>Creator Labs</a></div>'
-+'</div></section>'
-+'<section><div class="wrap narrow">'
-+'<blockquote class="mq">\u201cSo, you. If you\u2019re reading this and it resonates, come join us. Let\u2019s change the game and invent new rules. TOGETHER.\u201d</blockquote>'
-+'<p class="credit">Pat Villaceran, founder of CITY JAM</p>'
-+'<div class="acts"><a class="btn ghost" href="/manifesto" data-nav>The manifesto</a></div>'
-+'</div></section>'
++pillarHome('Fans','/fans','Inside, the track plays first.',HAND,false)
++pillarHome('Data','/data','Royalty statements and stream counts leave a lot out.',shot('stage-hand',ALT_STAGE,'pillar-shot'),true)
++pillarHome('Access','/access','Pass the standard.','<div class="pillar-phone">'+shot('app-phone-hand',ALT_APP,'pillar-shot')+'</div>',false)
++pillarHome('Community','/community','Musicians from every genre, met in person at CITY JAM nights.',shot('community-room',ALT_ROOM,'pillar-shot'),true)
 +'<section class="door" id="door"><div class="wrap narrow">'
 +'<div class="acts"><a class="btn solid act" href="#">Get a direct call with Pat</a></div>'
 +'<p class="hold">Coming soon</p>'
++'</div></section>'
+}};
+function pillarHome(name,href,line,media,flip){
+  return '<section class="pillar'+(flip?' flip':'')+'"><div class="wrap pillar-grid">'
+    +media
+    +'<div class="pillar-copy"><p class="kick"><span class="dot"></span> '+name+'</p>'
+    +'<p class="lead">'+line+'</p>'
+    +'<a class="quiet" href="'+href+'" data-nav>'+name+'</a>'
+    +'</div></div></section>';
+}
+function thread(){
+  return '<p class="thread">Your masters. Your career and business. <span class="hold">[NEEDS COPY]</span></p>';
+}
+V.fans={html:function(){return ''
++'<section><div class="wrap">'
++'<p class="kick"><span class="dot"></span> Fans</p>'
++'<h1>Fans.</h1>'
++'<p class="lead">Inside, the track plays first.</p>'
++HAND
++'<div class="plist">'
++'<a href="/app" data-nav><b>The app.</b><span>Inside, the track plays first.</span></a>'
++'<a href="/rebels-and-legends/tour"><b>The tour.</b><span>Play where you\u2019re already heard.</span></a>'
++'</div>'
++thread()
++'</div></section>'
+}};
+V.data={html:function(){return ''
++'<section><div class="wrap">'
++'<p class="kick"><span class="dot"></span> Data</p>'
++'<h1>Data.</h1>'
++'<p class="lead">Royalty statements and stream counts leave a lot out.</p>'
++shot('stage-hand',ALT_STAGE,'pillar-shot')
++'<div class="plist">'
++'<a href="/labs" data-nav><b>Creator Labs.</b><span>We plan your releases and live dates with you as one piece of work.</span></a>'
++'</div>'
++'<p class="thread">The dashboard. <span class="hold">[NEEDS COPY]</span></p>'
++thread()
++'</div></section>'
+}};
+V.access={html:function(){return ''
++'<section><div class="wrap">'
++'<p class="kick"><span class="dot"></span> Access</p>'
++'<h1>Access.</h1>'
++'<p class="lead">Pass the standard.</p>'
++'<div class="pillar-phone">'+shot('app-phone-hand',ALT_APP,'pillar-shot')+'</div>'
++'<div class="plist">'
++'<a href="/studios" data-nav><b>Certified Studios.</b><span>Pass the standard.</span></a>'
++'<a href="/sync" data-nav><b>Sync.</b><span>The right scene.</span></a>'
++'</div>'
++thread()
++'</div></section>'
+}};
+V.community={html:function(){return ''
++'<section><div class="wrap">'
++'<p class="kick"><span class="dot"></span> Community</p>'
++'<h1>Community.</h1>'
++'<p class="lead">Musicians from every genre, met in person at CITY JAM nights.</p>'
++shot('community-room',ALT_ROOM,'pillar-shot')
++'<div class="plist">'
++'<a href="/ambassadors" data-nav><b>Music Ambassadors.</b><span>Your city. You make the calls.</span></a>'
++'<a href="/magazine" data-nav><b>The Magazine.</b><span class="hold">[NEEDS COPY]</span></a>'
++'</div>'
++thread()
 +'</div></section>'
 }};
 V.magazine={html:function(){return ''
@@ -4065,6 +4098,10 @@ function bindForm(){
    fixes browser tabs, history and bookmarks, and it is exactly the
    data a pre-render step would consume if you move to real paths. */
 var SEO={
+ 'fans':      ['Fans \u00b7 CITY JAM\u2122','Inside, the track plays first.'],
+ 'data':      ['Data \u00b7 CITY JAM\u2122','Royalty statements and stream counts leave a lot out.'],
+ 'access':    ['Access \u00b7 CITY JAM\u2122','Pass the standard.'],
+ 'community': ['Community \u00b7 CITY JAM\u2122','Musicians from every genre, met in person at CITY JAM nights.'],
  'home':      ['CITY JAM\u2122 \u00b7 Hello rebel. Hello legend.','CITY JAM\u2122 is the creative ecosystem that develops whole artists and connects them to the industry, through Creator Labs live cohorts and Maestro courses.'],
  'magazine':  ['The Magazine \u00b7 CITY JAM','Coming soon.'],
  'desks':     ['The Desks \u00b7 CITY JAM','Ten desks, one standard. Teardowns, scene reports, craft.'],
