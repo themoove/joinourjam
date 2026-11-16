@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>REBELS AND LEGENDS. — Creator Labs tour | CITY JAM</title>
-<meta name="description" content="Creator Labs · REBELS AND LEGENDS. A CITY JAM membership for women and LGBTQIA independent artists, built around the tour and the live season. Worldwide music representation. From $2,000 a month.">
+<title>The tour · Creator Labs · CITY JAM™</title>
+<meta name="description" content="A live season planned from your audience. By application.">
 <link rel="canonical" href="https://joinourjam.com/rebels-and-legends/tour">
 <meta name="theme-color" content="#F3F1EC">
 <meta name="color-scheme" content="light">
@@ -12,16 +12,16 @@
 <meta property="og:site_name" content="CITY JAM">
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://joinourjam.com/rebels-and-legends/tour">
-<meta property="og:title" content="REBELS AND LEGENDS. — CITY JAM">
-<meta property="og:description" content="We study where your fan base is. That’s where you should be touring — not where you want to tour. Creator Labs, from $2,000 a month.">
+<meta property="og:title" content="The tour · Creator Labs · CITY JAM™">
+<meta property="og:description" content="A live season planned from your audience. By application.">
 <meta property="og:image" content="https://joinourjam.com/rebels-and-legends/tour/hero.jpg">
 <meta property="og:image:alt" content="Black studio portrait for CITY JAM.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="REBELS AND LEGENDS. — CITY JAM">
-<meta name="twitter:description" content="We study where your fan base is. That’s where you should be touring — not where you want to tour.">
+<meta name="twitter:title" content="The tour · Creator Labs · CITY JAM™">
+<meta name="twitter:description" content="A live season planned from your audience. By application.">
 <meta name="twitter:image" content="https://joinourjam.com/rebels-and-legends/tour/hero.jpg">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"REBELS AND LEGENDS. — Creator Labs","url":"https://joinourjam.com/rebels-and-legends/tour","inLanguage":"en-GB","isPartOf":{"@type":"WebSite","name":"CITY JAM","url":"https://joinourjam.com/"}}
+{"@context":"https://schema.org","@type":"WebPage","name":"The tour · Creator Labs · CITY JAM","url":"https://joinourjam.com/rebels-and-legends/tour","description":"A live season planned from your audience. By application.","inLanguage":"en-GB","isPartOf":{"@type":"WebSite","name":"CITY JAM","url":"https://joinourjam.com/"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -339,133 +339,58 @@ section{border-bottom:1px solid #D9D6CF}
   .bposters{grid-template-columns:1fr}
   .hero h1.tag{font-size:clamp(42px,12vw,68px)}
 }
+
+
+html.js .listen-pic{background:#050505;position:relative}
+html.js .listen-pic img{clip-path:inset(49.75% 0 49.75% 0);transition:clip-path .85s cubic-bezier(.22,.61,.36,1)}
+html.js .listen-pic.in img{clip-path:inset(0)}
+#veil{position:fixed;inset:0;background:#0B0B0B;opacity:0;pointer-events:none;z-index:40;transition:opacity .85s cubic-bezier(.22,.61,.36,1)}
+html.js body[data-move="listen"] #veil{opacity:.4}
+.act{position:relative}
+html.js body[data-move="pulse"] .live::after{content:"";position:absolute;inset:-9px;border-radius:999px;border:1px solid #8B3FD1;pointer-events:none;animation:wave 2.6s cubic-bezier(.22,.61,.36,1) infinite}
+@keyframes wave{0%{transform:scale(.88);opacity:.8}100%{transform:scale(1.28);opacity:0}}
+.signoff{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6A66;margin-top:22px}
+.prop .quote{max-width:22em}
+@media(prefers-reduced-motion:reduce){
+  #veil{display:none!important}
+  .listen-pic img{clip-path:none!important;transition:none!important}
+  .live::after{animation:none!important;display:none!important}
+}
+
 </style>
 </head>
 <body>
+<div id="veil" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 <nav>
   <a class="logo" href="/"><img src="/logo-black.png" width="357" height="240" alt="CITY JAM™"></a>
   <button class="navtoggle" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
   <div class="navlinks" id="navlinks">
-    <a href="#who">Who it’s for</a>
-    <a href="#work">What we do</a>
-    <a href="#tiers">Tiers</a>
+    <a href="#idea">The idea</a>
     <a href="#map">The map</a>
     <a href="#apply">Apply</a>
-    <a class="btn solid small" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply<span class="sr"> (opens the application)</span></a>
+    <a class="btn solid small act" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply to Creator Labs<span class="sr"> (opens the application)</span></a>
   </div>
 </nav>
 
 <main id="main">
   <header class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Creator Labs · Tour and live season</p>
-      <div class="lockup">
-        <img src="/logo-black.png" width="1080" height="1080" alt="CITY JAM™">
-        <sup class="tm" aria-hidden="true">™</sup>
-      </div>
-      <h1 class="tag"><span class="words">REBELS AND LEGENDS.</span><sup>™</sup></h1>
-      <p class="line">Independent doesn’t always mean small.</p>
-      <p class="dek">A membership for women and LGBTQIA independent artists, with the tour and the live season at the centre. Worldwide music representation. From $2,000 a month.</p>
+      <p class="eyebrow">REBELS AND LEGENDS.</p>
+      <h1 class="tag">Tour where you’re heard.</h1>
+      <p class="dek">A Creator Labs membership built on the live season.</p>
       <div class="acts">
-        <a class="btn solid lg" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply for membership<span class="sr"> (opens the application)</span></a>
-        <a class="btn ghost" href="#map">Explore the map</a>
+        <a class="btn solid lg act" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply to Creator Labs<span class="sr"> (opens the application)</span></a>
       </div>
-      <p class="fine" style="margin-top:14px">Applications close 12 November 2026.</p>
+      <p class="signoff">Close your eyes and listen.</p>
     </div>
-    <figure class="hero-art">
+    <figure class="hero-art listen-pic">
       <img src="/assets/hero.jpg" alt="Black and white portrait of a person with eyes closed, wearing headphones and a leather jacket, listening.">
     </figure>
   </header>
-
-  <section class="prop" aria-labelledby="prop-h">
+  <section class="prop" id="idea">
     <div class="wrap">
-      <p class="eyebrow">The proposition</p>
-      <h2 id="prop-h" class="quote">We study where your fan base is. That’s where you should be touring — not where you want to tour.</h2>
-      <p class="world">Worldwide music representation</p>
-      <p class="prop-side">The live season follows the listeners. The cities you already fancy come after that, not before it. This page is the membership. It is not a promise of a sold-out room, a headline, or a result.</p>
-      <ul class="facts">
-        <li><b>Worldwide</b><span>Music representation</span></li>
-        <li><b>$2,000</b><span>a month to begin</span></li>
-        <li><b>Preparation</b><span>The tier that is locked</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="paper" id="who">
-    <div class="wrap">
-      <p class="eyebrow">The room</p>
-      <h2>Who it’s for, and who it isn’t.</h2>
-      <p class="lead">The distinction is the point of the programme. It is specific on purpose.</p>
-      <div class="split">
-        <article class="panel">
-          <h3>Who it’s for</h3>
-          <ul>
-            <li>Women and LGBTQIA independent artists.</li>
-            <li>Artists with a body of work who want a live season planned properly, not a one-off date drawn from habit.</li>
-            <li>Artists willing to let the fan base set the map, including when that map is not the one they would have picked.</li>
-          </ul>
-        </article>
-        <article class="panel not">
-          <h3>Who it isn’t for</h3>
-          <ul>
-            <li>Artists outside that community. This is not a general open call, and that is not a judgement of the work.</li>
-            <li>Anyone who wants the route drawn only around the cities they already love.</li>
-            <li>Anyone shopping for a guarantee. We do not promise streams, press, income, bookings, or deals.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="work">
-    <div class="wrap">
-      <p class="eyebrow">The work</p>
-      <h2>What we do.</h2>
-      <p class="lead" style="color:rgba(247,245,241,.74)">Membership is a working relationship around the live season. It is customised. It is not a template, and it is not an outcome.</p>
-      <div class="work-grid">
-        <article class="work"><figure class="tileph"><img src="/assets/studio.jpg" alt="Black and white photograph of a person at a mixing desk in a studio."><span class="render">RENDER</span></figure><div class="n">01</div><h3>Customised development</h3><p>The plan is built around the artist in front of us — the songs, the stage, the pace — not a pack we hand to everyone.</p></article>
-        <article class="work"><figure class="tileph"><img src="/assets/session.jpg" alt="Black and white photograph of four people gathered around a laptop beside a piano."><span class="render">RENDER</span></figure><div class="n">02</div><h3>Tour planning</h3><p>Where to play, and where not to, studied from where the fan base actually is. Wanting a city is not the same as being called there.</p></article>
-        <article class="work"><figure class="tileph"><img src="/assets/night.jpg" alt="Black and white photograph of a crowd with hands raised under a spotlight."><span class="render">RENDER</span></figure><div class="n">03</div><h3>Strategy and data monitoring</h3><p>We watch what the audience is doing and keep the plan honest as it moves. Monitoring is the work. It is not a forecast of success.</p></article>
-        <article class="work"><figure class="tileph"><img src="/assets/gear.jpg" alt="Black and white close-up of hands on a drum machine and pad controller."><span class="render">RENDER</span></figure><div class="n">04</div><h3>Social, on the higher tiers</h3><p>Social sits with Presence and Bespoke. Both of those tiers are still proposed, and still pending.</p></article>
-        <article class="work"><figure class="tileph"><img src="/assets/drop.jpg" alt="Black and white photograph of a guitarist mid-motion, hair flying across the face."><span class="render">RENDER</span></figure><div class="n">05</div><h3>Catalogue exploration</h3><p>Looking at the catalogue as a way to fund the next cycle — the songs already made, put to work for the season ahead.</p></article>
-        <article class="work"><figure class="tileph"><img src="/assets/room.jpg" alt="Black and white photograph of an empty stage, a single microphone, and rows of chairs."><span class="render">RENDER</span></figure><div class="n">06</div><h3>Negotiation and licence</h3><p>When that work is engaged, it starts at 20%. It is separate from membership. It is not included in the monthly fee, and it is not assumed.</p></article>
-      </div>
-      <p class="aside">Nothing in this list is a promise that a show will be booked, a fee will be won, or a licence will close. If we cannot do the work, we would rather say so.</p>
-    </div>
-  </section>
-
-  <section class="paper" id="tiers">
-    <div class="wrap">
-      <p class="eyebrow">Membership</p>
-      <h2>From $2,000 a month.</h2>
-      <p class="lead">Preparation is locked. Presence and Bespoke are on the page so the shape of the higher tiers is visible, and they are marked proposed until they are confirmed. US dollars.</p>
-      <table class="tiers">
-        <thead>
-          <tr><th scope="col">Tier</th><th scope="col">Monthly</th><th scope="col">Status</th><th scope="col">What it covers</th></tr>
-        </thead>
-        <tbody>
-          <tr class="locked">
-            <td data-label="Tier">Preparation</td>
-            <td class="price" data-label="Monthly">$2,000 / month</td>
-            <td data-label="Status"><span class="badge lock">Locked</span></td>
-            <td data-label="What it covers">Customised development, tour planning, and strategy with data monitoring. The confirmed membership.</td>
-          </tr>
-          <tr class="proposed">
-            <td data-label="Tier">Presence</td>
-            <td class="price" data-label="Monthly">$3,500 / month</td>
-            <td data-label="Status"><span class="badge pend">Proposed · pending</span></td>
-            <td data-label="What it covers">Proposed only. Preparation, plus social. Do not treat this price as agreed.</td>
-          </tr>
-          <tr class="proposed">
-            <td data-label="Tier">Bespoke</td>
-            <td class="price" data-label="Monthly">From $5,000 / month</td>
-            <td data-label="Status"><span class="badge pend">Proposed · pending</span></td>
-            <td data-label="What it covers">Proposed only. Shaped to the artist, including catalogue exploration to fund the next cycle, and social. Do not treat this price as agreed.</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="note">Negotiation and licence work, when it is engaged, starts at 20% and sits outside every tier. It is not part of the monthly membership. No tier promises an outcome.</p>
+      <h2 id="prop-h" class="quote">We study where your fan base is. That’s where you should be touring, not where you want to tour.</h2>
     </div>
   </section>
 
@@ -473,11 +398,11 @@ section{border-bottom:1px solid #D9D6CF}
     <div class="wide">
       <div class="maphead">
         <div>
-          <p class="eyebrow">Fan base, then the tour</p>
-          <h2>Pin the listeners. Then pin the dates.</h2>
+          <h2>Your listeners set the route.</h2>
+          <p class="fine">Pins shown are examples.</p>
         </div>
       </div>
-      <p class="lead" style="color:rgba(247,245,241,.74);margin-top:14px">An illustrative map, not a live audience. The lilac pins are example fan regions. The gold pins are example cities an artist might want to tour. Nothing here is measured from a real catalogue, and nothing you add is sent to us.</p>
+      <p class="lead" style="color:rgba(247,245,241,.74);margin-top:14px">Pins shown are examples.</p>
       <div class="maplayout">
         <div>
           <div class="stage">
@@ -535,54 +460,30 @@ section{border-bottom:1px solid #D9D6CF}
   <section class="bmedia">
     <div class="wrap">
       <div class="bposters">
-        <figure class="poster"><img src="/assets/studio.jpg" alt="Black and white photograph of a person at a mixing desk in a studio."><span class="render">RENDER</span><div class="ov"><div class="pt">Do the<br><i>thing.</i></div><div class="foot"><span class="mono"><span class="dot"></span>REBELS &amp; LEGENDS</span><img class="lg" src="/logo-white.png" alt="CITY JAM"></div></div></figure>
-        <figure class="poster"><img src="/assets/night.jpg" alt="Black and white photograph of a crowd with hands raised under a spotlight."><span class="render">RENDER</span><div class="ov"><div class="pt">Fund your<br><i>dream.</i></div><div class="foot"><span class="mono"><span class="dot"></span>REBELS &amp; LEGENDS</span><img class="lg" src="/logo-white.png" alt="CITY JAM"></div></div></figure>
-        <figure class="poster"><img src="/assets/room.jpg" alt="Black and white photograph of an empty stage, a single microphone, and rows of chairs."><span class="render">RENDER</span><div class="ov"><div class="pt">Close your eyes<br>and <i>listen.</i></div><div class="foot"><span class="mono"><span class="dot"></span>REBELS &amp; LEGENDS</span><img class="lg" src="/logo-white.png" alt="CITY JAM"></div></div></figure>
+        <figure class="poster"><img src="/assets/studio.jpg" alt="Black and white photograph of a person at a mixing desk in a studio."><div class="ov"><div class="pt">Do the<br><i>thing.</i></div><div class="foot"><img class="lg" src="/logo-white.png" alt="CITY JAM"></div></div></figure>
+        <figure class="poster"><img src="/assets/night.jpg" alt="Black and white photograph of a crowd with hands raised under a spotlight."></figure>
+        <figure class="poster"><img src="/assets/room.jpg" alt="Black and white photograph of an empty stage, a single microphone, and rows of chairs."></figure>
       </div>
       <div class="phones">
-        <div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="/assets/gear.jpg" alt="Black and white close-up of hands on a drum machine and pad controller."><span class="render">RENDER</span><div class="ov"><img class="lg" src="/logo-white.png" alt="CITY JAM"><div class="big">Do the<br>thing.</div></div></div></div>
-        <div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="/assets/drop.jpg" alt="Black and white photograph of a guitarist mid-motion, hair flying across the face."><span class="render">RENDER</span><div class="ov"><img class="lg" src="/logo-white.png" alt="CITY JAM"><div class="big">Fund your<br>dream.</div></div></div></div>
-        <div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="/assets/hero.jpg" alt="Black and white portrait of a person with eyes closed, wearing headphones and a leather jacket, listening."><span class="render">RENDER</span><div class="ov"><img class="lg" src="/logo-white.png" alt="CITY JAM"><div class="big">Apply.</div></div></div></div>
+        <div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="/assets/gear.jpg" alt="Black and white close-up of hands on a drum machine and pad controller."></div></div>
+        <div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="/assets/drop.jpg" alt="Black and white photograph of a guitarist mid-motion, hair flying across the face."></div></div>
+        <div class="phone"><div class="screen"><div class="notch" aria-hidden="true"></div><img src="/assets/hero.jpg" alt="Black and white portrait of a person with eyes closed, wearing headphones and a leather jacket, listening."><div class="ov"><div class="big">Apply to Creator Labs.</div></div></div></div>
       </div>
     </div>
   </section>
   <section class="apply" id="apply">
     <div class="wrap">
-      <div class="apply-primary">
-        <p class="eyebrow">Membership</p>
-        <h2>Apply for membership.</h2>
-        <p class="lead" style="color:rgba(247,245,241,.74)">Creator Labs, with the tour at the centre. Preparation is $2,000 a month, and it is the locked tier. We read what you send. If it is not a fit, we will say so.</p>
-        <p class="deadline-kicker">Deadline</p>
-        <p class="deadline">12 November 2026</p>
-        <a class="btn solid lg" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply for membership<span class="sr"> (opens the application)</span></a>
-        <p class="fine" style="margin-top:14px">Applying does not guarantee a place. It does not guarantee a tour, a booking, press, income, or a deal.</p>
-      </div>
-
-      <div class="apply-else">
-        <h3>If membership is not the step</h3>
-        <p class="quiet">Two quieter paths. They sit beside the application. They do not replace it.</p>
-        <div class="else-grid">
-          <article class="else" id="readiness-audit">
-            <p class="k">Earlier, or a diagnostic first</p>
-            <h4>Musician readiness audit</h4>
-            <p>A Career Path Audit. CITY JAM can run this for artists who are earlier, or who want a diagnostic before a paid membership.</p>
-            <a class="btn ghost" href="https://52101795.hs-sites.com/joinourjam/career-path-audit" target="_blank" rel="noopener noreferrer">Readiness audit<span class="sr"> (opens the Career Path Audit)</span></a>
-          </article>
-          <article class="else">
-            <p class="k">Referral</p>
-            <h4>Music Ambassadors</h4>
-            <p>Join the referral programme. Represent a city, or take the open ladder. This is the existing CITY JAM page, separate from paid Creator Labs membership.</p>
-            <a class="btn ghost" href="/ambassadors">Join the programme</a>
-          </article>
-        </div>
-      </div>
+      <h2>Apply to Creator Labs.</h2>
+      <p class="lead" style="color:rgba(247,245,241,.74)">No booking, fee or deal is promised.</p>
+      <a class="btn solid lg act" href="https://52101795.hs-sites.com/joinourjam/rebels-and-legends" target="_blank" rel="noopener noreferrer">Apply to Creator Labs<span class="sr"> (opens the application)</span></a>
     </div>
   </section>
+
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 CITY JAM · Creator Labs · REBELS AND LEGENDS.</span>
+    <span>© 2026 CITY JAM · Sound first, always.</span>
     <span><a href="/">Home</a> · <a href="/ambassadors">Music Ambassadors</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></span>
   </div>
 </footer>
@@ -828,6 +729,42 @@ section{border-bottom:1px solid #D9D6CF}
   });
   window.addEventListener('resize', function(){renderPins();});
   render();
+})();
+</script>
+
+<script>
+(function(){
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  var pic=document.querySelector('.listen-pic');
+  if(pic && reduced) pic.classList.add('in');
+  function pick(){
+    if(reduced||document.body.dataset.move==='listen') return;
+    document.querySelectorAll('.live').forEach(function(el){el.classList.remove('live')});
+    var mid=window.innerHeight*0.5, best=1e9, chosen=null;
+    document.querySelectorAll('a.act').forEach(function(b){
+      var r=b.getBoundingClientRect();
+      if(r.bottom<70||r.top>window.innerHeight-30) return;
+      var d=Math.abs((r.top+r.height/2)-mid);
+      if(d<best){best=d;chosen=b;}
+    });
+    if(chosen){document.body.dataset.move='pulse';chosen.classList.add('live');}
+    else document.body.dataset.move='still';
+  }
+  if(pic && !reduced){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.classList.add('in');
+        document.body.dataset.move='listen';
+        setTimeout(function(){ if(document.body.dataset.move==='listen'){document.body.dataset.move='still';pick();} },900);
+        io.disconnect();
+      });
+    },{threshold:.4});
+    io.observe(pic);
+  }
+  window.addEventListener('scroll',pick,{passive:true});
+  pick();
 })();
 </script>
 </body>
