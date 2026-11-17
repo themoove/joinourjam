@@ -29,7 +29,7 @@ body{margin:0;background:#F3F1EC;color:#0B0B0B;font-family:'Schibsted Grotesk',s
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 :focus{outline:none}
-:focus-visible{outline:2px solid #8B3FD1;outline-offset:3px}
+:focus-visible{outline:2px solid #0B0B0B;outline-offset:3px}
 html.away #entry,html.away #bar,html.away #home{display:none!important}
 html:not(.away) #app{display:none!important}
 html.skip-entry #entry{display:none!important}
@@ -49,7 +49,26 @@ html.skip-entry #entry{display:none!important}
 #bar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;padding:8px 22px;background:#F3F1EC;border-bottom:1px solid #D9D6CF}
 #bar a:first-child{display:flex;align-items:center;min-height:48px;min-width:48px}
 #bar img{height:40px;width:auto}
-.apply{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:48px;padding:12px 18px;background:#0B0B0B;color:#F3F1EC;text-decoration:none;border-radius:999px;font-weight:800;font-size:15px;letter-spacing:-.02em;line-height:1}
+.bar-end{display:flex;align-items:center;gap:6px}
+#menu-btn,#menu-close{font-family:'Space Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:transparent;border:0;color:#0B0B0B;min-height:48px;min-width:48px;padding:0 8px;cursor:pointer}
+.apply{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:48px;padding:12px 16px;background:#8B3FD1;color:#F3F1EC;text-decoration:none;border-radius:999px;font-weight:800;font-size:15px;letter-spacing:-.02em;line-height:1}
+html.menu-open{overflow:hidden}
+html.menu-open .track{animation-play-state:paused!important}
+html.menu-open .listen img{transition:none!important}
+html.menu-open #entry{display:none!important}
+html.away #sitemenu{display:none!important}
+#sitemenu{position:fixed;inset:0;z-index:60;background:#0B0B0B}
+#sitemenu[hidden]{display:none}
+#sitemenu video,#sitemenu .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+#sitemenu .scrim{position:absolute;inset:0;background:rgba(11,11,11,.84)}
+#sitemenu .mnav{position:relative;z-index:1;height:100%;overflow:auto;padding:12px 22px 36px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+#menu-close{color:#F3F1EC;align-self:flex-start}
+.mitem{display:block;text-decoration:none;padding:7px 0}
+.mitem .big{display:block;font-weight:800;font-size:clamp(36px,8vw,68px);letter-spacing:-.045em;line-height:.92;color:#F3F1EC}
+#sitemenu .label{color:#F3F1EC;margin:0}
+#sitemenu .apply{align-self:flex-start;margin-top:16px}
+#sitemenu :focus-visible{outline-color:#F3F1EC}
+@media(max-width:420px){.apply{font-size:14px;padding:12px 12px}}
 #home{padding:0 22px 72px}
 #home h1{font-weight:800;font-size:clamp(44px,12vw,92px);letter-spacing:-.045em;line-height:.92;margin:28px 0 0;max-width:12ch}
 #home h1 em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.03em}
@@ -92,6 +111,7 @@ html.entered .listen.in img{clip-path:inset(0)}
   #entry{display:none!important}
   .listen img,.listen.in img{clip-path:none!important;transition:none!important}
   .track{animation:none!important;transform:none!important}
+  #menu-film{display:none!important}
 }
 </style>
 <script>
@@ -111,8 +131,27 @@ html.entered .listen.in img{clip-path:inset(0)}
 </div>
 <header id="bar">
   <a href="/"><img src="/logo-black.png" alt="CITY JAM" width="900" height="606"></a>
-  <a class="apply" href="/labs">Apply to CITY JAM</a>
+  <div class="bar-end">
+    <button type="button" id="menu-btn" aria-expanded="false" aria-controls="sitemenu">Menu</button>
+    <a class="apply" href="/labs">Apply to CITY JAM</a>
+  </div>
 </header>
+<div id="sitemenu" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <!-- Placeholder film: a slow pan of night.jpg, room.jpg and gear.jpg.
+       Swap data-webm and data-mp4 for a CITY JAM video. -->
+  <video id="menu-film" muted loop playsinline data-webm="/assets/menu-placeholder.webm" data-mp4="/assets/menu-placeholder.mp4" data-poster="/assets/menu-poster.webp"></video>
+  <img id="menu-poster" class="still" alt="" hidden>
+  <div class="scrim"></div>
+  <div class="mnav">
+    <button type="button" id="menu-close" aria-expanded="false">Menu</button>
+    <a class="mitem" href="/fans"><span class="label" aria-hidden="true">Fans</span><span class="big">Fans</span></a>
+    <a class="mitem" href="/data"><span class="label" aria-hidden="true">Data</span><span class="big">Data</span></a>
+    <a class="mitem" href="/access"><span class="label" aria-hidden="true">Access</span><span class="big">Access</span></a>
+    <a class="mitem" href="/community"><span class="label" aria-hidden="true">Community</span><span class="big">Community</span></a>
+    <a class="mitem" href="/app"><span class="label" aria-hidden="true">The app</span><span class="big">The app</span></a>
+    <a class="apply" href="/labs">Apply to CITY JAM</a>
+  </div>
+</div>
 <main id="home">
   <h1>REBELS &amp;<br>LEGENDS™</h1>
   <section id="music" class="split">
@@ -261,6 +300,73 @@ html.entered .listen.in img{clip-path:inset(0)}
       bo.observe(biz);
     } else if(biz){ biz.classList.remove('on'); }
   }
+  (function setupMenu(){
+    var btn=document.getElementById('menu-btn');
+    var menu=document.getElementById('sitemenu');
+    var closeBtn=document.getElementById('menu-close');
+    var film=document.getElementById('menu-film');
+    var still=document.getElementById('menu-poster');
+    if(!btn||!menu||!film) return;
+    var ready=false;
+    function prepare(){
+      if(ready) return;
+      ready=true;
+      if(reduce){
+        still.hidden=false;
+        still.src=film.getAttribute('data-poster');
+        return;
+      }
+      film.setAttribute('poster', film.getAttribute('data-poster'));
+      var webm=document.createElement('source');
+      webm.src=film.getAttribute('data-webm');
+      webm.type='video/webm';
+      var mp4=document.createElement('source');
+      mp4.src=film.getAttribute('data-mp4');
+      mp4.type='video/mp4';
+      film.appendChild(webm);
+      film.appendChild(mp4);
+      film.load();
+    }
+    function items(){
+      return Array.prototype.slice.call(menu.querySelectorAll('a,button'));
+    }
+    function openMenu(){
+      prepare();
+      menu.hidden=false;
+      btn.setAttribute('aria-expanded','true');
+      closeBtn.setAttribute('aria-expanded','true');
+      root.classList.add('menu-open');
+      if(!reduce){
+        var play=film.play();
+        if(play&&play.catch) play.catch(function(){});
+      }
+      var list=items();
+      if(list[0]) list[0].focus();
+    }
+    function closeMenu(){
+      if(menu.hidden) return;
+      menu.hidden=true;
+      btn.setAttribute('aria-expanded','false');
+      closeBtn.setAttribute('aria-expanded','false');
+      root.classList.remove('menu-open');
+      if(!reduce) film.pause();
+      btn.focus();
+    }
+    btn.addEventListener('pointerenter', prepare);
+    btn.addEventListener('focus', prepare);
+    btn.addEventListener('click', function(){ if(menu.hidden) openMenu(); else closeMenu(); });
+    closeBtn.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e){
+      if(menu.hidden) return;
+      if(e.key==='Escape'){ e.preventDefault(); closeMenu(); return; }
+      if(e.key!=='Tab') return;
+      var list=items();
+      if(!list.length) return;
+      var first=list[0], last=list[list.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    });
+  })();
   if(root.classList.contains('skip-entry')){ arm(); return; }
   var entry=document.getElementById('entry');
   var done=false;
